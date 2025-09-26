@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7bx7ve2bw4r8"]
+
+[ext_resource type="Texture2D" uid="uid://bads6pbg527i5" path="res://assets/upgrades.png" id="1_a0ma6"]
+
+[node name="upgrades" type="Sprite2D"]
+position = Vector2(-1, -1)
+scale = Vector2(0.296875, 0.296875)
+texture = ExtResource("1_a0ma6")
+
+[node name="upgradesAnimations" type="AnimatedSprite2D" parent="."]
