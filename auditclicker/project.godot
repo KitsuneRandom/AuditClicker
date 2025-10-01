@@ -11,5 +11,13 @@ config_version=5
 [application]
 
 config/name="AuditClicker"
+run/main_scene="uid://dec7qg82selvx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1075
+window/size/viewport_height=540
+window/size/resizable=false
+window/stretch/aspect="ignore"

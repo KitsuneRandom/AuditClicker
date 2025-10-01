@@ -5,4 +5,9 @@
 [node name="TheGame" type="Node2D"]
 
 [node name="desk" type="Sprite2D" parent="."]
+position = Vector2(6.4373e-06, -0.500004)
+scale = Vector2(1.00491, 0.993569)
 texture = ExtResource("1_cltob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.75, 1.75)
