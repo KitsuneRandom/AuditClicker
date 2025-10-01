@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://nhqevwr4ss2u"]
+[gd_scene load_steps=3 format=3 uid="uid://nhqevwr4ss2u"]
 
 [ext_resource type="Texture2D" uid="uid://cwenb6g0ne1o1" path="res://assets/paper.png" id="1_ldlei"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldlei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ldlei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="paper" type="Sprite2D"]
 position = Vector2(-1, -1)
 scale = Vector2(0.289062, 0.289062)
-texture = ExtResource("1_ldlei")
 
 [node name="paperAnimated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ldlei")

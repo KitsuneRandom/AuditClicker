@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4aa8enyi4vjk"]
+
+[ext_resource type="Texture2D" uid="uid://cr0ojk6hon0t0" path="res://assets/cat.png" id="1_myi5k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myi5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_myi5k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cat" type="Sprite2D"]
+
+[node name="catAnimations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_myi5k")
