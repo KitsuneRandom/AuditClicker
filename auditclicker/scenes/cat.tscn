@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://csldoj4kudur0"]
+
+[ext_resource type="Texture2D" uid="uid://cr0ojk6hon0t0" path="res://assets/cat.png" id="1_myi5k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_se5fe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_myi5k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_t8pth"]
+points = PackedVector2Array(-66, -52, -53, -52, -44, -42, -35, -42, -28, -53, 0, -63, 41, -65, 60, -48, 72, -25, 78, 21, 69, 36, 51, 43, -2, 43, -9, 32, -34, 32, -46, 21, -67, 21, -71, 9, -77, 4, -78, -31)
+
+[node name="cat" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_se5fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_t8pth")

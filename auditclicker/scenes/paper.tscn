@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cwenb6g0ne1o1" path="res://assets/paper.png" id="1_ldlei"]
 [ext_resource type="Script" uid="uid://cphmmnyv5fyqj" path="res://scripts/paper.gd" id="2_vas6c"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vas6c"]
-radius = 47.9602
-height = 346.367
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_vas6c"]
 animations = [{
 "frames": [],
@@ -14,6 +10,9 @@ animations = [{
 "name": &"paper",
 "speed": 5.0
 }]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vas6c"]
+points = PackedVector2Array(2.64083, 8.08504, -2.86639, 9.02428, -2.50206, -7.98464, 2.2989, -9.59119, 2.90656, -1.49222)
 
 [node name="paper" type="Area2D"]
 
@@ -23,14 +22,14 @@ scale = Vector2(0.208496, 0.261719)
 texture = ExtResource("1_ldlei")
 script = ExtResource("2_vas6c")
 
-[node name="paperCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(5, -1)
-rotation = 0.168437
-scale = Vector2(0.945297, -0.350262)
-shape = SubResource("CapsuleShape2D_vas6c")
-
 [node name="paperAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vas6c")
 animation = &"paper"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 8.9407e-08)
+rotation = 0.193802
+scale = Vector2(15.53, 5.93689)
+shape = SubResource("ConvexPolygonShape2D_vas6c")
 
 [connection signal="input_event" from="." to="paperSprite" method="_on_paper_input_event"]
