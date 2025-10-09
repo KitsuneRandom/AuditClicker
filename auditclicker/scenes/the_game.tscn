@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dec7qg82selvx"]
+[gd_scene load_steps=4 format=3 uid="uid://dec7qg82selvx"]
 
 [ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
 [ext_resource type="Script" uid="uid://bdeqgvc0o4jcq" path="res://scripts/the_game.gd" id="1_v8ewd"]
+[ext_resource type="PackedScene" uid="uid://ppw55lakrq30" path="res://scenes/paper.tscn" id="3_i7k80"]
 
 [node name="TheGame" type="Node2D"]
 script = ExtResource("1_v8ewd")
@@ -13,3 +14,6 @@ texture = ExtResource("1_cltob")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="paper" parent="." instance=ExtResource("3_i7k80")]
+position = Vector2(-9, 53)
