@@ -16,4 +16,4 @@ texture = ExtResource("1_cltob")
 zoom = Vector2(1.75, 1.75)
 
 [node name="paper" parent="." instance=ExtResource("3_i7k80")]
-position = Vector2(-9, 53)
+position = Vector2(-6, 47)
