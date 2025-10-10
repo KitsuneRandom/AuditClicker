@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch4i1gl3wo7bq"]
+[gd_scene load_steps=4 format=3 uid="uid://t82ia03h2fda"]
 
 [ext_resource type="Texture2D" uid="uid://dn5yknyl7s5he" path="res://assets/rules.png" id="1_3spy8"]
 
@@ -13,7 +13,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="rules" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m7fe"]
+size = Vector2(509, 86)
 
-[node name="rulesAnimations" type="AnimatedSprite2D" parent="."]
+[node name="rules" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_66h5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, -5)
+shape = SubResource("RectangleShape2D_1m7fe")

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dec7qg82selvx"]
+[gd_scene load_steps=11 format=3 uid="uid://dec7qg82selvx"]
 
 [ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
 [ext_resource type="Script" uid="uid://bdeqgvc0o4jcq" path="res://scripts/the_game.gd" id="1_v8ewd"]
+[ext_resource type="PackedScene" uid="uid://ppw55lakrq30" path="res://scenes/paper.tscn" id="3_i7k80"]
+[ext_resource type="PackedScene" uid="uid://rfahrqfvtv5b" path="res://scenes/letter.tscn" id="4_hscpy"]
+[ext_resource type="PackedScene" uid="uid://ba4lnykbdxwht" path="res://scenes/upgrades.tscn" id="5_cxvok"]
+[ext_resource type="PackedScene" uid="uid://csldoj4kudur0" path="res://scenes/cat.tscn" id="6_w211t"]
+[ext_resource type="PackedScene" uid="uid://bo5qcla6swv5n" path="res://scenes/key.tscn" id="7_jq0i5"]
+[ext_resource type="PackedScene" uid="uid://dnrvek1hiijd8" path="res://scenes/car.tscn" id="8_jq0i5"]
+[ext_resource type="PackedScene" uid="uid://t82ia03h2fda" path="res://scenes/rules.tscn" id="9_naogu"]
+[ext_resource type="PackedScene" uid="uid://4v75mk547lc6" path="res://scenes/pen.tscn" id="10_hyocf"]
 
 [node name="TheGame" type="Node2D"]
 script = ExtResource("1_v8ewd")
@@ -13,3 +21,34 @@ texture = ExtResource("1_cltob")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="paper" parent="." instance=ExtResource("3_i7k80")]
+position = Vector2(-23, 65)
+
+[node name="letter" parent="." instance=ExtResource("4_hscpy")]
+position = Vector2(-162, 52)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="upgrades" parent="." instance=ExtResource("5_cxvok")]
+position = Vector2(108, 60)
+scale = Vector2(0.152887, 0.152887)
+
+[node name="cat" parent="." instance=ExtResource("6_w211t")]
+position = Vector2(-161, -24)
+
+[node name="key" parent="." instance=ExtResource("7_jq0i5")]
+position = Vector2(181, -19)
+scale = Vector2(0.0477304, 0.0477304)
+
+[node name="car" parent="." instance=ExtResource("8_jq0i5")]
+position = Vector2(84, -28)
+scale = Vector2(0.283446, 0.283446)
+
+[node name="rules" parent="." instance=ExtResource("9_naogu")]
+position = Vector2(-26, -12)
+scale = Vector2(0.164212, 0.164212)
+
+[node name="pen" parent="." instance=ExtResource("10_hyocf")]
+position = Vector2(57, 74)
+rotation = 0.25659
+scale = Vector2(0.0902124, 0.0902124)

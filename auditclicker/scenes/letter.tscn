@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://oq3ssqwowrbf"]
+[gd_scene load_steps=5 format=3 uid="uid://rfahrqfvtv5b"]
 
 [ext_resource type="Texture2D" uid="uid://ba31e1kkuhsr5" path="res://assets/closed_letter.png" id="1_kg060"]
 [ext_resource type="Texture2D" uid="uid://cyd8mbng4wxja" path="res://assets/opened_letter.png" id="2_s3w0n"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_antxc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3w0n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -12,15 +12,19 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_s3w0n")
 }],
-"loop": true,
-"name": &"open_letter",
-"speed": 5.0
+"loop": false,
+"name": &"default",
+"speed": 2.0
 }]
 
-[node name="letter" type="Sprite2D"]
-position = Vector2(0, -56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_antxc"]
+size = Vector2(387, 259)
 
-[node name="letterAnimations" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_antxc")
-animation = &"open_letter"
-frame_progress = 0.460993
+[node name="letter" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s3w0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 45.5)
+shape = SubResource("RectangleShape2D_antxc")
