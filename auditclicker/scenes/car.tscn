@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnrvek1hiijd8"]
+[gd_scene load_steps=5 format=3 uid="uid://dnrvek1hiijd8"]
 
 [ext_resource type="Texture2D" uid="uid://bjlx558w11rn0" path="res://assets/car.png" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://de5x0dplwkgrn" path="res://scripts/car.gd" id="1_qt2eu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qt2eu"]
 animations = [{
@@ -18,9 +19,16 @@ points = PackedVector2Array(0.0541399, 0.0057432, 0.0433752, 0.0118242, 0.024378
 
 [node name="car" type="Area2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c35m8")
+script = ExtResource("1_qt2eu")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_qt2eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(-3158.49, -2960.02)
 shape = SubResource("ConvexPolygonShape2D_50v30")
+
+[connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_car_input_event"]
