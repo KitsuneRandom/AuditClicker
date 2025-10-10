@@ -1,9 +1,9 @@
-extends Area2D
+extends AnimatedSprite2D
 
 
-func _on_paper_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_rules_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		print("Règle cliquée !")
+		print("Rules click !")
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10

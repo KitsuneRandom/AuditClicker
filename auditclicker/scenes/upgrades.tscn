@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba4lnykbdxwht"]
+[gd_scene load_steps=6 format=3 uid="uid://ba4lnykbdxwht"]
 
 [ext_resource type="Texture2D" uid="uid://bads6pbg527i5" path="res://assets/upgrades.png" id="1_1xumc"]
 [ext_resource type="Texture2D" uid="uid://jf2a5ob1k3uu" path="res://assets/upgrades_open.png" id="2_usctq"]
+[ext_resource type="Script" uid="uid://bspyncni2fuja" path="res://scripts/upgrades.gd" id="3_usctq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gnemw"]
 animations = [{
@@ -17,13 +18,18 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_15hgd"]
-points = PackedVector2Array(120, -392, 264, -391, 624, -347, 685, -282, 569, 331, 501, 418, 420, 419, -82, 326, -75, 249, -10, -1, 10, -151, 74, -344)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xumc"]
+size = Vector2(774.277, 645.694)
 
 [node name="upgrades" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gnemw")
+script = ExtResource("3_usctq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_15hgd")
+position = Vector2(312.29, 5.66867)
+rotation = -1.37959
+shape = SubResource("RectangleShape2D_1xumc")
+
+[connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_upgrades_input_event"]
