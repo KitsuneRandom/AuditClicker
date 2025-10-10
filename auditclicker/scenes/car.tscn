@@ -1,34 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnrvek1hiijd8"]
+[gd_scene load_steps=6 format=3 uid="uid://dnrvek1hiijd8"]
 
 [ext_resource type="Texture2D" uid="uid://bjlx558w11rn0" path="res://assets/car.png" id="1_c35m8"]
-[ext_resource type="Script" uid="uid://de5x0dplwkgrn" path="res://scripts/car.gd" id="1_qt2eu"]
+[ext_resource type="Script" uid="uid://cpbiahnpmnd41" path="res://scripts/car.gd" id="1_qt2eu"]
+
+[sub_resource type="GDScript" id="GDScript_qt2eu"]
+script/source = "extends Area2D
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		print(\"Sprite cliqué !\")
+		position.y += 10
+		await get_tree().create_timer(0.1).timeout
+		position.y -= 10
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qt2eu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_c35m8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_50v30"]
-points = PackedVector2Array(0.0541399, 0.0057432, 0.0433752, 0.0118242, 0.0243788, 0.0162161, 0.0117145, 0.0229728, -0.0117145, 0.0253377, -0.0297611, 0.0145269, -0.0433752, 0.0138513, -0.051607, 0.00439186, -0.0538232, -0.00101351, -0.0538232, -0.0118242, -0.0468579, -0.0182431, -0.0433752, -0.018581, -0.0389427, -0.0253377, -0.0313441, -0.0253377, -0.0269116, -0.020608, 0.0269116, -0.020608, 0.0313441, -0.0253377, 0.0389427, -0.0253377, 0.042742, -0.020608, 0.0471745, -0.020608, 0.0538232, -0.0141891)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
+radius = 0.0237455
+height = 0.118918
 
 [node name="car" type="Area2D"]
+script = SubResource("GDScript_qt2eu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="carSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_c35m8")
 script = ExtResource("1_qt2eu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_qt2eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(-3158.49, -2960.02)
-shape = SubResource("ConvexPolygonShape2D_50v30")
+position = Vector2(-5.82077e-11, 2)
+rotation = 1.57126
+scale = Vector2(3158.49, 2960.02)
+shape = SubResource("CapsuleShape2D_qt2eu")
 
-[connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_car_input_event"]
+[connection signal="input_event" from="." to="carSprite" method="_on_car_input_event"]

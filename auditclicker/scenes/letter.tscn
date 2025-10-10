@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://rfahrqfvtv5b"]
+[gd_scene load_steps=6 format=3 uid="uid://rfahrqfvtv5b"]
 
 [ext_resource type="Texture2D" uid="uid://ba31e1kkuhsr5" path="res://assets/closed_letter.png" id="1_kg060"]
 [ext_resource type="Texture2D" uid="uid://cyd8mbng4wxja" path="res://assets/opened_letter.png" id="2_s3w0n"]
+[ext_resource type="Script" uid="uid://b6e1ybddnhgy4" path="res://scripts/letter.gd" id="3_antxc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s3w0n"]
 animations = [{
@@ -24,7 +25,10 @@ size = Vector2(387, 259)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s3w0n")
+script = ExtResource("3_antxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 45.5)
 shape = SubResource("RectangleShape2D_antxc")
+
+[connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_letter_input_event"]

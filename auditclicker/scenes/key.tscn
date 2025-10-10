@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo5qcla6swv5n"]
+[gd_scene load_steps=5 format=3 uid="uid://bo5qcla6swv5n"]
 
 [ext_resource type="Texture2D" uid="uid://cxslnoqs0uxud" path="res://assets/key.png" id="1_yk2u2"]
+[ext_resource type="Script" uid="uid://cdrcq5avfve0p" path="res://scripts/key.gd" id="2_fttkb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fttkb"]
 animations = [{
@@ -13,13 +14,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_wy8tx"]
-points = PackedVector2Array(-360, -224, -229, -225, -88, -130, -90, -90, 442, -89, 490, -43, 493, 134, 447, 181, 364, 179, 318, 135, 293, 46, 269, 135, 201, 181, 138, 133, 135, 92, -87, 89, -142, 181, -227, 224, -360, 224, -491, 90, -494, -91)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk2u2"]
+radius = 217.993
+height = 1008.18
 
 [node name="key" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fttkb")
+script = ExtResource("2_fttkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_wy8tx")
+position = Vector2(-2, 1)
+rotation = 1.57547
+shape = SubResource("CapsuleShape2D_yk2u2")
+
+[connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_key_input_event"]
