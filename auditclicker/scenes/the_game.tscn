@@ -22,6 +22,13 @@ texture = ExtResource("1_cltob")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 178.0
+offset_top = -148.0
+offset_right = 301.0
+offset_bottom = -120.0
+horizontal_alignment = 2
+
 [node name="paper" parent="." instance=ExtResource("3_i7k80")]
 position = Vector2(-23, 65)
 
