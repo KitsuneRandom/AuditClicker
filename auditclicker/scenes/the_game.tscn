@@ -22,8 +22,8 @@ texture = ExtResource("1_cltob")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 178.0
+[node name="ScoreDisplayer" type="Label" parent="."]
+offset_left = -299.0
 offset_top = -148.0
 offset_right = 301.0
 offset_bottom = -120.0
@@ -59,3 +59,7 @@ scale = Vector2(0.164212, 0.164212)
 position = Vector2(57, 74)
 rotation = 0.25659
 scale = Vector2(0.0902124, 0.0902124)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
