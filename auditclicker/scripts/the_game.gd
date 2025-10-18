@@ -1,40 +1,58 @@
 extends Node2D
 
-var clicks
+var papers
 var ppc
+var timeLeft
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Ready")
-	clicks = 0
+	papers = 0
 	ppc = 1
+	timeLeft = 600 #10 minutes
 	_updatescoredisplay()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(clicks >= 50):
+	_updatescoredisplay()
+	if(timeLeft <= 0):
+		$GameTimeCountdown.stop()
+		add_child(preload("res://scenes/end_menu.tscn").instantiate())
+		return
+	if(papers >= 50):
 		_increasePpc()
+	
 	pass
 
-func _getClicks() -> int:
-	return clicks
+func _getpapers() -> int:
+	return papers
 	
 func _getPpc() -> int:
 	return ppc
 
-func _increaseClicks() -> void:
-	clicks += 1*ppc
-	_updatescoredisplay()
+func _increasepapers() -> void:
+	papers += 1*ppc
 	
 func _increasePpc() -> void:
-	ppc = (clicks/50)+ 1
+	ppc = (papers/50)+ 1
 
-func _printClicks() -> String:
-	return str(clicks)
+func _printpapers() -> String:
+	return str(papers)
 
 func _printPpc() -> String:
 	return str(ppc)
+	
+func _on_game_time_countdown_timeout() -> void:
+	timeLeft -= 1
+
+func _printFormatedTime(time) -> String:
+	var minutes = time / 60
+	var seconds = time % 60
+	if(seconds < 10):
+		seconds = "0" + str(seconds)
+	return str(minutes) + ":" + str(seconds)
+	pass
 
 func _updatescoredisplay():
-	$ScoreDisplayer.text = "📄 " + str(clicks) + " 📑 " + str(ppc) + " ppc"
+	$ScoreDisplayer.text = "📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
