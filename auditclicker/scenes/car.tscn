@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnrvek1hiijd8"]
+[gd_scene load_steps=7 format=3 uid="uid://dnrvek1hiijd8"]
 
 [ext_resource type="Texture2D" uid="uid://bjlx558w11rn0" path="res://assets/car.png" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://cpbiahnpmnd41" path="res://scripts/car.gd" id="1_qt2eu"]
+[ext_resource type="AudioStream" uid="uid://cv74tkv0cd0dr" path="res://assets/sounds/salut-cest-franck-leboeuf.mp3" id="3_50v30"]
 
 [sub_resource type="GDScript" id="GDScript_qt2eu"]
 script/source = "extends Area2D
@@ -35,5 +36,8 @@ position = Vector2(-5.82077e-11, 2)
 rotation = 1.57126
 scale = Vector2(3158.49, 2960.02)
 shape = SubResource("CapsuleShape2D_qt2eu")
+
+[node name="CarSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_50v30")
 
 [connection signal="input_event" from="." to="carSprite" method="_on_car_input_event"]
