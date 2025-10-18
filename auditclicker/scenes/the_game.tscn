@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dec7qg82selvx"]
+[gd_scene load_steps=12 format=3 uid="uid://dec7qg82selvx"]
 
 [ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
 [ext_resource type="Script" uid="uid://cr5c65fwvqfph" path="res://scripts/the_game.gd" id="1_jq0i5"]
@@ -10,17 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://dnrvek1hiijd8" path="res://scenes/car.tscn" id="8_jq0i5"]
 [ext_resource type="PackedScene" uid="uid://t82ia03h2fda" path="res://scenes/rules.tscn" id="9_naogu"]
 [ext_resource type="PackedScene" uid="uid://4v75mk547lc6" path="res://scenes/pen.tscn" id="10_hyocf"]
+[ext_resource type="PackedScene" uid="uid://cr51xs768s3qc" path="res://scenes/start_menu.tscn" id="11_naogu"]
 
 [node name="TheGame" type="Node2D"]
 script = ExtResource("1_jq0i5")
 
 [node name="desk" type="Sprite2D" parent="."]
 position = Vector2(6.4373e-06, -0.500004)
-scale = Vector2(1.00491, 0.993569)
 texture = ExtResource("1_cltob")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.75, 1.75)
+zoom = Vector2(1.76, 1.74)
 
 [node name="ScoreDisplayer" type="Label" parent="."]
 offset_left = -299.0
@@ -59,3 +59,10 @@ scale = Vector2(0.164212, 0.164212)
 position = Vector2(57, 74)
 rotation = 0.25659
 scale = Vector2(0.0902124, 0.0902124)
+
+[node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
+position = Vector2(-305.5, -155.5)
+
+[node name="GameTimeCountdown" type="Timer" parent="."]
+
+[connection signal="timeout" from="GameTimeCountdown" to="." method="_on_game_time_countdown_timeout"]
