@@ -1,0 +1,15 @@
+2
+
+#
+Les bases
+
+Dans ce jeu tu vas incarner un auditeur, une personne chargée 
+de {définir ce qu'est un audit}. Dans le jeu (perdu!) chaque étape
+de la création d'un audit se fait en cliquant sur des éléments 
+de l'interface
+#
+Le gameplay
+
+Chaque étape de la réalisation d'un audit({étapes de réalisation})
+sont faisables en cliquant sur l'élément visuel correspondant.
+#

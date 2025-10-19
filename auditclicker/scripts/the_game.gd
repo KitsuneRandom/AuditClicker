@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 	if(timeLeft <= 0):
 		$GameTimeCountdown.stop()
 		add_child(preload("res://scenes/end_menu.tscn").instantiate())
-		return
 	if(papers >= 50):
 		_increasePpc()
 	

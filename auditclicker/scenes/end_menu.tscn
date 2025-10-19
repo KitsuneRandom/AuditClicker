@@ -11,19 +11,36 @@ self_modulate = Color(0, 0, 0, 0.784314)
 offset_right = 611.0
 offset_bottom = 311.0
 
-[node name="ResultsTitle" type="Label" parent="."]
-offset_left = 223.5
-offset_top = 85.5
-offset_right = 389.5
-offset_bottom = 134.5
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 612.0
+offset_bottom = 311.0
+
+[node name="ResultsValue" type="Label" parent="Control"]
+offset_left = 231.0
+offset_top = 144.0
+offset_right = 380.0
+offset_bottom = 167.0
+text = "X points"
+horizontal_alignment = 1
+
+[node name="ResultsTitle" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -72.5
+offset_right = 83.0
+offset_bottom = -23.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Le temps est écoulé ! 
 Votre score est :"
 horizontal_alignment = 1
-
-[node name="ResultsValue" type="Label" parent="."]
-offset_left = 232.0
-offset_top = 145.0
-offset_right = 381.0
-offset_bottom = 168.0
-text = "X points"
-horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
