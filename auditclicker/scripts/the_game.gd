@@ -3,13 +3,21 @@ extends Node2D
 var papers
 var ppc
 var timeLeft
+var statCadre
+var statRecolte
+var statAnalyse
+var statRedaction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Ready")
 	papers = 0
 	ppc = 1
-	timeLeft = 600 #10 minutes
+	statCadre = 1
+	statRecolte = 1
+	statAnalyse = 1
+	statRedaction = 1
+	timeLeft = 300 #5 minutes
 	_updatescoredisplay()
 	pass # Replace with function body.
 
@@ -29,6 +37,9 @@ func _getpapers() -> int:
 	
 func _getPpc() -> int:
 	return ppc
+
+func _getStatCadre():
+	
 
 func _increasepapers() -> void:
 	papers += 1*ppc

@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://crjggy1fqj7rr"]
+
+[ext_resource type="Script" uid="uid://c1yqdsnn85gtx" path="res://scenes/upgrades_menu.gd" id="1_w5joc"]
+
+[node name="UpgradesMenu" type="Node2D"]
+position = Vector2(-306.5, -156.5)
+script = ExtResource("1_w5joc")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 611.0
+offset_bottom = 311.0
+
+[node name="Title" type="Label" parent="."]
+offset_left = 198.5
+offset_top = 18.5
+offset_right = 415.5
+offset_bottom = 41.5
+text = "Choisissez une amélioration"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 19.0
+offset_right = 592.0
+offset_bottom = 42.0
+text = "-- crédits"
+horizontal_alignment = 2
+
+[node name="OptButtonCadre" type="Button" parent="."]
+offset_left = 112.5
+offset_top = 80.5
+offset_right = 181.5
+offset_bottom = 111.5
+text = "Cadre"
+icon_alignment = 1
+
+[node name="OptButtonRecolte" type="Button" parent="."]
+offset_left = 370.5
+offset_top = 80.5
+offset_right = 554.5
+offset_bottom = 111.5
+text = "Récolte d'informations"
+icon_alignment = 1
+
+[node name="OptButtonAnalyse" type="Button" parent="."]
+offset_left = 113.0
+offset_top = 193.0
+offset_right = 182.0
+offset_bottom = 224.0
+text = "Analyse
+"
+icon_alignment = 1
+
+[node name="OptButtonRédaction" type="Button" parent="."]
+offset_left = 371.0
+offset_top = 194.0
+offset_right = 555.0
+offset_bottom = 225.0
+text = "Rédaction"
+icon_alignment = 1
+
+[connection signal="pressed" from="OptButtonCadre" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptButtonRecolte" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptButtonAnalyse" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptButtonRédaction" to="." method="_on_start_button_pressed"]
