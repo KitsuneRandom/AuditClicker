@@ -36,10 +36,7 @@ func _getpapers() -> int:
 	return papers
 	
 func _getPpc() -> int:
-	return ppc
-
-func _getStatCadre():
-	
+	return ppc	
 
 func _increasepapers() -> void:
 	papers += 1*ppc
