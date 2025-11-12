@@ -1,0 +1,42 @@
+Conditions d’utilisation du jeu AuditClicker
+--------------------------------------------
+
+Le jeu AuditClicker (ci-après « le Jeu ») est un logiciel éducatif développé par Seau6peau1com (DE AZEVEDO Mathis, WOLFF--WALK Jules) à l’aide du moteur de jeu Godot Engine, sous licence MIT.
+L’utilisation du Jeu implique l’acceptation intégrale des présentes conditions.
+
+Le Jeu est distribué sous la licence MIT.
+Cela signifie que vous êtes libre de :
+	- utiliser le Jeu à des fins personnelles, éducatives ou commerciales ;
+	- copier, modifier et redistribuer le Jeu, avec ou sans modifications ;
+	- intégrer le Jeu ou une partie de son code/source dans d’autres projets.
+Vous devez cependant :
+	- conserver l’avis de droit d’auteur et la mention de la licence MIT dans toute copie du Jeu ;
+	- mentionner clairement l’auteur original du Jeu dans toute redistribution ou dérivé.
+Clause MIT disponible dans le fichier "/licenses/LICENSE.txt"
+
+Contenu généré par IA
+Certaines images, illustrations ou éléments visuels présents dans ce jeu ont été créés à l’aide de modèles d’intelligence artificielle développés par OpenAI (via ChatGPT/DALL·E).
+Ces éléments sont utilisés conformément aux conditions d’utilisation d’OpenAI et sont la propriété du développeur de ce jeu.
+
+Le Jeu ne collecte aucune donnée personnelle des utilisateurs, sauf mention contraire explicite.
+Aucune information n’est transmise à des tiers.
+
+Le Jeu a une vocation pédagogique et ludique. Bien que tout soit fait pour garantir la qualité et la fiabilité du contenu, 
+l’auteur ne peut être tenu responsable d’erreurs, d’omissions ou d’interprétations incorrectes.
+
+Le Jeu est fourni “tel quel”, sans garantie d’aucune sorte.
+L’auteur ne peut être tenu responsable de tout dommage direct ou indirect résultant de son utilisation ou de son impossibilité d’utilisation.
+
+L’auteur se réserve le droit de modifier à tout moment le contenu du Jeu ou des présentes conditions d’utilisation.
+
+Pour toute question ou remarque concernant le Jeu ou la licence, vous pouvez contacter :
+mathisdeazevedo26@gmail.com
+jules.wowa@gmail.com
+
+
+AuditClicker — © 2025 Seau6peau1com
+Distribué sous licence MIT.
+Utilisation libre, sans garantie.
+Certains contenus sont générés par IA.
+Construit avec Godot Engine (godotengine.org/license).
+Pour plus d’informations, consultez les Conditions d’utilisation complètes.
