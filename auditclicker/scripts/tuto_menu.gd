@@ -21,7 +21,7 @@ func _ready() -> void:
 	else:
 		push_error("Erreur pendant l'ouverture du fichier")
 		#$GameTimeCountdown.stop()
-		var endScreen = preload("res://scenes/end_menu.tscn").instantiate()
+		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
 		queue_free()
@@ -42,7 +42,7 @@ func _on_next_button_mouse_exited() -> void:
 
 func _on_next_button_pressed() -> void:
 	if tutoState < int(text[0]):
-		var nextStep = preload("res://scenes/tuto_menu.tscn").instantiate()
+		var nextStep = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
 		nextStep.tutoState = tutoState+1
 		get_parent().add_child(nextStep)
 	queue_free()
