@@ -12,7 +12,7 @@ oe
 
 ## Contributions
 
-DE AZEVEDO Mathis
+DE AZEVEDO Mathis </br>
 WOLFF--WALK Jules
 
 ## License
