@@ -12,4 +12,4 @@ func _on_key_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
-		main.add_child(preload("res://scenes/settings.tscn").instantiate())
+		main.add_child(preload("res://scenes/submenus/settings.tscn").instantiate())
