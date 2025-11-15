@@ -17,5 +17,5 @@ WOLFF--WALK Jules
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) </br>
 [Conditions d'utilisation](licenses/Conditions_d_utilisation.txt)
