@@ -33,3 +33,5 @@ rotation = -1.37959
 shape = SubResource("RectangleShape2D_1xumc")
 
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_upgrades_input_event"]
+[connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_upgrades_mouse_entered"]
+[connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_upgrades_mouse_exited"]

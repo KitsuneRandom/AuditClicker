@@ -32,3 +32,5 @@ position = Vector2(-2.5, 45.5)
 shape = SubResource("RectangleShape2D_antxc")
 
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_letter_input_event"]
+[connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_letter_mouse_entered"]
+[connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_letter_mouse_exited"]

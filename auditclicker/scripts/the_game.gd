@@ -7,6 +7,7 @@ var statCadre
 var statRecolte
 var statAnalyse
 var statRedaction
+var cursor = preload("res://assets/cursor.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

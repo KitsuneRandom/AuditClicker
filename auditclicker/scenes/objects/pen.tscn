@@ -29,3 +29,5 @@ script = ExtResource("2_spjee")
 shape = SubResource("CapsuleShape2D_ngeja")
 
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_pen_input_event"]
+[connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_pen_mouse_entered"]
+[connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_pen_mouse_exited"]
