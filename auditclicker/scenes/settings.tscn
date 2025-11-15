@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyr81qf5xl5lf"]
+
+[ext_resource type="Texture2D" uid="uid://csjh2ayyujrve" path="res://assets/parchment.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://biuf28rkar35n" path="res://scripts/settings.gd" id="1_r6d6q"]
+
+[node name="Settings" type="Node2D"]
+position = Vector2(-306.5, -156.5)
+script = ExtResource("1_r6d6q")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 611.0
+offset_bottom = 311.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 260.5
+offset_top = 33.5
+offset_right = 351.5
+offset_bottom = 62.5
+text = "Paramètres"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Parchment" type="Sprite2D" parent="."]
+position = Vector2(304.625, 188.125)
+scale = Vector2(1.371839, 1.4787582)
+texture = ExtResource("1_5p8wc")
+
+[node name="OptButtonBack" type="Button" parent="."]
+offset_left = 27.5
+offset_top = 22.5
+offset_right = 111.5
+offset_bottom = 53.5
+text = "<< Retour"
+
+[node name="OptButtonAudio" type="Button" parent="."]
+offset_left = 124.5
+offset_top = 124.5
+offset_right = 274.5
+offset_bottom = 155.5
+text = "Audio"
+
+[node name="OptButtonCredits" type="Button" parent="."]
+offset_left = 125.5
+offset_top = 212.5
+offset_right = 275.5
+offset_bottom = 243.5
+text = "Crédits"
+
+[node name="OptButtonQuitter" type="Button" parent="."]
+offset_left = 345.5
+offset_top = 214.5
+offset_right = 495.5
+offset_bottom = 245.5
+text = "Quitter"
+
+[connection signal="pressed" from="OptButtonBack" to="." method="_on_opt_button_back_pressed"]
