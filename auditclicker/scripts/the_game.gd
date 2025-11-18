@@ -60,7 +60,6 @@ func _printFormatedTime(time) -> String:
 	if(seconds < 10):
 		seconds = "0" + str(seconds)
 	return str(minutes) + ":" + str(seconds)
-	pass
 
 func _updatescoredisplay():
 	$ScoreDisplayer.text = "📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
