@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr6luvi24no3i"]
+
+[ext_resource type="Script" uid="uid://bpjbqwot71ovy" path="res://scripts/licenses_menu.gd" id="1_iyde7"]
+
+[node name="TutoMenu" type="Node2D"]
+position = Vector2(-306.5, -156.5)
+script = ExtResource("1_iyde7")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 611.0
+offset_bottom = 311.0
+
+[node name="Space" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 612.0
+offset_bottom = 311.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Space"]
+layout_mode = 0
+offset_left = 41.5
+offset_top = 65.5
+offset_right = 570.5
+offset_bottom = 247.5
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Content" type="Label" parent="Space/ScrollContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Que du blabla
+Du blabla
+Et encore du blabla"
+autowrap_mode = 2
+
+[node name="NextButton" type="Button" parent="Space"]
+layout_mode = 0
+offset_left = 255.5
+offset_top = 261.5
+offset_right = 357.5
+offset_bottom = 292.5
+text = "Fermer"
+icon_alignment = 1
+
+[connection signal="mouse_entered" from="Space/NextButton" to="." method="_on_next_button_mouse_entered"]
+[connection signal="mouse_exited" from="Space/NextButton" to="." method="_on_next_button_mouse_exited"]
+[connection signal="pressed" from="Space/NextButton" to="." method="_on_next_button_pressed"]

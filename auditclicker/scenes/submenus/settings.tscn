@@ -64,5 +64,6 @@ text = "Quitter"
 [connection signal="pressed" from="OptButtonAudio" to="." method="_on_opt_button_audio_pressed"]
 [connection signal="mouse_entered" from="OptButtonCredits" to="." method="_on_opt_button_credits_mouse_entered"]
 [connection signal="mouse_exited" from="OptButtonCredits" to="." method="_on_opt_button_credits_mouse_exited"]
+[connection signal="pressed" from="OptButtonCredits" to="." method="_on_opt_button_credits_pressed"]
 [connection signal="mouse_entered" from="OptButtonQuitter" to="." method="_on_opt_button_quitter_mouse_entered"]
 [connection signal="mouse_exited" from="OptButtonQuitter" to="." method="_on_opt_button_quitter_mouse_exited"]
