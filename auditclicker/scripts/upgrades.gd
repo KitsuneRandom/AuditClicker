@@ -21,7 +21,7 @@ func _on_upgrades_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 func _on_upgrades_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
-	tooltip.displayed_text = "Etape ameliorations"
+	tooltip.displayed_text = "Ameliorations"
 	print("Affichage de la tooltip etape ameliorations")
 	main.add_child(tooltip)
 

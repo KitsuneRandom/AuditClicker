@@ -19,7 +19,7 @@ func _on_rules_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 func _on_rules_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
-	tooltip.displayed_text = "Etape regles"
+	tooltip.displayed_text = "Règles du jeu"
 	print("Affichage de la tooltip etape regles")
 	main.add_child(tooltip)
 
