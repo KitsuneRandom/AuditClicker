@@ -8,6 +8,9 @@ var statRecolte
 var statAnalyse
 var statRedaction
 var cursor = preload("res://assets/cursor.png")
+var upgrades_level = {}
+var credits
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +23,15 @@ func _ready() -> void:
 	statRedaction = 1
 	timeLeft = 300 #5 minutes
 	_updatescoredisplay()
+	upgrades_level = {
+		"redaction": 0,
+		"relation": 0,
+		"organisation": 0,
+		"logique": 0,
+		"technique": 0,
+		"jugement": 0
+	}
+	credits = 0
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,11 +49,18 @@ func _getpapers() -> int:
 	return papers
 	
 func _getPpc() -> int:
-	return ppc	
+	return ppc
+
+func _getUpgrades_level() -> Dictionary:
+	return upgrades_level
+
+func _getCurCredits() -> int:
+	return credits
 
 func _increasepapers() -> void:
 	papers += 1*ppc
-	
+	credits += 1*ppc
+
 func _increasePpc() -> void:
 	ppc = (papers/50)+ 1
 

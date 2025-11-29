@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://2cct5wnp3qb3"]
+
+[ext_resource type="Texture2D" uid="uid://d1n1wvr50aps7" path="res://assets/big_paper.png" id="1_aanga"]
+[ext_resource type="Script" uid="uid://cl1flja3t6yl4" path="res://scripts/fullscreen_paper.gd" id="1_e5t5n"]
+
+[node name="fullscreen_paper" type="Node2D"]
+script = ExtResource("1_e5t5n")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -305.5
+offset_top = -155.5
+offset_right = 305.5
+offset_bottom = 155.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_aanga")
+
+[node name="OptButtonRetour" type="Button" parent="."]
+offset_left = -288.0
+offset_top = -139.0
+offset_right = -205.0
+offset_bottom = -108.0
+text = "<<Retour"
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -106.0
+offset_top = -129.0
+offset_right = 122.0
+offset_bottom = 113.0
+text = "Never gonna give you up,
+Never gonna let you down,
+Never gonna run around
+And deserve you"
+
+[connection signal="mouse_entered" from="OptButtonRetour" to="." method="_on_opt_button_retour_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonRetour" to="." method="_on_opt_button_retour_mouse_exited"]
+[connection signal="pressed" from="OptButtonRetour" to="." method="_on_opt_button_retour_pressed"]
