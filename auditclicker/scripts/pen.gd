@@ -18,7 +18,7 @@ func _on_pen_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 func _on_pen_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
-	tooltip.displayed_text = "Etape stylo"
+	tooltip.displayed_text = "Stylo"
 	print("Affichage de la tooltip etape stylo")
 	main.add_child(tooltip)
 

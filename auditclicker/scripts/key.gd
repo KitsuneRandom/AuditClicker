@@ -21,7 +21,7 @@ func _on_key_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 func _on_key_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
-	tooltip.displayed_text = "Etape clef"
+	tooltip.displayed_text = "Options"
 	print("Affichage de la tooltip etape clef")
 	main.add_child(tooltip)
 

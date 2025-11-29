@@ -21,7 +21,7 @@ func _on_car_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 func _on_car_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
-	tooltip.displayed_text = "Etape Frank Leboeuf"
+	tooltip.displayed_text = "vendezvotrevoiture.fr"
 	print("Affichage de la tooltip etape Frank Leboeuf")
 	main.add_child(tooltip)
 
