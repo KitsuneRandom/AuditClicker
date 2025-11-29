@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmbv5l8b3li08"]
+
+[ext_resource type="Script" uid="uid://1bqwx0bj5xyi" path="res://scripts/investigation.gd" id="1_64m5r"]
+
+[node name="Investigation" type="Node2D"]
+script = ExtResource("1_64m5r")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfeny627ikjkf"]
+
+[ext_resource type="Script" uid="uid://dx2pfxls3eemj" path="res://scripts/restitution.gd" id="1_sgy8e"]
+
+[node name="Restitution" type="Node2D"]
+script = ExtResource("1_sgy8e")

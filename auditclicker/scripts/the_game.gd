@@ -8,6 +8,7 @@ var statRecolte
 var statAnalyse
 var statRedaction
 var upgrades_level
+var score
 var credits
 var txtprep = "Préparation : Organisez votre audit d'entreprise."
 var txtinve = "Investigation : L'entreprise vous a envoyé ses documents."
@@ -45,6 +46,7 @@ func _ready() -> void:
 		"technique": 0,
 		"jugement": 0
 	}
+	score = 0
 	credits = 0
 	current_phase = phases.PREPARATION
 	pass # Replace with function body.
@@ -79,6 +81,7 @@ func _getPhaseMessage(phase):
 	return phases_desc[phase][3]
 
 func _nextPhase(phase):
+	score += 1
 	if (phase == phases.PREPARATION):
 		return phases.INVESTIGATION
 	if (phase == phases.INVESTIGATION):
@@ -88,12 +91,20 @@ func _nextPhase(phase):
 	if (phase == phases.RESTITUTION):
 		return phases.SUIVI
 	if (phase == phases.SUIVI):
+		_finishaudit()
 		return phases.PREPARATION
 	return phase
 
+func _updateupgrades(newupgrades, newcredits) -> void:
+	upgrades_level = newupgrades
+	credits = newcredits
+
+func _finishaudit():
+	credits += 10
+	score += 10
+
 func _increasepapers() -> void:
 	papers += 1*ppc
-	credits += 1*ppc
 	current_phase = _nextPhase(current_phase)
 
 func _increasePpc() -> void:
@@ -116,4 +127,4 @@ func _printFormatedTime(time) -> String:
 	return str(minutes) + ":" + str(seconds)
 
 func _updatescoredisplay():
-	$ScoreDisplayer.text = "📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
+	$ScoreDisplayer.text = "Score : " + str(score) + " 📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
