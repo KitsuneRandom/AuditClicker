@@ -5,18 +5,51 @@ extends Node2D
 @export var optRecolte: int
 @export var optAnalyse: int
 @export var optRedaction: int
+
+var upgrades_level = {}
+var cur_credits
+
+var main
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main = get_parent()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	cur_credits = main._getCurCredits()
+	$Credits.text = str(cur_credits) + " crédits"
+	upgrades_level = main._getUpgrades_level()
 
 
 func _on_start_button_pressed() -> void:
 	queue_free()
+
+
+func _on_opt_button_redaction_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_opt_button_relation_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_opt_button_organisation_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_opt_button_logique_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_opt_button_technique_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_opt_button_jugement_pressed() -> void:
+	pass # Replace with function body.
 
 
 

@@ -14,6 +14,7 @@ func _on_paper_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
 		main._increasepapers()
+		main.add_child(preload("res://scenes/submenus/fullscreen_paper.tscn").instantiate())
 
 
 # Surbrillance des éléments
