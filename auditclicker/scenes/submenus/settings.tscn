@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyr81qf5xl5lf"]
+
+[ext_resource type="Script" uid="uid://biuf28rkar35n" path="res://scripts/settings.gd" id="1_1qv3h"]
+[ext_resource type="Texture2D" uid="uid://csjh2ayyujrve" path="res://assets/parchment.png" id="2_07bsi"]
+
+[node name="Settings" type="Node2D"]
+position = Vector2(-306.5, -156.5)
+script = ExtResource("1_1qv3h")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 611.0
+offset_bottom = 311.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 263.5
+offset_top = 26.5
+offset_right = 354.5
+offset_bottom = 55.5
+text = "Paramètres"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Parchment" type="Sprite2D" parent="."]
+position = Vector2(304.625, 188.125)
+scale = Vector2(1.371839, 1.4787582)
+texture = ExtResource("2_07bsi")
+
+[node name="OptButtonBack" type="Button" parent="."]
+offset_left = 27.5
+offset_top = 22.5
+offset_right = 111.5
+offset_bottom = 53.5
+text = "<< Retour"
+
+[node name="OptButtonAudio" type="Button" parent="."]
+offset_left = 124.5
+offset_top = 124.5
+offset_right = 274.5
+offset_bottom = 155.5
+text = "Audio"
+
+[node name="OptButtonCredits" type="Button" parent="."]
+offset_left = 125.5
+offset_top = 212.5
+offset_right = 275.5
+offset_bottom = 243.5
+text = "Crédits"
+
+[node name="OptButtonQuitter" type="Button" parent="."]
+offset_left = 345.5
+offset_top = 214.5
+offset_right = 495.5
+offset_bottom = 245.5
+text = "Quitter"
+
+[connection signal="mouse_entered" from="OptButtonBack" to="." method="_on_opt_button_back_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonBack" to="." method="_on_opt_button_back_mouse_exited"]
+[connection signal="pressed" from="OptButtonBack" to="." method="_on_opt_button_back_pressed"]
+[connection signal="mouse_entered" from="OptButtonAudio" to="." method="_on_opt_button_audio_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonAudio" to="." method="_on_opt_button_audio_mouse_exited"]
+[connection signal="pressed" from="OptButtonAudio" to="." method="_on_opt_button_audio_pressed"]
+[connection signal="mouse_entered" from="OptButtonCredits" to="." method="_on_opt_button_credits_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonCredits" to="." method="_on_opt_button_credits_mouse_exited"]
+[connection signal="pressed" from="OptButtonCredits" to="." method="_on_opt_button_credits_pressed"]
+[connection signal="mouse_entered" from="OptButtonQuitter" to="." method="_on_opt_button_quitter_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonQuitter" to="." method="_on_opt_button_quitter_mouse_exited"]

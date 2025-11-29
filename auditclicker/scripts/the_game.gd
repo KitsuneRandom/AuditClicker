@@ -7,6 +7,7 @@ var statCadre
 var statRecolte
 var statAnalyse
 var statRedaction
+var cursor = preload("res://assets/cursor.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 	_updatescoredisplay()
 	if(timeLeft <= 0):
 		$GameTimeCountdown.stop()
-		add_child(preload("res://scenes/end_menu.tscn").instantiate())
+		add_child(preload("res://scenes/game_menus/end_menu.tscn").instantiate())
 	if(papers >= 50):
 		_increasePpc()
 	
@@ -59,7 +60,6 @@ func _printFormatedTime(time) -> String:
 	if(seconds < 10):
 		seconds = "0" + str(seconds)
 	return str(minutes) + ":" + str(seconds)
-	pass
 
 func _updatescoredisplay():
 	$ScoreDisplayer.text = "📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)

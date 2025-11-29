@@ -89,4 +89,18 @@ offset_bottom = 43.5
 text = "<<Retour"
 icon_alignment = 1
 
+[connection signal="mouse_entered" from="OptButtonRedaction" to="." method="_on_opt_button_redaction_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonRedaction" to="." method="_on_opt_button_redaction_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonRelation" to="." method="_on_opt_button_relation_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonRelation" to="." method="_on_opt_button_relation_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonOrganisation" to="." method="_on_opt_button_organisation_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonOrganisation" to="." method="_on_opt_button_organisation_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonLogique" to="." method="_on_opt_button_logique_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonLogique" to="." method="_on_opt_button_logique_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonTechnique" to="." method="_on_opt_button_technique_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonTechnique" to="." method="_on_opt_button_technique_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonJugement" to="." method="_on_opt_button_jugement_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonJugement" to="." method="_on_opt_button_jugement_mouse_exited"]
+[connection signal="mouse_entered" from="OptButtonRetour" to="." method="_on_opt_button_retour_mouse_entered"]
+[connection signal="mouse_exited" from="OptButtonRetour" to="." method="_on_opt_button_retour_mouse_exited"]
 [connection signal="pressed" from="OptButtonRetour" to="." method="_on_start_button_pressed"]

@@ -33,3 +33,5 @@ scale = Vector2(15.53, 5.93689)
 shape = SubResource("ConvexPolygonShape2D_vas6c")
 
 [connection signal="input_event" from="." to="paperSprite" method="_on_paper_input_event"]
+[connection signal="mouse_entered" from="." to="paperSprite" method="_on_paper_mouse_entered"]
+[connection signal="mouse_exited" from="." to="paperSprite" method="_on_paper_mouse_exited"]

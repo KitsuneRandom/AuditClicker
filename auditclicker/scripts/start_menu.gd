@@ -22,7 +22,7 @@ func _on_start_button_mouse_exited() -> void:
 
 func _on_start_button_pressed() -> void:
 	$".".queue_free()
-	var tutoScreen = preload("res://scenes/tuto_menu.tscn").instantiate()
+	var tutoScreen = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
 	tutoScreen.tutoState = 1
 	print("Affichage du tuto")
 	get_parent().add_child(tutoScreen)

@@ -1,32 +1,23 @@
 extends Node2D
 
-# Récupération des paramètres passés 
-@export var tutoState: int # Etape du tuto
 var text
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var path = "res://datas/texts/tuto.txt"
+	get_parent().visible = false
+	var path = "res://datas/texts/legal_Informations.txt"
 	var file = FileAccess.open(path, FileAccess.READ)
-	text = "ptyCode"
+	text = ""
 	if file:
 		text = file.get_as_text()
 		file.close()
-		print((text.split("#"))[tutoState])
-		$Space/Content.text = (text.split("#"))[tutoState]
-		if tutoState == int(text[0]):
-			$Space/NextButton.text = "Commencer à jouer"
-			var viewport_size = get_viewport_rect().size
-			$Space/NextButton.position.x = ($Space/NextButton.get_parent().size.x - $Space/NextButton.size.x) / 2
+		$Space/ScrollContainer/Content.text = (text.split("#"))[1]
 	else:
 		push_error("Erreur pendant l'ouverture du fichier")
-		#$GameTimeCountdown.stop()
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
 		queue_free()
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,13 +32,7 @@ func _on_next_button_mouse_exited() -> void:
 
 
 func _on_next_button_pressed() -> void:
-	if tutoState < int(text[0]):
-		var nextStep = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
-		nextStep.tutoState = tutoState+1
-		get_parent().add_child(nextStep)
+	get_parent().visible = true
 	queue_free()
-	if tutoState == int(text[0]):
-		$"../GameTimeCountdown".start()
-		print("Démarrage du jeu et lancement du timer")
 	
 	#match 

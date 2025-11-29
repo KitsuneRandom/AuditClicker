@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://1jmyab264t70"]
+
+[ext_resource type="Script" uid="uid://cn7l85akdbi86" path="res://scripts/tooltip.gd" id="1_mtwet"]
+
+[node name="tooltip" type="Node2D"]
+script = ExtResource("1_mtwet")
+
+[node name="Background" type="Panel" parent="."]
+offset_left = -50.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 17.0
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 98.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 16
+text = "Papier"
