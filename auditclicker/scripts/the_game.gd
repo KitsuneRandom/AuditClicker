@@ -7,9 +7,23 @@ var statCadre
 var statRecolte
 var statAnalyse
 var statRedaction
-var cursor = preload("res://assets/cursor.png")
-var upgrades_level = {}
+var upgrades_level
 var credits
+var txtprep = "Préparation : Organisez votre audit d'entreprise."
+var txtinve = "Investigation : L'entreprise vous a envoyé ses documents."
+var txtanal = "Analyse : Concentrez vous sur les documents que vous avez récupéré."
+var txtrest = "Restitution : Rédigez le rapport de votre audit."
+var txtsuiv = "Suivi : L'entreprise vous fait part de quelques problèmes persistants."
+enum phases {PREPARATION, INVESTIGATION, ANALYSE, RESTITUTION, SUIVI}
+#Description des phases : [0: "nom", 1: "objet à cliquer", 2: "amélioration associée", 3: "message à afficher"]
+var phases_desc = {
+	phases.PREPARATION: ["Préparation", "paper.tscn", "organisation", txtprep],
+	phases.INVESTIGATION: ["Investigation", "letter.tscn", "jugement", txtinve],
+	phases.ANALYSE: ["Analyse", "glass.tscn", "logique", txtanal],
+	phases.RESTITUTION: ["Restitution", "pen.tscn", "redaction", txtrest],
+	phases.SUIVI: ["Suivi", "letter.tscn", "relation", txtsuiv]
+}
+var current_phase
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +46,7 @@ func _ready() -> void:
 		"jugement": 0
 	}
 	credits = 0
+	current_phase = phases.PREPARATION
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +57,7 @@ func _process(delta: float) -> void:
 		add_child(preload("res://scenes/game_menus/end_menu.tscn").instantiate())
 	if(papers >= 50):
 		_increasePpc()
-	
+	$messages.text = _getPhaseMessage(_getCurrentPhase())
 	pass
 
 func _getpapers() -> int:
@@ -57,9 +72,29 @@ func _getUpgrades_level() -> Dictionary:
 func _getCurCredits() -> int:
 	return credits
 
+func _getCurrentPhase() -> phases:
+	return current_phase
+
+func _getPhaseMessage(phase):
+	return phases_desc[phase][3]
+
+func _nextPhase(phase):
+	if (phase == phases.PREPARATION):
+		return phases.INVESTIGATION
+	if (phase == phases.INVESTIGATION):
+		return phases.ANALYSE
+	if (phase == phases.ANALYSE):
+		return phases.RESTITUTION
+	if (phase == phases.RESTITUTION):
+		return phases.SUIVI
+	if (phase == phases.SUIVI):
+		return phases.PREPARATION
+	return phase
+
 func _increasepapers() -> void:
 	papers += 1*ppc
 	credits += 1*ppc
+	current_phase = _nextPhase(current_phase)
 
 func _increasePpc() -> void:
 	ppc = (papers/50)+ 1

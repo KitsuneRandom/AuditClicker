@@ -70,12 +70,17 @@ position = Vector2(-305.5, -155.5)
 
 [node name="GameTimeCountdown" type="Timer" parent="."]
 
+[node name="messagesBackspace" type="Panel" parent="."]
+offset_left = -270.0
+offset_top = 127.0
+offset_right = 264.0
+offset_bottom = 151.0
+
 [node name="messages" type="Label" parent="."]
 offset_left = -270.0
 offset_top = 127.0
 offset_right = 264.0
 offset_bottom = 151.0
-text = "label de messages"
 horizontal_alignment = 1
 
 [connection signal="timeout" from="GameTimeCountdown" to="." method="_on_game_time_countdown_timeout"]
