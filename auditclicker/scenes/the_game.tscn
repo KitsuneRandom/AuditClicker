@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dec7qg82selvx"]
+[gd_scene load_steps=13 format=3 uid="uid://dec7qg82selvx"]
 
 [ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
 [ext_resource type="Script" uid="uid://cr5c65fwvqfph" path="res://scripts/the_game.gd" id="1_jq0i5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnrvek1hiijd8" path="res://scenes/objects/car.tscn" id="8_jq0i5"]
 [ext_resource type="PackedScene" uid="uid://t82ia03h2fda" path="res://scenes/objects/rules.tscn" id="9_naogu"]
 [ext_resource type="PackedScene" uid="uid://4v75mk547lc6" path="res://scenes/objects/pen.tscn" id="10_hyocf"]
+[ext_resource type="PackedScene" uid="uid://b3bq740ii8h22" path="res://scenes/objects/glass.tscn" id="11_hyocf"]
 [ext_resource type="PackedScene" uid="uid://cr51xs768s3qc" path="res://scenes/game_menus/start_menu.tscn" id="11_naogu"]
 
 [node name="TheGame" type="Node2D"]
@@ -59,6 +60,10 @@ scale = Vector2(0.164212, 0.164212)
 position = Vector2(57, 74)
 rotation = 0.25659
 scale = Vector2(0.0902124, 0.0902124)
+
+[node name="glass" parent="." instance=ExtResource("11_hyocf")]
+position = Vector2(-102, 59.999996)
+scale = Vector2(0.2, 0.2)
 
 [node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
 position = Vector2(-305.5, -155.5)
