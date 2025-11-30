@@ -69,7 +69,7 @@ position = Vector2(-100, 95)
 scale = Vector2(0.145655, 0.145655)
 
 [node name="upgrades" parent="." instance=ExtResource("5_cxvok")]
-position = Vector2(108, 60)
+position = Vector2(150, 65)
 scale = Vector2(0.152887, 0.152887)
 
 [node name="cat" parent="." instance=ExtResource("6_w211t")]
@@ -84,8 +84,8 @@ position = Vector2(84, -28)
 scale = Vector2(0.283446, 0.283446)
 
 [node name="rules" parent="." instance=ExtResource("9_naogu")]
-position = Vector2(-26, -12)
-scale = Vector2(0.164212, 0.164212)
+position = Vector2(-26, -20)
+scale = Vector2(0.35, 0.35)
 
 [node name="pen" parent="." instance=ExtResource("10_hyocf")]
 position = Vector2(57, 74)
