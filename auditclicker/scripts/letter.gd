@@ -2,10 +2,14 @@ extends AnimatedSprite2D
 
 var tooltip
 var main
+var number
 
 func _ready() -> void:
 	main = get_parent().get_parent()
 	pass # Replace with function body.
+	
+func _setnumber(newnumber) -> void:
+	number = newnumber
 
 func _on_letter_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -13,6 +17,7 @@ func _on_letter_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
+		main.get_child(number).hide()
 
 
 
