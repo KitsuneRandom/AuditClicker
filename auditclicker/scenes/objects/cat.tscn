@@ -14,7 +14,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_myi5k")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_t2qnr")
 }, {
@@ -42,7 +47,7 @@ height = 162.443
 position = Vector2(0, -6)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_se5fe")
-animation = &"oiia"
+animation = &"normal"
 script = ExtResource("2_se5fe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
