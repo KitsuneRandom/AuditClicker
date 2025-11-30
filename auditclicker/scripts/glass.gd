@@ -12,6 +12,7 @@ func _on_glass_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
+		main.get_child(17).hide()
 
 
 

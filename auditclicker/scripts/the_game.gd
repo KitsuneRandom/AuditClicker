@@ -49,6 +49,13 @@ func _ready() -> void:
 	score = 0
 	credits = 0
 	current_phase = phases.PREPARATION
+	$letterInvest.get_node("AnimatedSprite2D")._setnumber(4)
+	$letterSuivi1.get_node("AnimatedSprite2D")._setnumber(5)
+	$letterSuivi2.get_node("AnimatedSprite2D")._setnumber(6)
+	$letterSuivi3.get_node("AnimatedSprite2D")._setnumber(7)
+	$letterSuivi4.get_node("AnimatedSprite2D")._setnumber(8)
+	$letterSuivi5.get_node("AnimatedSprite2D")._setnumber(9)
+	$letterSuivi6.get_node("AnimatedSprite2D")._setnumber(10)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -83,17 +90,34 @@ func _getPhaseMessage(phase):
 func _nextPhase(phase):
 	score += 1
 	if (phase == phases.PREPARATION):
+		$letterInvest.visible = true
 		return phases.INVESTIGATION
 	if (phase == phases.INVESTIGATION):
+		$letterInvest.visible = false
+		$glass.visible = true
 		return phases.ANALYSE
 	if (phase == phases.ANALYSE):
+		$glass.visible = false
 		return phases.RESTITUTION
 	if (phase == phases.RESTITUTION):
+		$letterSuivi1.visible = true
+		$letterSuivi2.visible = true
+		$letterSuivi3.visible = true
+		$letterSuivi4.visible = true
+		$letterSuivi5.visible = true
+		$letterSuivi6.visible = true
 		return phases.SUIVI
 	if (phase == phases.SUIVI):
+		$letterSuivi1.visible = false
+		$letterSuivi2.visible = false
+		$letterSuivi3.visible = false
+		$letterSuivi4.visible = false
+		$letterSuivi5.visible = false
+		$letterSuivi6.visible = false
 		_finishaudit()
 		return phases.PREPARATION
 	return phase
+
 
 func _updateupgrades(newupgrades, newcredits) -> void:
 	upgrades_level = newupgrades
