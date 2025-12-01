@@ -23,11 +23,9 @@ func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 		clicks += 1
 
 func _trybuff() -> void:
-	if (clicks > 30):
-		print("Le chat en a marre")
-		queue_free()
-		return
-	if (clicks >= 15):
+	if (clicks >= 5):
+		clicks = 0
+	if (clicks >= 2):
 		_oiiaRemix()
 		if (!buffed):
 			_buff()
