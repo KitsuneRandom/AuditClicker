@@ -72,9 +72,6 @@ scale = Vector2(0.145655, 0.145655)
 position = Vector2(150, 65)
 scale = Vector2(0.152887, 0.152887)
 
-[node name="cat" parent="." instance=ExtResource("6_w211t")]
-position = Vector2(-161, -24)
-
 [node name="key" parent="." instance=ExtResource("7_jq0i5")]
 position = Vector2(181, -19)
 scale = Vector2(0.0477304, 0.0477304)
@@ -96,6 +93,9 @@ scale = Vector2(0.0902124, 0.0902124)
 visible = false
 position = Vector2(-102, 59.999996)
 scale = Vector2(0.2, 0.2)
+
+[node name="cat" parent="." instance=ExtResource("6_w211t")]
+position = Vector2(-161, -24)
 
 [node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
 position = Vector2(-305.5, -155.5)
