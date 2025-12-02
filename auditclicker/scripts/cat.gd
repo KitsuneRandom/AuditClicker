@@ -8,7 +8,9 @@ var buffed
 func _ready() -> void:
 	main = get_parent().get_parent()
 	buffed = false
-	clicks = 1
+	clicks = 0
+	play("normal")
+	stop()
 	pass # Replace with function body.
 
 func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -23,17 +25,30 @@ func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 		clicks += 1
 
 func _trybuff() -> void:
-	if (clicks >= 5):
-		clicks = 0
-	if (clicks >= 2):
-		_oiiaRemix()
+	if (clicks == 0):
+		_oiia1()
+		return
+	if (clicks == 1):
+		_oiia2()
+		return
+	if (clicks == 2):
+		_oiia3()
+		return
+	if (clicks == 3):
+		_oiia4()
+		return
+	if (clicks == 4):
+		_oiia5()
+		return
+	if (clicks == 5):
+		_oiia6()
 		if (!buffed):
 			_buff()
-	else:
-		_oiia()
+		clicks = -1
+		return
 
 
-func _oiia() -> void:
+func _oiia1() -> void:
 	print("oiia oiia")
 	play("oiia")
 	$"../Oiia".play()
@@ -42,7 +57,16 @@ func _oiia() -> void:
 	play("normal")
 	stop()
 
-func _oiiaRemix() -> void:
+func _oiia2() -> void:
+	print("oiia oiia")
+	play("oiia", 0.75)
+	$"../Oiia2".play()
+	$".".modulate = Color(1, 1, 1)
+	await get_tree().create_timer(2.5).timeout
+	play("normal")
+	stop()
+
+func _oiia3() -> void:
 	print("oiia oiia")
 	play("oiia")
 	$"../OiiaRemix".play()
@@ -61,6 +85,81 @@ func _oiiaRemix() -> void:
 	$".".modulate = Color(1, 1, 1)
 	play("normal")
 	stop()
+
+func _oiia4() -> void:
+	print("oiia oiia")
+	play("oiia")
+	$"../OiiaRemix".play()
+	$".".modulate = Color(0, 1, 0)
+	main.modulate = Color(1, 1, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 1, 0)
+	main.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 0, 0)
+	main.modulate = Color(1, 0, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 0, 1)
+	main.modulate = Color(0, 1, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(0, 1, 1)
+	main.modulate = Color(0, 0, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(0, 0, 1)
+	main.modulate = Color(0, 1, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 1, 1)
+	main.modulate = Color(1, 1, 1)
+	play("normal")
+	stop()
+
+func _oiia5() -> void:
+	print("oiia oiia")
+	play("white_oiia")
+	$"../OiiaRemix".play()
+	$".".modulate = Color(0, 1, 0)
+	main.modulate = Color(1, 1, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 1, 0)
+	main.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 0, 0)
+	main.modulate = Color(1, 0, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 0, 1)
+	main.modulate = Color(0, 1, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(0, 1, 1)
+	main.modulate = Color(0, 0, 1)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(0, 0, 1)
+	main.modulate = Color(0, 1, 0)
+	await get_tree().create_timer(0.5).timeout
+	$".".modulate = Color(1, 1, 1)
+	main.modulate = Color(1, 1, 1)
+	play("normal")
+	stop()
+
+func _oiia6() -> void:
+	print("oiia oiia")
+	play("white_oiia")
+	$"../OiiaRemix".play()
+	main.modulate = Color(0, 0, 0)
+	for i in range(0, 30):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.x += 5.4
+		$"..".position.y += 1
+	main.modulate = Color(1, 1, 1)
+	play("normal")
+	await get_tree().create_timer(1).timeout
+	$"../Oiia".play()
+	play("oiia")
+	await get_tree().create_timer(2).timeout
+	$"../Explode".play()
+	play("explode")
+	await get_tree().create_timer(0.6).timeout
+	stop()
+	queue_free()
 
 func _buff() -> void:
 	buffed = true
