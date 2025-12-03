@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://ovrvoyme561"]
+[gd_scene load_steps=3 format=3 uid="uid://ovrvoyme561"]
 
 [ext_resource type="Script" uid="uid://bfcjryjpfka8q" path="res://scripts/suivi.gd" id="1_758qn"]
+[ext_resource type="Texture2D" uid="uid://cyd8mbng4wxja" path="res://assets/opened_letter.png" id="2_xkl58"]
 
 [node name="Suivi" type="Node2D"]
 script = ExtResource("1_758qn")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -306.5
+offset_top = -156.5
+offset_right = 304.5
+offset_bottom = 154.5
+metadata/_edit_use_anchors_ = true
+
+[node name="OpenedLetter" type="Sprite2D" parent="."]
+position = Vector2(1, 19)
+scale = Vector2(0.66134185, 0.67571884)
+texture = ExtResource("2_xkl58")
+
+[node name="Valider" type="Button" parent="."]
+offset_left = -110.0
+offset_top = 92.0
+offset_right = 112.0
+offset_bottom = 127.0
+text = "Vérifier le suivi"
+
+[connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
+[connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
+[connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]
