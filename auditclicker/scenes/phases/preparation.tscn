@@ -1,6 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://coatdptm07fxl"]
+[gd_scene load_steps=4 format=3 uid="uid://coatdptm07fxl"]
 
 [ext_resource type="Script" uid="uid://c5kgtikr8wbqf" path="res://scripts/preparation.gd" id="1_xgf55"]
+[ext_resource type="Texture2D" uid="uid://d1n1wvr50aps7" path="res://assets/big_paper.png" id="2_mgtnm"]
+[ext_resource type="PackedScene" uid="uid://4v75mk547lc6" path="res://scenes/objects/pen.tscn" id="3_pik4m"]
 
 [node name="Preparation" type="Node2D"]
 script = ExtResource("1_xgf55")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -306.5
+offset_top = -156.5
+offset_right = 304.5
+offset_bottom = 154.5
+metadata/_edit_use_anchors_ = true
+
+[node name="BigPaper" type="Sprite2D" parent="."]
+position = Vector2(-2.999998, 0)
+scale = Vector2(0.67999995, 0.72050005)
+texture = ExtResource("2_mgtnm")
+
+[node name="pen" parent="." instance=ExtResource("3_pik4m")]
+position = Vector2(160, -4)
+scale = Vector2(0.25, 0.25)
+
+[node name="Objectifs" type="Button" parent="."]
+offset_left = -108.0
+offset_top = -128.0
+offset_right = 114.0
+offset_bottom = -93.0
+text = "Saisir les objectifs de l'audit"
+
+[node name="Planification" type="Button" parent="."]
+offset_left = -108.0
+offset_top = -54.0
+offset_right = 114.0
+offset_bottom = -19.0
+text = "Planifier l'audit"
+
+[node name="Equipe" type="Button" parent="."]
+offset_left = -108.0
+offset_top = 19.0
+offset_right = 114.0
+offset_bottom = 54.0
+text = "Sélectionner l'équipe"
+
+[node name="Valider" type="Button" parent="."]
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 114.0
+offset_bottom = 132.0
+text = "Valider"
+
+[connection signal="mouse_entered" from="Objectifs" to="." method="_on_objectifs_mouse_entered"]
+[connection signal="mouse_exited" from="Objectifs" to="." method="_on_objectifs_mouse_exited"]
+[connection signal="pressed" from="Objectifs" to="." method="_on_objectifs_pressed"]
+[connection signal="mouse_entered" from="Planification" to="." method="_on_planification_mouse_entered"]
+[connection signal="mouse_exited" from="Planification" to="." method="_on_planification_mouse_exited"]
+[connection signal="pressed" from="Planification" to="." method="_on_planification_pressed"]
+[connection signal="mouse_entered" from="Equipe" to="." method="_on_equipe_mouse_entered"]
+[connection signal="mouse_exited" from="Equipe" to="." method="_on_equipe_mouse_exited"]
+[connection signal="pressed" from="Equipe" to="." method="_on_equipe_pressed"]
+[connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
+[connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
+[connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]

@@ -1,6 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1vqkw7sp3el"]
+[gd_scene load_steps=4 format=3 uid="uid://b1vqkw7sp3el"]
 
 [ext_resource type="Script" uid="uid://dqsgl43toatm3" path="res://scripts/analyse.gd" id="1_4rhj3"]
+[ext_resource type="Texture2D" uid="uid://d1n1wvr50aps7" path="res://assets/big_paper.png" id="2_4nuib"]
+[ext_resource type="Texture2D" uid="uid://b7e08cfcuq51x" path="res://assets/magnifying_glass.png" id="3_8ttfd"]
 
 [node name="Analyse" type="Node2D"]
 script = ExtResource("1_4rhj3")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -306.5
+offset_top = -156.5
+offset_right = 304.5
+offset_bottom = 154.5
+metadata/_edit_use_anchors_ = true
+
+[node name="BigPaper" type="Sprite2D" parent="."]
+position = Vector2(-2.999998, 0)
+scale = Vector2(0.67999995, 0.72050005)
+texture = ExtResource("2_4nuib")
+
+[node name="Valider" type="Button" parent="."]
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 114.0
+offset_bottom = 132.0
+text = "Analyser"
+
+[node name="MagnifyingGlass" type="Sprite2D" parent="."]
+position = Vector2(29, 17)
+scale = Vector2(0.74999994, 0.7614379)
+texture = ExtResource("3_8ttfd")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -43.0
+offset_top = -69.0
+offset_right = 61.0
+offset_bottom = 27.0
+text = "J'ai perdu
+le jeu"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
+[connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
+[connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]
