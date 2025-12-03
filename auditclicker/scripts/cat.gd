@@ -117,38 +117,47 @@ func _oiia5() -> void:
 	print("oiia oiia")
 	play("white_oiia")
 	$"../OiiaRemix".play()
-	$".".modulate = Color(0, 1, 0)
 	main.modulate = Color(1, 1, 0)
-	await get_tree().create_timer(0.5).timeout
-	$".".modulate = Color(1, 1, 0)
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	main.modulate = Color(1, 0, 0)
-	await get_tree().create_timer(0.5).timeout
-	$".".modulate = Color(1, 0, 0)
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	main.modulate = Color(1, 0, 1)
-	await get_tree().create_timer(0.5).timeout
-	$".".modulate = Color(1, 0, 1)
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	main.modulate = Color(0, 1, 1)
-	await get_tree().create_timer(0.5).timeout
-	$".".modulate = Color(0, 1, 1)
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	main.modulate = Color(0, 0, 1)
-	await get_tree().create_timer(0.5).timeout
-	$".".modulate = Color(0, 0, 1)
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	main.modulate = Color(0, 1, 0)
-	await get_tree().create_timer(0.5).timeout
+	for i in range(0, 5):
+		await get_tree().create_timer(0.1).timeout
+		$"..".position.y -= 2
 	$".".modulate = Color(1, 1, 1)
 	main.modulate = Color(1, 1, 1)
 	play("normal")
+	$"..".position.y = -24
 	stop()
 
 func _oiia6() -> void:
 	print("oiia oiia")
 	play("white_oiia")
 	$"../OiiaRemix".play()
-	main.modulate = Color(0, 0, 0)
+	var nuancegris: float
 	for i in range(0, 30):
 		await get_tree().create_timer(0.1).timeout
 		$"..".position.x += 5.4
 		$"..".position.y += 1
+		nuancegris = 1 - float(i)/30
+		main.modulate = Color(nuancegris, nuancegris, nuancegris)
 	main.modulate = Color(1, 1, 1)
 	play("normal")
 	await get_tree().create_timer(1).timeout
