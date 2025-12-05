@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends TextureButton
 
 var tooltip
 var main
@@ -17,36 +17,28 @@ func _process(delta: float) -> void:
 		pass
 
 func _followmouse() -> void:
-	position = main.get_global_mouse_position()
+	get_parent().position = main.get_global_mouse_position()
 
 func _fall() -> void:
-	while position.y < 74:
-		position.y += 1
-		await get_tree().create_timer(0.1).timeout
-	if position.y >= 74:
-		for i in range(0, 100):
-			position.y += 1
-			await get_tree().create_timer(0.1).timeout
-		position.x = 57
-		position.y = 74
+	if get_parent().position.y > 74:
+		for i in range(0, 10):
+			get_parent().position.y += 5
+			await get_tree().create_timer(0.05).timeout
+		get_parent().position.x = 57
+		get_parent().position.y = 74
+	while get_parent().position.y < 74:
+		get_parent().position.y += 5
+		await get_tree().create_timer(0.05).timeout
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and is_mouse_over:
 			isclicked = true
-		else:
+		elif event.is_released() and isclicked:
+			_fall()
 			isclicked = false
 
-func _on_pen_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("Pen click !")
-		position.y += 10
-		await get_tree().create_timer(0.1).timeout
-		position.y -= 10
-		if main._verifobject("pen.tscn") == true:
-			main.add_child(preload("res://scenes/phases/restitution.tscn").instantiate())
-		else:
-			pass
 
 # Surbrillance des éléments
 func _on_pen_mouse_entered() -> void:
@@ -63,3 +55,14 @@ func _on_pen_mouse_exited() -> void:
 	if tooltip:
 		tooltip.queue_free()
 		tooltip = null
+
+
+func _on_pressed() -> void:
+	print("Pen click !")
+	position.y += 10
+	await get_tree().create_timer(0.1).timeout
+	position.y -= 10
+	if main._verifobject("pen.tscn") == true:
+		main.add_child(preload("res://scenes/phases/restitution.tscn").instantiate())
+	else:
+		pass
