@@ -121,7 +121,7 @@ func _nextPhase(phase):
 	return phase
 
 func _updateobjecttoclick() -> void:
-	object_to_click = phases_desc[current_phase][1]
+		object_to_click = phases_desc[current_phase][1]
 
 
 func _updateupgrades(newupgrades, newcredits) -> void:
@@ -136,7 +136,7 @@ func _increasepapers() -> void:
 	papers += 1*ppc
 	
 func _finishphase() -> void:
-	current_phase += _nextPhase(current_phase)
+	current_phase = _nextPhase(current_phase)
 	_updateobjecttoclick()
 
 func _increasePpc() -> void:
