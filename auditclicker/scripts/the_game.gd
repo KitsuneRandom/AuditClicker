@@ -22,9 +22,10 @@ var phases_desc = {
 	phases.INVESTIGATION: ["Investigation", "letter.tscn", "jugement", txtinve],
 	phases.ANALYSE: ["Analyse", "glass.tscn", "logique", txtanal],
 	phases.RESTITUTION: ["Restitution", "pen.tscn", "redaction", txtrest],
-	phases.SUIVI: ["Suivi", "letter.tscn", "relation", txtsuiv]
+	phases.SUIVI: ["Suivi", "letter2.tscn", "relation", txtsuiv]
 }
 var current_phase
+var object_to_click : String
 
 
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +50,7 @@ func _ready() -> void:
 	score = 0
 	credits = 0
 	current_phase = phases.PREPARATION
+	object_to_click = phases_desc[current_phase][1]
 	$letterInvest.get_node("AnimatedSprite2D")._setnumber(4)
 	$letterSuivi1.get_node("AnimatedSprite2D")._setnumber(5)
 	$letterSuivi2.get_node("AnimatedSprite2D")._setnumber(6)
@@ -118,6 +120,9 @@ func _nextPhase(phase):
 		return phases.PREPARATION
 	return phase
 
+func _updateobjecttoclick() -> void:
+	object_to_click = phases_desc[current_phase][1]
+
 
 func _updateupgrades(newupgrades, newcredits) -> void:
 	upgrades_level = newupgrades
@@ -129,7 +134,10 @@ func _finishaudit():
 
 func _increasepapers() -> void:
 	papers += 1*ppc
-	current_phase = _nextPhase(current_phase)
+	
+func _finishphase() -> void:
+	current_phase += _nextPhase(current_phase)
+	_updateobjecttoclick()
 
 func _increasePpc() -> void:
 	ppc = (papers/50)+ 1
@@ -151,4 +159,9 @@ func _printFormatedTime(time) -> String:
 	return str(minutes) + ":" + str(seconds)
 
 func _updatescoredisplay():
-	$ScoreDisplayer.text = "Score : " + str(score) + " 📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
+	$ScoreDisplayer.text = object_to_click + " / Score : " + str(score) + " 📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
+
+func _verifobject(object) -> bool:
+	if object != object_to_click:
+		return false
+	return true
