@@ -1,12 +1,15 @@
 extends Node2D
 
-
+var main
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main = get_parent()
 	pass # Replace with function body.
 
+
 func _on_valider_pressed() -> void:
-	pass # Replace with function body.
+	main._finishphase()
+	queue_free()
 
 func _on_rapport_pressed() -> void:
 	pass # Replace with function body.

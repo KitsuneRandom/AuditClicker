@@ -13,6 +13,10 @@ func _on_pen_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
+		if main._verifobject("pen.tscn") == true:
+			main.add_child(preload("res://scenes/phases/restitution.tscn").instantiate())
+		else:
+			pass
 
 # Surbrillance des éléments
 func _on_pen_mouse_entered() -> void:

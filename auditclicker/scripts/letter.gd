@@ -18,6 +18,12 @@ func _on_letter_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
 		main.get_child(number).hide()
+		if main._verifobject("letter.tscn") == true:
+			main.add_child(preload("res://scenes/phases/investigation.tscn").instantiate())
+		else :
+			if main._verifobject("letter2.tscn") == true:
+				main.add_child(preload("res://scenes/phases/suivi.tscn").instantiate())
+
 
 
 
