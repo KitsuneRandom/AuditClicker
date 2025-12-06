@@ -13,6 +13,11 @@ func _on_rules_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
+		var tutoScreen = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
+		tutoScreen.tutoState = 1
+		tutoScreen.firstTimeShown = 4
+		print("Affichage du tuto")
+		main.add_child(tutoScreen)
 
 
 # Surbrillance des éléments

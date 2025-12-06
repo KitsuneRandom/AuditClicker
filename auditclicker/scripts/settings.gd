@@ -49,3 +49,8 @@ func _on_opt_button_quitter_mouse_entered() -> void:
 func _on_opt_button_quitter_mouse_exited() -> void:
 	$OptButtonQuitter.self_modulate = Color(0.8, 0.8, 0.8)
 	$OptButtonQuitter.mouse_default_cursor_shape = Control.CURSOR_ARROW
+
+func _on_opt_button_quitter_pressed() -> void:
+	print("Sortie du jeu")
+	main.get_tree().quit()
+	pass # Replace with function body.

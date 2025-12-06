@@ -4,14 +4,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Background.size = Vector2(10, 35)
-	$Background/Label.visible_ratio = 0
-	$Background/Label.text = displayed_text
+	$Background.size = Vector2(10 * 2, 35)
+	$Background/Label.text = ""
+	var font = $Background/Label.get_theme_font("font")
 	for i in range(displayed_text.length()):
-		$Background.size += Vector2(10, 0)
-		$Background/Label.visible_ratio = i / 100.0
-		await get_tree().create_timer(0.025).timeout 
-	$Background/Label.visible_ratio = 1
+		$Background/Label.text = displayed_text.substr(0, i + 1)
+		var text_size = font.get_string_size($Background/Label.text)
+		$Background.size.x = text_size.x + 10 * 2
+		await get_tree().create_timer(0.125/displayed_text.length()).timeout
+	$Background/Label.text = displayed_text
 	pass # Replace with function body.
 
 

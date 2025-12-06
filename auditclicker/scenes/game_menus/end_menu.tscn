@@ -45,3 +45,14 @@ text = "Le temps est écoulé !
 Votre score est :"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 254.5
+offset_top = 220.5
+offset_right = 356.5
+offset_bottom = 251.5
+text = "Quitter"
+icon_alignment = 1
+
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
