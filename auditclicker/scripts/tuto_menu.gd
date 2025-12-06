@@ -2,10 +2,13 @@ extends Node2D
 
 # Récupération des paramètres passés 
 @export var tutoState: int # Etape du tuto
+@export var firstTimeShown: int = 0 # Définit si le timer doit être démarré après le tuto
 var text
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if !$"../GameTimeCountdown".is_stopped():
+		$"../GameTimeCountdown".stop()
 	var path = "res://datas/texts/tuto.txt"
 	var file = FileAccess.open(path, FileAccess.READ)
 	text = "ptyCode"
@@ -44,10 +47,14 @@ func _on_next_button_pressed() -> void:
 	if tutoState < int(text[0]):
 		var nextStep = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
 		nextStep.tutoState = tutoState+1
+		nextStep.firstTimeShown = firstTimeShown
 		get_parent().add_child(nextStep)
 	queue_free()
 	if tutoState == int(text[0]):
+		if firstTimeShown == 1:
+			print("Démarrage du jeu et lancement du timer")
+		else:
+			print("Reprise du jeu et reprise du timer")
 		$"../GameTimeCountdown".start()
-		print("Démarrage du jeu et lancement du timer")
 	
 	#match 
