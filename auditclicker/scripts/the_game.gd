@@ -25,6 +25,14 @@ var phases_desc = {
 	phases.SUIVI: ["Suivi", "letter2.tscn", "relation", txtsuiv]
 }
 var current_phase
+var phase_steps = {
+	"preparation": 1,
+	"investigation": 1,
+	"analyse": 1,
+	"restitution": 1,
+	"suivi": 6
+}
+var current_phase_progression
 var object_to_click : String
 
 
@@ -50,6 +58,7 @@ func _ready() -> void:
 	score = 0
 	credits = 0
 	current_phase = phases.PREPARATION
+	current_phase_progression = 0
 	object_to_click = phases_desc[current_phase][1]
 	$letterInvest.get_node("AnimatedSprite2D")._setnumber(4)
 	$letterSuivi1.get_node("AnimatedSprite2D")._setnumber(5)
@@ -102,12 +111,11 @@ func _nextPhase(phase):
 		$glass.visible = false
 		return phases.RESTITUTION
 	if (phase == phases.RESTITUTION):
-		$letterSuivi1.visible = true
-		$letterSuivi2.visible = true
-		$letterSuivi3.visible = true
-		$letterSuivi4.visible = true
-		$letterSuivi5.visible = true
-		$letterSuivi6.visible = true
+		var letterstoshow = 6-upgrades_level["relation"]
+		for i in range(1, letterstoshow + 1):
+			var letter = get_node("letterSuivi%d" % i)
+			letter.visible = true
+		phase_steps["suivi"] = letterstoshow
 		return phases.SUIVI
 	if (phase == phases.SUIVI):
 		$letterSuivi1.visible = false
@@ -134,8 +142,18 @@ func _finishaudit():
 
 func _increasepapers() -> void:
 	papers += 1*ppc
-	
+
+func _continuephase(phase: String) -> void:
+	current_phase_progression += 1
+	print("Progression de la phase en cours: " + str(current_phase_progression) + "/" + str(phase_steps[phase]))
+	if(current_phase_progression/phase_steps[phase] == 1):
+		print("Phase effectuée à 100% ... Passage à la phase suivante")
+		_finishphase()
+	elif(current_phase_progression/phase_steps[phase] > 1):
+		print("erreur dans la progression (>1)")
+
 func _finishphase() -> void:
+	current_phase_progression = 0
 	current_phase = _nextPhase(current_phase)
 	_updateobjecttoclick()
 

@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_valider_pressed() -> void:
-	main._finishphase()
+	main._continuephase("restitution")
 	queue_free()
 
 func _on_rapport_pressed() -> void:
