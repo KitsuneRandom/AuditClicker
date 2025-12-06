@@ -17,7 +17,7 @@ func _on_equipe_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_valider_pressed() -> void:
-	main._finishphase()
+	main._continuephase("preparation")
 	queue_free()
 
 
