@@ -26,7 +26,7 @@ var phases_desc = {
 }
 var current_phase
 var phase_steps = {
-	"preparation": 1,
+	"preparation": 4,
 	"investigation": 1,
 	"analyse": 1,
 	"restitution": 1,
