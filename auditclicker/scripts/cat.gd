@@ -149,6 +149,7 @@ func _oiia5() -> void:
 	stop()
 
 func _oiia6() -> void:
+	$"..".z_index += 10
 	print("oiia oiia")
 	$".".modulate = Color(1, 1, 1)
 	play("white_oiia")
@@ -170,6 +171,7 @@ func _oiia6() -> void:
 	play("explode")
 	await get_tree().create_timer(0.6).timeout
 	stop()
+	$"..".z_index -= 10
 	queue_free()
 
 func _buff() -> void:
