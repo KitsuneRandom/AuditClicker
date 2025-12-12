@@ -20,8 +20,11 @@ func _followmouse() -> void:
 	get_parent().position = main.get_global_mouse_position()
 
 func _fall() -> void:
-	if get_parent().position.y > 74:
-		for i in range(0, 10):
+	var falltime = 20
+	if get_parent().position.x < -252 or get_parent().position.x > 255 :
+		falltime = 100
+	if get_parent().position.y > 74 or get_parent().position.x < -252 or get_parent().position.x > 255 :
+		for i in range(0, falltime):
 			get_parent().position.y += 5
 			await get_tree().create_timer(0.05).timeout
 		get_parent().position.x = 57
