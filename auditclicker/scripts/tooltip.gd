@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$".".z_index = 100
 	$Background.size = Vector2(10 * 2, 10 * 2)
 	$Background/Label.text = ""
 	var font = $Background/Label.get_theme_font("font")
