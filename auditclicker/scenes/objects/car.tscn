@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnrvek1hiijd8"]
 
-[ext_resource type="Texture2D" uid="uid://bjlx558w11rn0" path="res://assets/car.png" id="1_c35m8"]
+[ext_resource type="Texture2D" uid="uid://dt8iu7nmftvu3" path="res://assets/car.png" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://cpbiahnpmnd41" path="res://scripts/car.gd" id="1_qt2eu"]
 [ext_resource type="AudioStream" uid="uid://cv74tkv0cd0dr" path="res://assets/sounds/salut-cest-franck-leboeuf.mp3" id="3_50v30"]
 
@@ -13,6 +13,8 @@ height = 0.118918
 [node name="car" type="Area2D"]
 
 [node name="carSprite" type="Sprite2D" parent="."]
+position = Vector2(4.0000005, -3)
+scale = Vector2(1.65, 1.65)
 texture = ExtResource("1_c35m8")
 script = ExtResource("1_qt2eu")
 

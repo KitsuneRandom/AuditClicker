@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://t82ia03h2fda"]
 
-[ext_resource type="Texture2D" uid="uid://dn5yknyl7s5he" path="res://assets/rules.png" id="1_3spy8"]
+[ext_resource type="Texture2D" uid="uid://p1d0k15kqamq" path="res://assets/rules.png" id="1_3spy8"]
 [ext_resource type="Script" uid="uid://dkkbtofix4kbf" path="res://scripts/rules.gd" id="2_66h5d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66h5d"]
@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1m7fe"]
-size = Vector2(509, 86)
+size = Vector2(239, 89)
 
 [node name="rules" type="Area2D"]
 
@@ -24,7 +24,7 @@ sprite_frames = SubResource("SpriteFrames_66h5d")
 script = ExtResource("2_66h5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, -5)
+position = Vector2(-1.5, 8.5)
 shape = SubResource("RectangleShape2D_1m7fe")
 
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_rules_input_event"]

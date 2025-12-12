@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfeny627ikjkf"]
+
+[ext_resource type="Script" uid="uid://dx2pfxls3eemj" path="res://scripts/restitution.gd" id="1_sgy8e"]
+[ext_resource type="Texture2D" uid="uid://d1n1wvr50aps7" path="res://assets/big_paper.png" id="2_tfq44"]
+[ext_resource type="Texture2D" uid="uid://j4oabbtsmpt" path="res://assets/pen.png" id="3_d1kqr"]
+
+[node name="Restitution" type="Node2D"]
+script = ExtResource("1_sgy8e")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -306.5
+offset_top = -156.5
+offset_right = 304.5
+offset_bottom = 154.5
+metadata/_edit_use_anchors_ = true
+
+[node name="BigPaper" type="Sprite2D" parent="."]
+position = Vector2(-2.999998, 0)
+scale = Vector2(0.67999995, 0.72050005)
+texture = ExtResource("2_tfq44")
+
+[node name="Valider" type="Button" parent="."]
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 114.0
+offset_bottom = 132.0
+text = "Valider"
+
+[node name="Rapport" type="Button" parent="."]
+offset_left = -108.0
+offset_top = -128.0
+offset_right = 114.0
+offset_bottom = -93.0
+text = "Rédiger le rapport"
+
+[node name="Pen" type="Sprite2D" parent="."]
+position = Vector2(161.00002, 10)
+scale = Vector2(0.23673469, 0.26938775)
+texture = ExtResource("3_d1kqr")
+
+[connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
+[connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
+[connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]
+[connection signal="mouse_entered" from="Rapport" to="." method="_on_rapport_mouse_entered"]
+[connection signal="mouse_exited" from="Rapport" to="." method="_on_rapport_mouse_exited"]
+[connection signal="pressed" from="Rapport" to="." method="_on_rapport_pressed"]

@@ -13,6 +13,10 @@ func _on_paper_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
+		if main._verifobject("paper.tscn") == true:
+			main.add_child(preload("res://scenes/phases/preparation.tscn").instantiate())
+		else :
+			main.add_child(preload("res://scenes/submenus/fullscreen_paper.tscn").instantiate())
 		main._increasepapers()
 
 
