@@ -115,6 +115,7 @@ func _oiia4() -> void:
 
 func _oiia5() -> void:
 	print("oiia oiia")
+	$".".modulate = Color(1, 1, 1)
 	play("white_oiia")
 	$"../OiiaRemix".play()
 	main.modulate = Color(1, 1, 0)
@@ -149,6 +150,7 @@ func _oiia5() -> void:
 
 func _oiia6() -> void:
 	print("oiia oiia")
+	$".".modulate = Color(1, 1, 1)
 	play("white_oiia")
 	$"../OiiaRemix".play()
 	var nuancegris: float
