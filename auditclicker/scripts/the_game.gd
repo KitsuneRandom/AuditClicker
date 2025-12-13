@@ -109,6 +109,7 @@ func _nextPhase(phase):
 		return phases.ANALYSE
 	if (phase == phases.ANALYSE):
 		$glass.visible = false
+		$pen.visible = true
 		return phases.RESTITUTION
 	if (phase == phases.RESTITUTION):
 		var letterstoshow = 6-upgrades_level["relation"]
