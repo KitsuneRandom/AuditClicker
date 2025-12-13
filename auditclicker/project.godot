@@ -14,7 +14,7 @@ config/name="AuditClicker"
 run/main_scene="uid://dec7qg82selvx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=30
-boot_splash/image="uid://dc5qt05hiiuxi"
+boot_splash/image="uid://yfv7w4cqtt4s"
 config/icon="uid://dc5qt05hiiuxi"
 
 [display]
