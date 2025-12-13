@@ -1,18 +1,46 @@
 extends AnimatedSprite2D
+## Script de l'objet cliquable "chat".
+##
+## Le chat sert principalement de décoration. [/br]
+## Lorsqu'on clique dessus, un son est joué et une animation se lance.
+## Après quelques clicks dessus, un bonus est gagné.
+##
+## Note : un TextureButton aurait été plus approprié pour répondre
+## au besoin mais nous avons eu un mauvais choix de conception au
+## début du projet.
 
+## Tooltip qui apparaît lorsque la souris passe sur le chat.
 var tooltip
+
+## Variable représentant l'écran principal du jeu.
 var main
+
+## Compteur de clicks.
 var clicks
+
+## Booléen servant à savoir si le bonus a déjà été donné.
 var buffed
 
+## Fonction appelée à la création du noeud.
+##
+## Initialise les variables main, buffed et clicks. Joue l'animation
+## "normal" pour s'assurer que le chat ait l'apparence souhaitée
 func _ready() -> void:
 	main = get_parent().get_parent()
 	buffed = false
 	clicks = 0
 	play("normal")
 	stop()
-	pass # Replace with function body.
 
+## Fonction appelée lorsque le joueur clique sur le chat.
+##
+## Si une animation est en cours, ne fait rien.[br]
+## Sinon, déplace légèrement le chat pour créer
+## un effet de click puis appelle la fonction _trybuff().
+##
+## @param viewport Node : noeud concerné par l'évenement
+## @param event InputEvent : type d'évenement
+## @param shape_idx int : index du CollisionShape concerné
 func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (is_playing()):
 		return
@@ -24,6 +52,10 @@ func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 		_trybuff()
 		clicks += 1
 
+## Détermine l'action à réaliser en fonction du nombre de clicks sur le chat.
+##
+## Appelle une fonction _oiia<i>() en fonction du nombre de clicks.
+## Au bout du 6e click, appelle la fonction _buff().
 func _trybuff() -> void:
 	if (clicks == 0):
 		_oiia1()
@@ -47,7 +79,7 @@ func _trybuff() -> void:
 		clicks = -1
 		return
 
-
+## Joue l'animation "oiia" et le son Oiia.
 func _oiia1() -> void:
 	print("oiia oiia")
 	play("oiia")
@@ -57,6 +89,7 @@ func _oiia1() -> void:
 	play("normal")
 	stop()
 
+## Joue l'animation "oiia" et le son Oiia2.
 func _oiia2() -> void:
 	print("oiia oiia")
 	play("oiia", 0.75)
@@ -66,6 +99,7 @@ func _oiia2() -> void:
 	play("normal")
 	stop()
 
+## Joue l'animation "oiia" et le son OiiaRemix, et change le chat de couleur.
 func _oiia3() -> void:
 	print("oiia oiia")
 	play("oiia")
@@ -86,6 +120,8 @@ func _oiia3() -> void:
 	play("normal")
 	stop()
 
+## Joue l'animation "oiia" et le son OiiaRemix,
+## et change le chat et le main de couleur.
 func _oiia4() -> void:
 	print("oiia oiia")
 	play("oiia")
@@ -113,6 +149,8 @@ func _oiia4() -> void:
 	play("normal")
 	stop()
 
+## Joue l'animation "white_oiia" et le son OiiaRemix,
+## et change le main de couleur en faisant monter légèrement le chat.
 func _oiia5() -> void:
 	print("oiia oiia")
 	$".".modulate = Color(1, 1, 1)
@@ -148,6 +186,8 @@ func _oiia5() -> void:
 	$"..".position.y = -24
 	stop()
 
+## Joue l'animation "white_oiia" et le son OiiaRemix, change le main de couleur,
+## Déplace le chat au centre de l'écran puis le fait exploser.
 func _oiia6() -> void:
 	$"..".z_index += 10
 	print("oiia oiia")
@@ -174,10 +214,14 @@ func _oiia6() -> void:
 	$"..".z_index -= 10
 	queue_free()
 
+## Met buffed à true
 func _buff() -> void:
 	buffed = true
 
-# Surbrillance des éléments
+## Fonction appelée lorsque le joueur passe la souris sur le chat
+##
+## Change la couleur et affiche la tooltip. Permet au joueur de
+## comprendre qu'il s'agit d'un élément cliquable.
 func _on_cat_mouse_entered() -> void:
 	if (is_playing()):
 		return
@@ -187,6 +231,9 @@ func _on_cat_mouse_entered() -> void:
 	print("Affichage de la tooltip etape chat")
 	main.add_child(tooltip)
 
+## Fonction appelée lorsque la souris quitte le chat
+##
+## Remet la couleur à la couleur d'origine et supprime la tooltip.
 func _on_cat_mouse_exited() -> void:
 	if (is_playing()):
 		if tooltip:
