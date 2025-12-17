@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureButton
 ## Script de l'objet cliquable "voiture".
 ##
 ## La voiture sert principalement de décoration. [br]
@@ -28,15 +28,14 @@ func _ready() -> void:
 ## @param viewport Node : noeud concerné par l'évenement
 ## @param event InputEvent : type d'évenement
 ## @param shape_idx int : index du CollisionShape concerné
-func _on_car_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("Car click !")
-		$"../CarSound".play()
-		position.y += 10
-		await get_tree().create_timer(0.1).timeout
-		position.y -= 10
-		main.credits += 10
-		main.get_node("car").hide()
+func _on_pressed() -> void:
+	print("Car click !")
+	$"../CarSound".play()
+	position.y += 10
+	await get_tree().create_timer(0.1).timeout
+	position.y -= 10
+	main.credits += 10
+	main.get_node("car").hide()
 
 
 
@@ -44,7 +43,7 @@ func _on_car_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 ##
 ## Change la couleur et affiche la tooltip. Permet au joueur de
 ## comprendre qu'il s'agit d'un élément cliquable.
-func _on_car_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
 	tooltip.displayed_text = "vendezvotrevoiture.fr"
@@ -54,7 +53,7 @@ func _on_car_mouse_entered() -> void:
 ## Fonction appelée lorsque la souris quitte la voiture
 ##
 ## Remet la couleur à la couleur d'origine et supprime la tooltip.
-func _on_car_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	$".".modulate = Color(1, 1, 1)
 	if tooltip:
 		tooltip.queue_free()
