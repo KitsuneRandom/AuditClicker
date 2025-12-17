@@ -10,8 +10,8 @@ script = ExtResource("1_75laa")
 
 [node name="Background" type="Panel" parent="."]
 self_modulate = Color(0.41328314, 0.13994592, 0.5210365, 1)
-offset_right = 611.0
-offset_bottom = 311.0
+offset_right = 626.5
+offset_bottom = 319.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_k1t0d")
 
 [node name="Space" type="Control" parent="."]

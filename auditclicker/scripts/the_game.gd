@@ -10,9 +10,9 @@ var statRedaction
 var upgrades_level
 var score
 var credits
-var txtprep = "Préparation : Organisez votre audit d'entreprise."
-var txtinve = "Investigation : L'entreprise vous a envoyé ses documents."
-var txtanal = "Analyse : Concentrez vous sur les documents que vous avez récupéré."
+var txtprep = "Préparation : Planifiez votre nouvel audit."
+var txtinve = "Investigation : Vérifiez les documents envoyés par l'entreprise."
+var txtanal = "Analyse : Analysez la situation financière de l'entreprise."
 var txtrest = "Restitution : Rédigez le rapport de votre audit."
 var txtsuiv = "Suivi : L'entreprise vous fait part de quelques problèmes persistants."
 enum phases {PREPARATION, INVESTIGATION, ANALYSE, RESTITUTION, SUIVI}
@@ -190,7 +190,9 @@ func _printFormatedTime(time) -> String:
 	return str(minutes) + ":" + str(seconds)
 
 func _updatescoredisplay():
-	$ScoreDisplayer.text = object_to_click + " / Score : " + str(score) + " 📄 " + str(papers) + " 📑 " + str(ppc) + " ppc ⏱️ " + _printFormatedTime(timeLeft)
+	$ScoreDisplayer.text = "Score : " + str(score)
+	$TimeDisplayer.text = "⏱️ : " + _printFormatedTime(timeLeft)
+	$CreditDisplayer.text = "💰 : " + str(credits)
 
 func _verifobject(object) -> bool:
 	if object != object_to_click:
