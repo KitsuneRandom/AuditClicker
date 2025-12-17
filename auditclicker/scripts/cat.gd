@@ -4,10 +4,6 @@ extends AnimatedSprite2D
 ## Le chat sert principalement de décoration. [/br]
 ## Lorsqu'on clique dessus, un son est joué et une animation se lance.
 ## Après quelques clicks dessus, un bonus est gagné.
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Tooltip qui apparaît lorsque la souris passe sur le chat.
 var tooltip
@@ -26,7 +22,7 @@ var buffed
 ## Initialise les variables main, buffed et clicks. Joue l'animation
 ## "normal" pour s'assurer que le chat ait l'apparence souhaitée
 func _ready() -> void:
-	main = get_parent().get_parent()
+	main = get_parent().get_parent().get_parent()
 	buffed = false
 	clicks = 0
 	play("normal")
@@ -41,16 +37,15 @@ func _ready() -> void:
 ## @param viewport Node : noeud concerné par l'évenement
 ## @param event InputEvent : type d'évenement
 ## @param shape_idx int : index du CollisionShape concerné
-func _on_cat_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_texture_button_pressed() -> void:
 	if (is_playing()):
 		return
-	if event is InputEventMouseButton and event.pressed:
-		print("Cat click ! (clicks = " + str(clicks) + ")")
-		position.y += 10
-		await get_tree().create_timer(0.1).timeout
-		position.y -= 10
-		_trybuff()
-		clicks += 1
+	print("Cat click ! (clicks = " + str(clicks) + ")")
+	position.y += 10
+	await get_tree().create_timer(0.1).timeout
+	position.y -= 10
+	_trybuff()
+	clicks += 1
 
 ## Détermine l'action à réaliser en fonction du nombre de clicks sur le chat.
 ##
@@ -160,37 +155,37 @@ func _oiia5() -> void:
 	main.modulate = Color(1, 1, 0)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	main.modulate = Color(1, 0, 0)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	main.modulate = Color(1, 0, 1)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	main.modulate = Color(0, 1, 1)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	main.modulate = Color(0, 0, 1)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	main.modulate = Color(0, 1, 0)
 	for i in range(0, 5):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.y -= 2
+		$"../..".position.y -= 2
 	$".".modulate = Color(1, 1, 1)
 	main.modulate = Color(1, 1, 1)
 	play("normal")
-	$"..".position.y = -24
+	$"../..".position.y = -24
 	stop()
 
 ## Joue l'animation "white_oiia" et le son OiiaRemix, change le main de couleur,
 ## Déplace le chat au centre de l'écran puis le fait exploser.
 func _oiia6() -> void:
-	$"..".z_index += 10
+	$"../..".z_index += 10
 	print("oiia oiia")
 	$".".modulate = Color(1, 1, 1)
 	play("white_oiia")
@@ -198,8 +193,8 @@ func _oiia6() -> void:
 	var nuancegris: float
 	for i in range(0, 30):
 		await get_tree().create_timer(0.1).timeout
-		$"..".position.x += 5.4
-		$"..".position.y += 1
+		$"../..".position.x += 5.4
+		$"../..".position.y += 1
 		nuancegris = 1 - float(i)/30
 		main.modulate = Color(nuancegris, nuancegris, nuancegris)
 	main.modulate = Color(1, 1, 1)
@@ -212,8 +207,8 @@ func _oiia6() -> void:
 	play("explode")
 	await get_tree().create_timer(0.6).timeout
 	stop()
-	$"..".z_index -= 10
-	queue_free()
+	$"../..".z_index -= 10
+	$"../..".queue_free()
 
 ## Met buffed à true et donne un bonus au score
 func _buff() -> void:
@@ -224,7 +219,7 @@ func _buff() -> void:
 ##
 ## Change la couleur et affiche la tooltip. Permet au joueur de
 ## comprendre qu'il s'agit d'un élément cliquable.
-func _on_cat_mouse_entered() -> void:
+func _on_texture_button_mouse_entered() -> void:
 	if (is_playing()):
 		return
 	$".".modulate = Color(0.5, 0.7, 1)
@@ -236,7 +231,7 @@ func _on_cat_mouse_entered() -> void:
 ## Fonction appelée lorsque la souris quitte le chat
 ##
 ## Remet la couleur à la couleur d'origine et supprime la tooltip.
-func _on_cat_mouse_exited() -> void:
+func _on_texture_button_mouse_exited() -> void:
 	if (is_playing()):
 		if tooltip:
 			tooltip.queue_free()

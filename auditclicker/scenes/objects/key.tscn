@@ -1,18 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo5qcla6swv5n"]
+[gd_scene load_steps=4 format=3 uid="uid://bo5qcla6swv5n"]
 
 [ext_resource type="Texture2D" uid="uid://cxslnoqs0uxud" path="res://assets/key.png" id="1_yk2u2"]
 [ext_resource type="Script" uid="uid://cdrcq5avfve0p" path="res://scripts/key.gd" id="2_fttkb"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fttkb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_yk2u2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk2u2"]
 radius = 217.993
@@ -20,8 +9,12 @@ height = 1008.18
 
 [node name="key" type="Area2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_fttkb")
+[node name="AnimatedSprite2D" type="TextureButton" parent="."]
+offset_left = -657.0
+offset_top = -657.0
+offset_right = 643.0
+offset_bottom = 643.0
+texture_normal = ExtResource("1_yk2u2")
 script = ExtResource("2_fttkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,3 +25,6 @@ shape = SubResource("CapsuleShape2D_yk2u2")
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_key_input_event"]
 [connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_key_mouse_entered"]
 [connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_key_mouse_exited"]
+[connection signal="mouse_entered" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_exited"]
+[connection signal="pressed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_pressed"]
