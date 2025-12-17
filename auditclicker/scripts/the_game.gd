@@ -79,9 +79,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_updatescoredisplay()
+	if(timeLeft <= 30):
+		if(timeLeft%2 == 0):
+			$TimeDisplayer.text = "⏱️ : "
+		else:
+			$TimeDisplayer.text = "⏱️ : " + _printFormatedTime(timeLeft)
 	if(timeLeft <= 0):
 		$GameTimeCountdown.stop()
+		$TimeDisplayer.visible = true
 		add_child(preload("res://scenes/game_menus/end_menu.tscn").instantiate())
+	
 	if(papers >= 50):
 		_increasePpc()
 	$messages.text = _getPhaseMessage(_getCurrentPhase())
