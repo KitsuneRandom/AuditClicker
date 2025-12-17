@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv8rr5h0m7pji"]
+
+[ext_resource type="Script" uid="uid://lwte8rdu36l1" path="res://scripts/vendre_sa_voiture.gd" id="1_k7jmu"]
+
+[node name="vendreSaVoiture" type="Node2D"]
+script = ExtResource("1_k7jmu")
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 216.0
+offset_bottom = 105.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 14.0
+offset_right = 185.0
+offset_bottom = 39.0
+text = "Vendre la voiture ?"
+metadata/_edit_use_anchors_ = true
+
+[node name="okButton" type="Button" parent="."]
+offset_left = 122.0
+offset_top = 56.0
+offset_right = 201.0
+offset_bottom = 90.0
+text = "OUI"
+metadata/_edit_use_anchors_ = true
+
+[node name="backButton" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 55.0
+offset_right = 97.0
+offset_bottom = 89.0
+text = "NON"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="okButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

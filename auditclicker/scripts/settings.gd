@@ -56,3 +56,18 @@ func _on_opt_button_quitter_pressed() -> void:
 	print("Sortie du jeu")
 	main.get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_opt_button_voiture_pressed() -> void:
+	main._buy_car()
+	main.get_node("GameTimeCountdown").start()
+	queue_free()
+
+func _on_opt_button_voiture_mouse_entered() -> void:
+	$OptButtonVoiture.self_modulate = Color(0, 0, 0)
+	$OptButtonVoiture.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
+func _on_opt_button_voiture_mouse_exited() -> void:
+	$OptButtonVoiture.self_modulate = Color(0.8, 0.8, 0.8)
+	$OptButtonVoiture.mouse_default_cursor_shape = Control.CURSOR_ARROW

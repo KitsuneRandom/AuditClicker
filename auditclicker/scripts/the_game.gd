@@ -205,3 +205,11 @@ func _verifobject(object) -> bool:
 	if object != object_to_click:
 		return false
 	return true
+
+
+func _vendre_voiture():
+	credits += 10
+	get_node("car").visible = false
+
+func _buy_car():
+	get_node("car").visible = true
