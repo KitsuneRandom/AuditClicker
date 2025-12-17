@@ -3,9 +3,6 @@ extends TextureButton
 ##
 ## Permet d'exécuter la phase RESTITUTION. [br]
 ## Le reste du temps, sert de décoration et peut être déplacé par le joueur.
-##
-## Note : ce noeud est un TextureBouton car c'est un élément beaucoup plus
-## manipulable qu'un sprite dans le cadre de ce jeu.
 
 ## Tooltip qui apparaît lorsque la souris passe sur le stylo.
 var tooltip
