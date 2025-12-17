@@ -28,19 +28,22 @@ offset_bottom = 132.0
 text = "Analyser"
 
 [node name="MagnifyingGlass" type="Sprite2D" parent="."]
-position = Vector2(29, 17)
-scale = Vector2(0.74999994, 0.7614379)
+position = Vector2(16.500015, -12.493488)
+scale = Vector2(0.59068614, 0.5996945)
 texture = ExtResource("3_8ttfd")
 
-[node name="Label" type="Label" parent="."]
+[node name="PaperText" type="Label" parent="MagnifyingGlass"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -43.0
-offset_top = -69.0
-offset_right = 61.0
-offset_bottom = 27.0
-text = "J'ai perdu
-le jeu"
-horizontal_alignment = 1
+offset_left = -107.999985
+offset_top = -99.81113
+offset_right = 77.000015
+offset_bottom = 13.188881
+text = "Lorem ipsum dolor
+sit amet, consectetur
+adipiscing elit, sed
+do eiusmod tempor
+incididunt ut labore
+et dolore"
 
 [connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
 [connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
