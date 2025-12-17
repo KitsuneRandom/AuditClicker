@@ -32,6 +32,13 @@ var phase_steps = {
 	"restitution": 1,
 	"suivi": 6
 }
+var phase_steps_duration = {
+	"preparation": 5.0,
+	"investigation": 5.0,
+	"analyse": 5.0,
+	"restitution": 5.0,
+	"suivi": 5.0
+}
 var current_phase_progression
 var object_to_click : String
 
@@ -97,6 +104,11 @@ func _getCurrentPhase() -> phases:
 
 func _getPhaseMessage(phase):
 	return phases_desc[phase][3]
+
+func _getPhaseStepDuration(phase: String):
+	if(phase_steps_duration[phase]):
+		return phase_steps_duration[phase]
+	return 2.0
 
 func _nextPhase(phase):
 	score += 1
