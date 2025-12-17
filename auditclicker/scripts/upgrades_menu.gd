@@ -38,6 +38,8 @@ func _on_opt_button_redaction_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("redaction", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["redaction"]) + ", + " + str(10*upgrades_level["redaction"]) + "% sur la Restitution"
+	
 
 
 func _on_opt_button_relation_pressed() -> void:
@@ -49,6 +51,7 @@ func _on_opt_button_relation_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("relation", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["relation"]) + ", + " + str(10*upgrades_level["relation"]) + "% sur le Suivi"
 
 
 func _on_opt_button_organisation_pressed() -> void:
@@ -60,6 +63,7 @@ func _on_opt_button_organisation_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("organisation", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["organisation"]) + ", + " + str(10*upgrades_level["organisation"]) + "% sur la Préparation"
 
 
 func _on_opt_button_logique_pressed() -> void:
@@ -71,6 +75,7 @@ func _on_opt_button_logique_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("logique", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["logique"]) + ", + " + str(10*upgrades_level["logique"]) + "% sur l'Analyse"
 
 
 func _on_opt_button_technique_pressed() -> void:
@@ -82,6 +87,7 @@ func _on_opt_button_technique_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("technique", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["technique"]) + ", + " + str(2*upgrades_level["technique"]) + "% sur tout"
 
 
 func _on_opt_button_jugement_pressed() -> void:
@@ -93,6 +99,7 @@ func _on_opt_button_jugement_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("jugement", nextlevel)
+	tooltip.displayed_text = "niv " + str(upgrades_level["jugement"]) + ", + " + str(10*upgrades_level["jugement"]) + "% sur l'Investigation"
 
 func _printerror(error) -> void:
 	print(error) # à mettre plus tard dans une vraie textbox
