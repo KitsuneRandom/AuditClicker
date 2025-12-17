@@ -1,6 +1,7 @@
 extends Node2D
 
 var main
+var countdown
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main = get_parent()
@@ -10,36 +11,39 @@ func _ready() -> void:
 	$Valider.visible = false
 	$StepsCountdown.wait_time = 2.0
 	$StepsCountdown.one_shot = true
+	countdown = main._getPhaseStepDuration("preparation")
 	pass # Replace with function body.
-
 
 func _on_objectifs_pressed() -> void:
 	main._continuephase("preparation")
-	$Objectifs.disabled = true
-	$Objectifs.text = "Objectifs en cours de saisie..."
-	$StepsCountdown.start()
-	await $StepsCountdown.timeout
 	$Objectifs.visible = false
+	$ObjectifsTexte.visible = true
+	var displayed_text = $ObjectifsTexte.text
+	for i in range(displayed_text.length()):
+		$ObjectifsTexte.text = displayed_text.substr(0, i + 1)
+		await get_tree().create_timer(countdown/displayed_text.length()).timeout
 	$Planification.visible = true
 	pass # Replace with function body.
 
 func _on_planification_pressed() -> void:
 	main._continuephase("preparation")
-	$Planification.disabled = true
-	$Planification.text = "Audit en cours de planification..."
-	$StepsCountdown.start()
-	await $StepsCountdown.timeout
 	$Planification.visible = false
+	$PlanificationTexte.visible = true
+	var displayed_text = $PlanificationTexte.text
+	for i in range(displayed_text.length()):
+		$PlanificationTexte.text = displayed_text.substr(0, i + 1)
+		await get_tree().create_timer(countdown/displayed_text.length()).timeout
 	$Equipe.visible = true
 	pass # Replace with function body.
 
 func _on_equipe_pressed() -> void:
 	main._continuephase("preparation")
-	$Objectifs.disabled = true
-	$Equipe.text = "Equipe en cours de sélection..."
-	$StepsCountdown.start()
-	await $StepsCountdown.timeout
 	$Equipe.visible = false
+	$EquipeTexte.visible = true
+	var displayed_text = $EquipeTexte.text
+	for i in range(displayed_text.length()):
+		$EquipeTexte.text = displayed_text.substr(0, i + 1)
+		await get_tree().create_timer(countdown/displayed_text.length()).timeout # j'ai perdu
 	$Valider.visible = true
 	pass # Replace with function body.
 

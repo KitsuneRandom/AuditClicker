@@ -109,6 +109,7 @@ offset_top = 127.0
 offset_right = 264.0
 offset_bottom = 151.0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
 position = Vector2(-305.5, -155.5)
