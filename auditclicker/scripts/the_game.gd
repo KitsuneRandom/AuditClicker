@@ -28,7 +28,7 @@ var current_phase
 var phase_steps = {
 	"preparation": 4,
 	"investigation": 1,
-	"analyse": 1,
+	"analyse": 2,
 	"restitution": 1,
 	"suivi": 6
 }
@@ -120,6 +120,7 @@ func _getPhaseStepDuration(phase: String):
 func _nextPhase(phase):
 	score += 1
 	if (phase == phases.PREPARATION):
+		phase_steps_duration["preparation"] = phase_steps_duration["preparation"]*(1.0-upgrades_level["organisation"]*0.5)
 		$letterInvest.visible = true
 		return phases.INVESTIGATION
 	if (phase == phases.INVESTIGATION):
@@ -127,6 +128,7 @@ func _nextPhase(phase):
 		$glass.visible = true
 		return phases.ANALYSE
 	if (phase == phases.ANALYSE):
+		phase_steps_duration["analyse"] = phase_steps_duration["analyse"]*(1.0-upgrades_level["logique"]*0.5)
 		$glass.visible = false
 		$pen.visible = true
 		return phases.RESTITUTION
