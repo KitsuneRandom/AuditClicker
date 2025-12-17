@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://hu5a22hxagmk"]
+[gd_scene load_steps=6 format=3 uid="uid://hu5a22hxagmk"]
 
 [ext_resource type="Script" uid="uid://c3bmb83y816y0" path="res://scripts/settings_audio.gd" id="1_e0v0j"]
 [ext_resource type="Texture2D" uid="uid://csjh2ayyujrve" path="res://assets/parchment.png" id="2_hw8md"]
+[ext_resource type="Texture2D" uid="uid://dg7y2xks5jtlk" path="res://assets/O.jpg" id="3_akwbt"]
+[ext_resource type="Texture2D" uid="uid://br4kdgj26sto1" path="res://assets/buble.png" id="4_50ns7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw8md"]
 
@@ -16,11 +18,11 @@ offset_bottom = 311.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hw8md")
 
 [node name="Title" type="Label" parent="."]
-offset_left = 283.5
-offset_top = 33.5
-offset_right = 328.5
-offset_bottom = 56.5
-text = "Audio"
+offset_left = 278.5
+offset_top = 27.5
+offset_right = 342.5
+offset_bottom = 50.5
+text = "O dit \"o\""
 
 [node name="OptButtonBack" type="Button" parent="."]
 offset_left = 27.5
@@ -33,6 +35,26 @@ text = "<< Retour"
 position = Vector2(304.625, 188.125)
 scale = Vector2(1.371839, 1.4787582)
 texture = ExtResource("2_hw8md")
+
+[node name="O" type="Sprite2D" parent="."]
+position = Vector2(369.50003, 189.50002)
+scale = Vector2(0.08348582, 0.08348582)
+texture = ExtResource("3_akwbt")
+
+[node name="Buble" type="Sprite2D" parent="."]
+position = Vector2(249.50002, 119.50001)
+scale = Vector2(0.5375, 0.56874996)
+texture = ExtResource("4_50ns7")
+
+[node name="Label" type="Label" parent="Buble"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -13.023283
+offset_top = -42.197815
+offset_right = 26.976717
+offset_bottom = 23.13552
+theme_override_font_sizes/font_size = 64
+text = "O"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="OptButtonBack" to="." method="_on_opt_button_back_mouse_entered"]
 [connection signal="mouse_exited" from="OptButtonBack" to="." method="_on_opt_button_back_mouse_exited"]
