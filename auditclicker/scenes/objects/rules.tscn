@@ -9,11 +9,13 @@ size = Vector2(239, 89)
 [node name="rules" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="TextureButton" parent="."]
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = -127.0
+offset_top = -53.0
+offset_right = 129.0
+offset_bottom = 53.0
 texture_normal = ExtResource("1_3spy8")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("2_66h5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -9,12 +9,14 @@ points = PackedVector2Array(2.64083, 8.08504, -2.86639, 9.02428, -2.50206, -7.98
 [node name="paper" type="Area2D"]
 
 [node name="paperSprite" type="TextureButton" parent="."]
-offset_left = -55.0
-offset_top = -68.00001
-offset_right = 457.0
-offset_bottom = 444.0
+offset_left = -53.0
+offset_top = -56.0
+offset_right = 439.81494
+offset_bottom = 356.6564
 scale = Vector2(0.208496, 0.261719)
 texture_normal = ExtResource("1_ldlei")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("2_vas6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -10,12 +10,14 @@ height = 424.49
 [node name="glass" type="Area2D"]
 
 [node name="glassSprite" type="TextureButton" parent="."]
-offset_left = 304.0
-offset_top = -199.0
-offset_right = 712.0
-offset_bottom = 413.0
+offset_left = 193.0
+offset_top = -168.00002
+offset_right = 549.10364
+offset_bottom = 215.06407
 rotation = 1.569214
 texture_normal = ExtResource("1_ca826")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("1_b5un2")
 
 [node name="glassCollision" type="CollisionShape2D" parent="."]
