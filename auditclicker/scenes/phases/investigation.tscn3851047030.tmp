@@ -24,7 +24,7 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_jxllp")
 
 [node name="paper" type="Area2D" parent="."]
-position = Vector2(0, -1.5497208e-05)
+position = Vector2(0, 2.3841858e-07)
 scale = Vector2(1, 0.99999994)
 
 [node name="paper_sprite" type="Sprite2D" parent="paper"]
@@ -41,20 +41,16 @@ shape = SubResource("RectangleShape2D_jxllp")
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("4_4oo06")
 
-[node name="Indocation" type="Panel" parent="."]
-offset_left = -125.0
-offset_top = 98.0
-offset_right = 125.0
-offset_bottom = 120.0
-
-[node name="IndicationLabel" type="Label" parent="Indocation"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 249.0
-offset_bottom = 20.0
-text = "Sortez le papier de l'enveloppe"
+[node name="Valider" type="Button" parent="."]
+offset_left = -110.0
+offset_top = 92.0
+offset_right = 112.0
+offset_bottom = 127.0
+text = "Récupérer les documents"
 
 [connection signal="input_event" from="paper" to="." method="_on_paper_input_event"]
 [connection signal="mouse_entered" from="paper" to="." method="_on_paper_mouse_entered"]
 [connection signal="mouse_exited" from="paper" to="." method="_on_paper_mouse_exited"]
+[connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
+[connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
+[connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]
