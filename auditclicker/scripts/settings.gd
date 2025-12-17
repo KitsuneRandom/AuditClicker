@@ -15,7 +15,7 @@ func _on_opt_button_audio_pressed() -> void:
 	main.add_child(preload("res://scenes/submenus/settings_audio.tscn").instantiate())
 
 func _on_opt_button_credits_pressed() -> void:
-	main.add_child(preload("res://scenes/submenus/licenses_menu.tscn").instantiate())
+	main.get_parent().add_child(preload("res://scenes/submenus/licenses_menu.tscn").instantiate())
 
 
 
