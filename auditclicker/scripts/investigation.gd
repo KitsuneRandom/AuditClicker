@@ -9,6 +9,7 @@ var paper_animation
 func _ready() -> void:
 	main = get_parent()
 	$paper.input_event.connect(_on_paper_input_event)
+	await get_tree().create_timer(1.0).timeout
 	paper_animation = true
 	for i in range (0, 10):
 		$paper.position.y -=1
