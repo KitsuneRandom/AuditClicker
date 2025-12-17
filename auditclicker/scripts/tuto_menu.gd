@@ -19,6 +19,7 @@ func _ready() -> void:
 		$Space/Content.text = (text.split("#"))[tutoState]
 		if tutoState == int(text[0]):
 			$Space/NextButton.text = "Commencer à jouer"
+			$Space/NextButton.position.x = 230.5
 			var viewport_size = get_viewport_rect().size
 			$Space/NextButton.position.x = ($Space/NextButton.get_parent().size.x - $Space/NextButton.size.x) / 2
 	else:
