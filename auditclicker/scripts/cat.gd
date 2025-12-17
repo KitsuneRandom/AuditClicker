@@ -75,6 +75,7 @@ func _trybuff() -> void:
 	if (clicks == 5):
 		_oiia6()
 		if (!buffed):
+			await get_tree().create_timer(7).timeout
 			_buff()
 		clicks = -1
 		return
@@ -214,9 +215,10 @@ func _oiia6() -> void:
 	$"..".z_index -= 10
 	queue_free()
 
-## Met buffed à true
+## Met buffed à true et donne un bonus au score
 func _buff() -> void:
 	buffed = true
+	main.score += 30
 
 ## Fonction appelée lorsque le joueur passe la souris sur le chat
 ##

@@ -14,7 +14,6 @@ var tooltip
 ## Variable représentant l'écran principal du jeu.
 var main
 
-
 ## Fonction appelée à la création du noeud.
 ##
 ## Initialise la variable main.
@@ -35,12 +34,9 @@ func _on_glass_input_event(viewport: Node, event: InputEvent, shape_idx: int) ->
 		position.y += 10
 		await get_tree().create_timer(0.1).timeout
 		position.y -= 10
-		main.get_child(17).hide()
+		main.get_node("glass").hide()
 		if main._verifobject("glass.tscn") == true:
 			main.add_child(preload("res://scenes/phases/analyse.tscn").instantiate())
-
-
-
 
 ## Fonction appelée lorsque le joueur passe la souris sur la loupe
 ##
