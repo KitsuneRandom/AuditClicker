@@ -12,8 +12,6 @@ func _on_opt_button_back_pressed() -> void:
 # Jolis boutons
 func _on_opt_button_back_mouse_entered() -> void:
 	$OptButtonBack.self_modulate = Color(1, 0.5, 0.5)
-	$OptButtonBack.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_opt_button_back_mouse_exited() -> void:
 	$OptButtonBack.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonBack.mouse_default_cursor_shape = Control.CURSOR_ARROW

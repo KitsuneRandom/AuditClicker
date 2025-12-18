@@ -28,8 +28,7 @@ func _ready() -> void:
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
-		get_viewport().gui_release_focus()
-		queue_free.call_deferred()
+		queue_free()
 	
 
 
