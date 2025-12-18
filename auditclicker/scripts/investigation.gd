@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 			_followmouse()
 	if($paper.position.y < -100):
 		main._continuephase("investigation")
-		queue_free()
+		get_viewport().gui_release_focus()
+		queue_free.call_deferred()
 
 func _on_paper_input_event(viewport, event, shape_idx):
 	pass # LAISSER CA !!

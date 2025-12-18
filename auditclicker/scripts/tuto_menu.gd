@@ -28,8 +28,6 @@ func _ready() -> void:
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
-		await get_tree().create_timer(0.3).timeout
-		queue_free()
 	
 
 
@@ -51,7 +49,8 @@ func _on_next_button_pressed() -> void:
 		nextStep.tutoState = tutoState+1
 		nextStep.firstTimeShown = firstTimeShown
 		get_parent().add_child(nextStep)
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 	if tutoState == int(text[0]):
 		if firstTimeShown == 1:
 			print("Démarrage du jeu et lancement du timer")

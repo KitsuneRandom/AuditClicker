@@ -10,6 +10,7 @@ func _ready() -> void:
 	main = get_parent()
 	state = 1
 	countdown = main._getPhaseStepDuration("analyse")
+	print(countdown)
 	displayed_text = $MagnifyingGlass/PaperText.text
 	$MagnifyingGlass/PaperText.text = ""
 	pass # Replace with function body.
@@ -30,7 +31,8 @@ func _on_valider_pressed() -> void:
 		tween.tween_property($MagnifyingGlass, "position", target, 1.0) 
 		await tween.finished
 	if state == 2:
-		queue_free()
+		get_viewport().gui_release_focus()
+		queue_free.call_deferred()
 	main._continuephase("analyse")
 	state += 1
 

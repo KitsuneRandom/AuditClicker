@@ -6,11 +6,8 @@ func _ready() -> void:
 
 
 func _on_opt_button_back_pressed() -> void:
-	queue_free()
-
-
-
-
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 # Jolis boutons
 func _on_opt_button_back_mouse_entered() -> void:

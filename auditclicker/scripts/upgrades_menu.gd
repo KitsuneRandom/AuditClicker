@@ -38,7 +38,8 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 
 func _on_opt_button_redaction_pressed() -> void:
@@ -140,7 +141,8 @@ func _on_opt_button_relation_mouse_entered() -> void:
 func _on_opt_button_relation_mouse_exited() -> void:
 	$OptButtonRelation.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 
@@ -153,7 +155,8 @@ func _on_opt_button_organisation_mouse_entered() -> void:
 func _on_opt_button_organisation_mouse_exited() -> void:
 	$OptButtonOrganisation.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 
@@ -166,7 +169,8 @@ func _on_opt_button_logique_mouse_entered() -> void:
 func _on_opt_button_logique_mouse_exited() -> void:
 	$OptButtonLogique.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 
@@ -179,7 +183,8 @@ func _on_opt_button_technique_mouse_entered() -> void:
 func _on_opt_button_technique_mouse_exited() -> void:
 	$OptButtonTechnique.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 
@@ -192,7 +197,8 @@ func _on_opt_button_jugement_mouse_entered() -> void:
 func _on_opt_button_jugement_mouse_exited() -> void:
 	$OptButtonJugement.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 
@@ -205,5 +211,6 @@ func _on_opt_button_redaction_mouse_entered() -> void:
 func _on_opt_button_redaction_mouse_exited() -> void:
 	$OptButtonRedaction.self_modulate = Color(0.8, 0.8, 0.8)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null

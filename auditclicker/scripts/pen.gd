@@ -92,7 +92,8 @@ func _on_pen_mouse_exited() -> void:
 	is_mouse_over = false
 	$".".modulate = Color(1, 1, 1)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null
 
 ## Fonction appelée lorsque le stylo est cliqué.

@@ -12,6 +12,7 @@ func _ready() -> void:
 	$StepsCountdown.wait_time = 2.0
 	$StepsCountdown.one_shot = true
 	countdown = main._getPhaseStepDuration("preparation")
+	print(countdown)
 	pass # Replace with function body.
 
 func _on_objectifs_pressed() -> void:
@@ -49,7 +50,8 @@ func _on_equipe_pressed() -> void:
 
 func _on_valider_pressed() -> void:
 	main._continuephase("preparation")
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 
 func _on_objectifs_mouse_entered() -> void:
