@@ -24,17 +24,35 @@ func _process(delta: float) -> void:
 	cur_credits = main._getCurCredits()
 	$Credits.text = str(cur_credits) + " crédits"
 	var nextlevel = upgrades_level["redaction"] + 1
-	$OptButtonRedaction.text = "Redaction\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonRedaction.text = "Redaction\n(Niveau max)"
+	else:
+		$OptButtonRedaction.text = "Redaction\n(" + str(5*(nextlevel)) + " crédits)"
 	nextlevel = upgrades_level["relation"] + 1
-	$OptButtonRelation.text = "Relation\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonRelation.text = "Relation\n(Niveau max)"
+	else:
+			$OptButtonRelation.text = "Relation\n(" + str(5*(nextlevel)) + " crédits)"
 	nextlevel = upgrades_level["organisation"] + 1
-	$OptButtonOrganisation.text = "Organisation\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonOrganisation.text = "Organisation\n(Niveau max)"
+	else:
+			$OptButtonOrganisation.text = "Organisation\n(" + str(5*(nextlevel)) + " crédits)"
 	nextlevel = upgrades_level["logique"] + 1
-	$OptButtonLogique.text = "Logique\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonLogique.text = "Logique\n(Niveau max)"
+	else:
+		$OptButtonLogique.text = "Logique\n(" + str(5*(nextlevel)) + " crédits)"
 	nextlevel = upgrades_level["technique"] + 1
-	$OptButtonTechnique.text = "Technique\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonTechnique.text = "Technique\n(Niveau max)"
+	else:
+			$OptButtonTechnique.text = "Technique\n(" + str(5*(nextlevel)) + " crédits)"
 	nextlevel = upgrades_level["jugement"] + 1
-	$OptButtonJugement.text = "Jugement\n(" + str(5*(nextlevel)) + " crédits)"
+	if (nextlevel > 5):
+		$OptButtonJugement.text = "Jugement\n(Niveau max)"
+	else:
+			$OptButtonJugement.text = "Jugement\n(" + str(5*(nextlevel)) + " crédits)"
 
 
 func _on_start_button_pressed() -> void:
@@ -51,7 +69,7 @@ func _on_opt_button_redaction_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("redaction", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["redaction"]) + ", + " + str(10*upgrades_level["redaction"]) + "% sur la Restitution"
+	tooltip._set_text("niv " + str(upgrades_level["redaction"]) + ", + " + str(10*upgrades_level["redaction"]) + "% sur la Restitution")
 	
 
 
@@ -64,19 +82,20 @@ func _on_opt_button_relation_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("relation", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["relation"]) + ", + " + str(10*upgrades_level["relation"]) + "% sur le Suivi"
+	tooltip._set_text("niv " + str(upgrades_level["relation"]) + ", + " + str(10*upgrades_level["relation"]) + "% sur le Suivi")
 
 
 func _on_opt_button_organisation_pressed() -> void:
 	var nextlevel = upgrades_level["organisation"] + 1
 	if (nextlevel > 5):
 		_printerror("niveau max atteint")
+	
 		return
 	if (cur_credits < 5*nextlevel):
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("organisation", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["organisation"]) + ", + " + str(10*upgrades_level["organisation"]) + "% sur la Préparation"
+	tooltip._set_text("niv " + str(upgrades_level["organisation"]) + ", + " + str(10*upgrades_level["organisation"]) + "% sur la Préparation")
 
 
 func _on_opt_button_logique_pressed() -> void:
@@ -88,7 +107,7 @@ func _on_opt_button_logique_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("logique", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["logique"]) + ", + " + str(10*upgrades_level["logique"]) + "% sur l'Analyse"
+	tooltip._set_text("niv " + str(upgrades_level["logique"]) + ", + " + str(10*upgrades_level["logique"]) + "% sur l'Analyse")
 
 
 func _on_opt_button_technique_pressed() -> void:
@@ -100,7 +119,7 @@ func _on_opt_button_technique_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("technique", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["technique"]) + ", + " + str(2*upgrades_level["technique"]) + "% sur tout"
+	tooltip._set_text("niv " + str(upgrades_level["technique"]) + ", + " + str(2*upgrades_level["technique"]) + "% sur tout")
 
 
 func _on_opt_button_jugement_pressed() -> void:
@@ -112,7 +131,7 @@ func _on_opt_button_jugement_pressed() -> void:
 		_printerror("pas assez de crédits")
 		return
 	_upgrade("jugement", nextlevel)
-	tooltip.displayed_text = "niv " + str(upgrades_level["jugement"]) + ", + " + str(10*upgrades_level["jugement"]) + "% sur l'Investigation"
+	tooltip._set_text("niv " + str(upgrades_level["jugement"]) + ", + " + str(10*upgrades_level["jugement"]) + "% sur l'Investigation")
 
 func _printerror(error) -> void:
 	print(error) # à mettre plus tard dans une vraie textbox
