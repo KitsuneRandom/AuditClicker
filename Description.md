@@ -3,10 +3,10 @@
 ---
 
 ## Table des matières
-1. Objectifs pédagogiques
-2. Description du jeu
-3. Actions du joueur
-4. Informations renvoyées au joueur
+1. [Objectifs pédagogiques](#objectifs-pédagogiques)
+2. [Description du jeu](#description-du-jeu)
+3. [Actions du joueur](#actions-du-joueur)
+4. [Informations renvoyées au joueur](#informations-renvoyées-au-joueur)
 
 ---
 
@@ -41,7 +41,7 @@ Il s'agit d'un serious game visant à transmettre de nouvelles connaissances au 
 ## Description du jeu
 
 ### Type de jeu
-AuditClicker est un **clicker**, qui utilise les mécaniques classiques des jeux de type clicker tout en ayant en parallèle un objectif pédagogique (voir la section **Objectifs pédagogiques**).
+AuditClicker est un **clicker**, qui utilise les mécaniques classiques des jeux de type clicker tout en ayant en parallèle un objectif pédagogique (voir la section [Objectifs pédagogiques](#objectifs-pédagogiques)).
 
 ### Vue d'ensemble
 Le joueur incarne un auditeur qui travaille dans son bureau et réalise des audits.  
