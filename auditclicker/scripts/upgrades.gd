@@ -2,10 +2,6 @@ extends TextureButton
 ## Script de l'objet cliquable "améliorations".
 ##
 ## Permet d'ouvrir le menu améliorations.
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Variable représentant l'écran principal du jeu.
 var main
@@ -23,10 +19,6 @@ func _ready() -> void:
 ##
 ## Déplace légèrement les améliorations pour créer un effet de click
 ## puis ajoute la scène upgrades_menu.tscn au main.
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
 func _on_pressed() -> void:
 	print("Upgrades click !")
 	position.y += 10

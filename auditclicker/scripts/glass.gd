@@ -3,10 +3,6 @@ extends TextureButton
 ##
 ## Apparaît sur l'écran principal lors de la phase ANALYSE.
 ## Permet d'exécuter le phase ANALYSE puis disparaît.
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Tooltip qui apparaît lorsque la souris passe sur la loupe.
 var tooltip
@@ -24,10 +20,6 @@ func _ready() -> void:
 ##
 ## Déplace légèrement la loupe pour créer un effet de click
 ## puis disparaît et ajoute la scène analyse.tscn au main.
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
 func _on_pressed() -> void:
 	print("Glass click !")
 	position.y += 10

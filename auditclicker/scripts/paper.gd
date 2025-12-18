@@ -22,7 +22,7 @@ func _ready() -> void:
 ## puis ajoute la scène preparation.tscn si c'est la bonne phase,
 ## fullscreen_paper.tscn sinon.
 func _on_pressed() -> void:
-	print("Paper click ! (" + main._printpapers() + " papers et " + main._printPpc() + " ppc)")
+	print("Paper click !")
 	position.y += 10
 	await get_tree().create_timer(0.1).timeout
 	position.y -= 10
@@ -30,7 +30,6 @@ func _on_pressed() -> void:
 		main.add_child(preload("res://scenes/phases/preparation.tscn").instantiate())
 	else :
 		main.add_child(preload("res://scenes/submenus/fullscreen_paper.tscn").instantiate())
-	main._increasepapers()
 
 ## Fonction appelée lorsque le joueur passe la souris sur le papier
 ##

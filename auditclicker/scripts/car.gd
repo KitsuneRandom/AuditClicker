@@ -3,10 +3,6 @@ extends TextureButton
 ##
 ## La voiture sert principalement de décoration. [br]
 ## Lorsqu'on clique dessus, un son est joué.
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Tooltip qui apparaît lorsque la souris passe sur la voiture.
 var tooltip
@@ -23,11 +19,7 @@ func _ready() -> void:
 ## Fonction appelée lorsque le joueur clique sur la voiture.
 ##
 ## Joue le son CarSound puis déplace légèrement la voiture pour créer
-## un effet de click
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
+## un effet de click. Ensuite, instancie la scène vendre_sa_voiture
 func _on_pressed() -> void:
 	print("Car click !")
 	$"../CarSound".play()

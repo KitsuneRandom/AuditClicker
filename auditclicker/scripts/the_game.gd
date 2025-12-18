@@ -1,22 +1,34 @@
 extends Node2D
+## Scène principale
+##
+## La scène principale gère les variables globales du jeu :
+## Temps restant, crédits, score, niveau d'améliorations, phases, fin du jeu [/br]
+## On y retrouve tout le déroulement du jeu
 
-var papers
-var ppc
+## Temps restant
 var timeLeft
-var statCadre
-var statRecolte
-var statAnalyse
-var statRedaction
+
+## Niveau des améliorations, dictionnaire {String : int}
 var upgrades_level
+
+## Score actuel
 var score
+
+## Nombre de crédits possédés
 var credits
+
+# Textes par défaut à afficher sur la scène principale
 var txtprep = "Préparation : Planifiez votre nouvel audit."
 var txtinve = "Investigation : Vérifiez les documents envoyés par l'entreprise."
 var txtanal = "Analyse : Analysez la situation financière de l'entreprise."
 var txtrest = "Restitution : Rédigez le rapport de votre audit."
 var txtsuiv = "Suivi : L'entreprise vous fait part de quelques problèmes persistants."
+
+## Liste des tâches
 enum phases {PREPARATION, INVESTIGATION, ANALYSE, RESTITUTION, SUIVI}
 #Description des phases : [0: "nom", 1: "objet à cliquer", 2: "amélioration associée", 3: "message à afficher"]
+
+## Description des phases, dictionnaire {enum phases : tableau [String]}
 var phases_desc = {
 	phases.PREPARATION: ["Préparation", "paper.tscn", "organisation", txtprep],
 	phases.INVESTIGATION: ["Investigation", "letter.tscn", "jugement", txtinve],
@@ -24,7 +36,11 @@ var phases_desc = {
 	phases.RESTITUTION: ["Restitution", "pen.tscn", "redaction", txtrest],
 	phases.SUIVI: ["Suivi", "letter2.tscn", "relation", txtsuiv]
 }
+
+## Phase actuelle, enum phases
 var current_phase
+
+## Nombre d'étape par phase, dictionnaire {String : int}
 var phase_steps = {
 	"preparation": 4,
 	"investigation": 1,
@@ -32,6 +48,8 @@ var phase_steps = {
 	"restitution": 1,
 	"suivi": 6
 }
+
+## Durée totale des phases au départ
 var phase_steps_initial_duration = {
 	"preparation": 3.0,
 	"investigation": 3.0,
@@ -39,6 +57,8 @@ var phase_steps_initial_duration = {
 	"restitution": 2.0,
 	"suivi": 3.0
 }
+
+## Durée des phases après application du niveau d'amélioration
 var phase_steps_duration = {
 	"preparation": 3.0,
 	"investigation": 3.0,
@@ -46,20 +66,24 @@ var phase_steps_duration = {
 	"restitution": 2.0,
 	"suivi": 3.0
 }
+
+## Étape actuelle de la phase
 var current_phase_progression
+
+## Objet à cliquer pour passer la phase actuelle
 var object_to_click : String
+
+## Nombre d'audits réalisés
+var nbaudits
+
+## Booléen permettant de savoir si la partie est déjà finie ou non
 var finished = false
 
-
-# Called when the node enters the scene tree for the first time.
+## Fonction appelée lorsque la scène est instanciée
+##
+## Initialise toutes les variables
 func _ready() -> void:
 	print("Ready")
-	papers = 0
-	ppc = 1
-	statCadre = 1
-	statRecolte = 1
-	statAnalyse = 1
-	statRedaction = 1
 	timeLeft = 300 #5 minutes
 	_updatescoredisplay()
 	upgrades_level = {
@@ -82,9 +106,11 @@ func _ready() -> void:
 	$letterSuivi4.get_node("AnimatedSprite2D")._setnumber(8)
 	$letterSuivi5.get_node("AnimatedSprite2D")._setnumber(9)
 	$letterSuivi6.get_node("AnimatedSprite2D")._setnumber(10)
-	pass # Replace with function body.
+	nbaudits = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+## Fonction appelée à chaque frame
+##
+## Vérifie la fin du jeu
 func _process(delta: float) -> void:
 	_updatescoredisplay()
 	if(timeLeft <= 30):
@@ -97,17 +123,6 @@ func _process(delta: float) -> void:
 		$TimeDisplayer.visible = true
 		add_child(preload("res://scenes/game_menus/end_menu.tscn").instantiate())
 		finished = true
-	
-	if(papers >= 50):
-		_increasePpc()
-	$messages.text = _getPhaseMessage(_getCurrentPhase())
-	pass
-
-func _getpapers() -> int:
-	return papers
-	
-func _getPpc() -> int:
-	return ppc
 
 func _getUpgrades_level() -> Dictionary:
 	return upgrades_level
@@ -121,11 +136,17 @@ func _getCurrentPhase() -> phases:
 func _getPhaseMessage(phase):
 	return phases_desc[phase][3]
 
+func _getNbAudits():
+	return nbaudits
+
 func _getPhaseStepDuration(phase: String):
 	if(phase_steps_duration[phase]):
 		return phase_steps_duration[phase]
 	return 2.0
 
+## Fonction permettant de passer à la phase suivante et d'afficher
+## les informations nécessaires sur la scène principale et appelle 
+## _finishaudit() si c'était la dernière phase
 func _nextPhase(phase):
 	score += 1
 	if (phase == phases.PREPARATION):
@@ -162,21 +183,22 @@ func _nextPhase(phase):
 		return phases.PREPARATION
 	return phase
 
+## Met à jour l'objet qu'il faut cliquer
 func _updateobjecttoclick() -> void:
 		object_to_click = phases_desc[current_phase][1]
 
-
+## Met à jour les niveaux d'amélioration (appelé dans upgrades_menu)
 func _updateupgrades(newupgrades, newcredits) -> void:
 	upgrades_level = newupgrades
 	credits = newcredits
 
+## Mise à jour des variables après la fin d'un audit
 func _finishaudit():
 	credits += 10
 	score += 10
+	nbaudits += 1
 
-func _increasepapers() -> void:
-	papers += 1*ppc
-
+## Réalise une étape de la phase et appelle _finishphase() si c'était la dernière
 func _continuephase(phase: String) -> void:
 	current_phase_progression += 1
 	print("Progression de la phase en cours: " + str(current_phase_progression) + "/" + str(phase_steps[phase]))
@@ -186,23 +208,17 @@ func _continuephase(phase: String) -> void:
 	elif(current_phase_progression/phase_steps[phase] > 1):
 		print("erreur dans la progression (>1)")
 
+## Passe à la phase suivante
 func _finishphase() -> void:
 	current_phase_progression = 0
 	current_phase = _nextPhase(current_phase)
 	_updateobjecttoclick()
 
-func _increasePpc() -> void:
-	ppc = (papers/50)+ 1
-
-func _printpapers() -> String:
-	return str(papers)
-
-func _printPpc() -> String:
-	return str(ppc)
-	
+## Mise à jour du temps restant
 func _on_game_time_countdown_timeout() -> void:
 	timeLeft -= 1
 
+## Affiche le temps de façon compréhensible par l'utilisateur
 func _printFormatedTime(time) -> String:
 	var minutes = time / 60
 	var seconds = time % 60
@@ -210,20 +226,24 @@ func _printFormatedTime(time) -> String:
 		seconds = "0" + str(seconds)
 	return str(minutes) + ":" + str(seconds)
 
+## Met à jour l'affichage du score, des crédits et du temps restant
+## (appelé à chaque frame)
 func _updatescoredisplay():
 	$ScoreDisplayer.text = "Score : " + str(score)
 	$TimeDisplayer.text = "⏱️ : " + _printFormatedTime(timeLeft)
 	$CreditDisplayer.text = "💰 : " + str(credits)
 
+## Vérifie si l'objet cliqué correspond à celui qui doit être cliqué
 func _verifobject(object) -> bool:
 	if object != object_to_click:
 		return false
 	return true
 
-
+## Cache la voiture et ajoute des crédits
 func _vendre_voiture():
 	credits += 10
 	get_node("car").visible = false
 
+## Réaffiche la voiture
 func _buy_car():
 	get_node("car").visible = true
