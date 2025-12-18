@@ -31,9 +31,9 @@ Sur le plan pédagogique, notre but est de transmettre au joueur de nouvelles co
 3. Naviguer dans le dossier correspondant à votre système d'exploitation (Windows/Linux/Android)
 
 4. Selon le choix effectué à l'étape 3, cliquer sur :
-    - `AuditClicker.exe` (Windows)
-    - `AuditClicker.x86_64` (Linux)
-    - `AuditClicker.apk` (Android)
+    - [AuditClicker.exe](auditclicker/export/Windows) (Windows) 
+    - [AuditClicker.x86_64](auditclicker/export/Linux) (Linux)
+    - [AuditClicker.apk](auditclicker/export/Android) (Android)
 
 5. Suivre les éventuelles indiquations affichées à l'écran
 
