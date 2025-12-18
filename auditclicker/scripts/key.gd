@@ -2,10 +2,6 @@ extends TextureButton
 ## Script de l'objet cliquable "clé".
 ##
 ## Objet cliquable permettant de mettre pause et d'accéder au menu options
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Variable représentant l'écran principal du jeu.
 var main
@@ -23,10 +19,6 @@ func _ready() -> void:
 ##
 ## Déplace légèrement la clé pour créer un effet de click
 ## puis disparaît et ajoute la scène settings.tscn au main.
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
 func _on_pressed() -> void:
 	print("Key click !")
 	position.y += 10

@@ -1,11 +1,21 @@
 extends Node2D
+## Affichage du tutoriel
+##
+## Lit le fichier tuto.txt et affiche le texte sur plusieurs écrans
 
-# Récupération des paramètres passés 
-@export var tutoState: int # Etape du tuto
-@export var firstTimeShown: int = 0 # Définit si le timer doit être démarré après le tuto
+## Étape du tuto
+@export var tutoState: int
+
+## Variable servant à savoir si le timer doit être démarré après le tuto
+@export var firstTimeShown: int = 0 
+
+## Texte affiché
 var text
 
-# Called when the node enters the scene tree for the first time.
+## Fonction appelée lors de l'instanciation de la scène
+##
+## Arrête le timer, met à jour le texte et l'affiche. Affiche le menu
+## fin du jeu avec une erreur si il ne trouve pas le fichier
 func _ready() -> void:
 	if !$"../GameTimeCountdown".is_stopped():
 		$"../GameTimeCountdown".stop()
@@ -30,19 +40,18 @@ func _ready() -> void:
 		get_parent().add_child(endScreen)
 	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+## Changement de la couleur du bouton lorsqu'on passe sur le bouton
 func _on_next_button_mouse_entered() -> void:
-	$Space/NextButton.self_modulate = Color(0.8, 0.8, 0.8)
-
-
-func _on_next_button_mouse_exited() -> void:
 	$Space/NextButton.self_modulate = Color(0, 0, 0)
 
+## Remise de la couleur à la couleur d'origine lorsqu'on quitte le bouton
+func _on_next_button_mouse_exited() -> void:
+	$Space/NextButton.self_modulate = Color(0.8, 0.8, 0.8)
 
+## Fonction appelée lorsqu'on clique sur le bouton continuer
+##
+## Affiche la suite du texte si il n'est pas fini ou permet de
+## commencer le jeu en relançant le timer
 func _on_next_button_pressed() -> void:
 	if tutoState < int(text[0]):
 		var nextStep = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
@@ -57,5 +66,3 @@ func _on_next_button_pressed() -> void:
 		else:
 			print("Reprise du jeu et reprise du timer")
 		$"../GameTimeCountdown".start()
-	
-	#match 

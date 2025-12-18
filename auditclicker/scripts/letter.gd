@@ -3,10 +3,6 @@ extends TextureButton
 ##
 ## Apparaît sur l'écran principal lors des phases INVESTIGATION et SUIVI.
 ## Permet d'exécuter la phase INVESTIGATION ou SUIVI puis disparaît.
-##
-## Note : un TextureButton aurait été plus approprié pour répondre
-## au besoin mais nous avons eu un mauvais choix de conception au
-## début du projet.
 
 ## Tooltip qui apparaît lorsque la souris passe sur la lettre.
 var tooltip
@@ -47,10 +43,6 @@ func _setnumber(newnumber) -> void:
 ## Déplace légèrement la lettre pour créer un effet de click
 ## puis disparaît et ajoute la scène investigation.tscn 
 ## ou suivi.tscn au main en fonction de la phase du main.
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
 func _on_pressed() -> void:
 	print("Letter click !")
 	position.y += 10

@@ -33,10 +33,6 @@ func _ready() -> void:
 ## Si une animation est en cours, ne fait rien.[br]
 ## Sinon, déplace légèrement le chat pour créer
 ## un effet de click puis appelle la fonction _trybuff().
-##
-## @param viewport Node : noeud concerné par l'évenement
-## @param event InputEvent : type d'évenement
-## @param shape_idx int : index du CollisionShape concerné
 func _on_texture_button_pressed() -> void:
 	if (is_playing()):
 		return
