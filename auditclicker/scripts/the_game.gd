@@ -48,6 +48,7 @@ var phase_steps_duration = {
 }
 var current_phase_progression
 var object_to_click : String
+var finished = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -91,10 +92,11 @@ func _process(delta: float) -> void:
 			$TimeDisplayer.text = "⏱️ : "
 		else:
 			$TimeDisplayer.text = "⏱️ : " + _printFormatedTime(timeLeft)
-	if(timeLeft <= 0):
+	if(timeLeft <= 0 and !finished):
 		$GameTimeCountdown.stop()
 		$TimeDisplayer.visible = true
 		add_child(preload("res://scenes/game_menus/end_menu.tscn").instantiate())
+		finished = true
 	
 	if(papers >= 50):
 		_increasePpc()
