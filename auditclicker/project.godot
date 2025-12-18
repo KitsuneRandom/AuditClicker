@@ -29,3 +29,7 @@ window/stretch/aspect="ignore"
 fonts/dynamic_fonts/use_oversampling=false
 theme/default_font_antialiasing=0
 theme/custom_font="uid://qlic0p76maal"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
