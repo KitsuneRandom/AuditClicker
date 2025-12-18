@@ -81,3 +81,7 @@ Le jeu se termine après 5 minutes de gameplay et affiche le score final du joue
 
 [MIT](https://choosealicense.com/licenses/mit/)  
 [Conditions d'utilisation](licenses/Conditions_d_utilisation.txt)
+
+---
+
+Des informations plus détaillées sont disponibles dans le [Wiki du projet](Description.md).
