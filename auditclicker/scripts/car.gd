@@ -37,8 +37,6 @@ func _on_pressed() -> void:
 	main.add_child(preload("res://scenes/submenus/vendre_sa_voiture.tscn").instantiate())
 
 
-
-
 ## Fonction appelée lorsque le joueur passe la souris sur la voiture
 ##
 ## Change la couleur et affiche la tooltip. Permet au joueur de
