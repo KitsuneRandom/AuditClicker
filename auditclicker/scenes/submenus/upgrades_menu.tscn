@@ -39,7 +39,8 @@ offset_left = 115.5
 offset_top = 94.5
 offset_right = 299.5
 offset_bottom = 125.5
-text = "Rédaction"
+text = "Rédaction
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonRelation" type="Button" parent="."]
@@ -47,7 +48,8 @@ offset_left = 114.5
 offset_top = 154.5
 offset_right = 298.5
 offset_bottom = 185.5
-text = "Relation"
+text = "Relation
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonOrganisation" type="Button" parent="."]
@@ -55,7 +57,8 @@ offset_left = 115.5
 offset_top = 215.5
 offset_right = 299.5
 offset_bottom = 246.5
-text = "Organisation"
+text = "Organisation
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonLogique" type="Button" parent="."]
@@ -63,7 +66,8 @@ offset_left = 314.5
 offset_top = 92.5
 offset_right = 498.5
 offset_bottom = 123.5
-text = "Logique"
+text = "Logique
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonTechnique" type="Button" parent="."]
@@ -71,7 +75,8 @@ offset_left = 315.5
 offset_top = 153.5
 offset_right = 499.5
 offset_bottom = 184.5
-text = "Technique"
+text = "Technique
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonJugement" type="Button" parent="."]
@@ -79,7 +84,8 @@ offset_left = 313.5
 offset_top = 215.5
 offset_right = 497.5
 offset_bottom = 246.5
-text = "Jugement"
+text = "Jugement
+(5 crédits)"
 icon_alignment = 1
 
 [node name="OptButtonRetour" type="Button" parent="."]

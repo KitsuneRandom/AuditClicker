@@ -22,35 +22,27 @@ func _on_opt_button_credits_pressed() -> void:
 # Jolis boutons :D
 func _on_opt_button_back_mouse_entered() -> void:
 	$OptButtonBack.self_modulate = Color(1, 0.5, 0.5)
-	$OptButtonBack.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_opt_button_back_mouse_exited() -> void:
 	$OptButtonBack.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonBack.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func _on_opt_button_audio_mouse_entered() -> void:
 	$OptButtonAudio.self_modulate = Color(0, 0, 0)
-	$OptButtonAudio.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_opt_button_audio_mouse_exited() -> void:
 	$OptButtonAudio.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonAudio.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func _on_opt_button_credits_mouse_entered() -> void:
 	$OptButtonCredits.self_modulate = Color(0, 0, 0)
-	$OptButtonCredits.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_opt_button_credits_mouse_exited() -> void:
 	$OptButtonCredits.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonCredits.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func _on_opt_button_quitter_mouse_entered() -> void:
 	$OptButtonQuitter.self_modulate = Color(0, 0, 0)
-	$OptButtonQuitter.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_opt_button_quitter_mouse_exited() -> void:
 	$OptButtonQuitter.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonQuitter.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func _on_opt_button_quitter_pressed() -> void:
 	print("Sortie du jeu")
@@ -65,9 +57,7 @@ func _on_opt_button_voiture_pressed() -> void:
 
 func _on_opt_button_voiture_mouse_entered() -> void:
 	$OptButtonVoiture.self_modulate = Color(0, 0, 0)
-	$OptButtonVoiture.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 
 func _on_opt_button_voiture_mouse_exited() -> void:
 	$OptButtonVoiture.self_modulate = Color(0.8, 0.8, 0.8)
-	$OptButtonVoiture.mouse_default_cursor_shape = Control.CURSOR_ARROW
