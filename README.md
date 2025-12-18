@@ -77,7 +77,7 @@ Le jeu se termine après 5 minutes de gameplay et affiche le score final du joue
 
 ---
 
-## License
+## Licence
 
 [MIT](https://choosealicense.com/licenses/mit/)  
 [Conditions d'utilisation](licenses/Conditions_d_utilisation.txt)
