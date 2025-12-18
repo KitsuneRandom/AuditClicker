@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 func _set_text(new_text: String) -> void:
-	$Background/Label.text = displayed_text
+	$Background/Label.text = new_text
 	var text_size = font.get_string_size($Background/Label.text)
 	$Background.size.x = text_size.x + 10 * 2
 	$Background.size.y = text_size.y + 10
