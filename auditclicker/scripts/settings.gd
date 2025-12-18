@@ -9,7 +9,8 @@ func _ready() -> void:
 
 func _on_opt_button_back_pressed() -> void:
 	main.get_node("GameTimeCountdown").start()
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 func _on_opt_button_audio_pressed() -> void:
 	main.add_child(preload("res://scenes/submenus/settings_audio.tscn").instantiate())
@@ -61,7 +62,8 @@ func _on_opt_button_quitter_pressed() -> void:
 func _on_opt_button_voiture_pressed() -> void:
 	main._buy_car()
 	main.get_node("GameTimeCountdown").start()
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 func _on_opt_button_voiture_mouse_entered() -> void:
 	$OptButtonVoiture.self_modulate = Color(0, 0, 0)

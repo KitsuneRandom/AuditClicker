@@ -9,7 +9,8 @@ func _ready() -> void:
 
 func _on_valider_pressed() -> void:
 	main._continuephase("suivi")
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 
 func _on_valider_mouse_entered() -> void:
