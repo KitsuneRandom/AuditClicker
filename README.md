@@ -47,10 +47,10 @@ Sur le plan pédagogique, notre but est de transmettre au joueur de nouvelles co
 ### Menu de démarrage
 
 Au démarrage du jeu, un écran d'accueil simple est proposé au joueur. Il affiche notamment le nom du jeu et un bouton pour démarrer.  
-![Menu_de_démarrage](Menu_de_démarrage.png)  
+![Menu_de_démarrage](auditclicker/Menu_de_démarrage.png)  
 
 Ensuite, le concept ainsi que le fonctionnement est expliqué en détail sur plusieurs écrans, puis le jeu commence.  
-![Ecran_tuto](Ecran_tuto.png)  
+![Ecran_tuto](auditclicker/Ecran_tuto.png)  
 
 
 
@@ -58,22 +58,22 @@ Ensuite, le concept ainsi que le fonctionnement est expliqué en détail sur plu
 
 Le gameplay se fait sur un écran principal, présenté ci-dessous. Il représente l'espace de travail de l'auditeur incarné par le joueur.  
 Plusieurs éléments cliquables sur l'interface représentent les étapes de réalisation d'un audit. C'est au joueur de trouver la bonne action à effectuer (avec l'aide de certains indices visuels).  
-![Bureau](Bureau.png)  
+![Bureau](auditclicker/Bureau.png)  
 Pour chaque étape ou audit complet achevé, le joueur est récompensé grâce à des crédits (en plus du score qui augmente).  
 Il peut les dépenser dans des améliorations de ses compétences, provoquant une diminution de la durée nécessaire à la réalisation des phases.  
-![Menu_améliorations](Menu_améliorations.png)
+![Menu_améliorations](auditclicker/Menu_améliorations.png)
 
 ### Fin du jeu
 
 Le jeu se termine après 5 minutes de gameplay et affiche le score final du joueur (qui est déterminé à partir du nombre d'audits réalisés).  
-![Menu_fin](Menu_fin.png)
+![Menu_fin](auditclicker/Menu_fin.png)
 
 ---
 
 ## Contributions
 
-DE AZEVEDO Mathis  
-WOLFF--WALK Jules
+[DE AZEVEDO Mathis](https://github.com/KitsuneRandom)  
+[WOLFF--WALK Jules](https://github.com/julesWW/)
 
 ---
 
