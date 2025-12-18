@@ -19,8 +19,7 @@ func _on_start_button_mouse_exited() -> void:
 	$StartButton.self_modulate = Color(0, 0, 0)
 
 func _on_start_button_pressed() -> void:
-	get_viewport().gui_release_focus()
-	$".".queue_free.call_deferred()
+	$".".queue_free()
 	var tutoScreen = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
 	tutoScreen.tutoState = 1
 	tutoScreen.firstTimeShown = 1

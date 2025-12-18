@@ -48,8 +48,6 @@ func _look_with_glass(x: int, y: int) -> void:
 
 func _on_valider_mouse_entered() -> void:
 	$Valider.self_modulate = Color(0, 0, 0)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 func _on_valider_mouse_exited() -> void:
 	$Valider.self_modulate = Color(0.8, 0.8, 0.8)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_ARROW
