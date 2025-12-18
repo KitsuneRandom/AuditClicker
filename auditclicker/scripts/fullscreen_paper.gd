@@ -12,7 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_opt_button_retour_pressed() -> void:
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 
 func _on_opt_button_retour_mouse_entered() -> void:

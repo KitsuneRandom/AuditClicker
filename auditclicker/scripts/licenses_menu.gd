@@ -17,7 +17,8 @@ func _ready() -> void:
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
-		queue_free()
+		get_viewport().gui_release_focus()
+		queue_free.call_deferred()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,6 +34,7 @@ func _on_next_button_mouse_exited() -> void:
 
 func _on_next_button_pressed() -> void:
 	get_parent().visible = true
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 	
 	#match 

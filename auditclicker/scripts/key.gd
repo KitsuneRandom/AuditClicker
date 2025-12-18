@@ -52,5 +52,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	$".".modulate = Color(1, 1, 1)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null

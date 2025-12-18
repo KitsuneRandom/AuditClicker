@@ -32,12 +32,19 @@ var phase_steps = {
 	"restitution": 1,
 	"suivi": 6
 }
+var phase_steps_initial_duration = {
+	"preparation": 3.0,
+	"investigation": 3.0,
+	"analyse": 3.0,
+	"restitution": 2.0,
+	"suivi": 3.0
+}
 var phase_steps_duration = {
-	"preparation": 5.0,
-	"investigation": 5.0,
-	"analyse": 5.0,
-	"restitution": 5.0,
-	"suivi": 5.0
+	"preparation": 3.0,
+	"investigation": 3.0,
+	"analyse": 3.0,
+	"restitution": 2.0,
+	"suivi": 3.0
 }
 var current_phase_progression
 var object_to_click : String
@@ -120,19 +127,21 @@ func _getPhaseStepDuration(phase: String):
 func _nextPhase(phase):
 	score += 1
 	if (phase == phases.PREPARATION):
-		phase_steps_duration["preparation"] = phase_steps_duration["preparation"]*(1.0-upgrades_level["organisation"]*0.5)
+		phase_steps_duration["preparation"] = phase_steps_initial_duration["preparation"]*(1.0-upgrades_level["organisation"]*0.15)
 		$letterInvest.visible = true
 		return phases.INVESTIGATION
 	if (phase == phases.INVESTIGATION):
+		phase_steps_duration["investigation"] = phase_steps_initial_duration["investigation"]*(1.0-upgrades_level["jugement"]*0.15)
 		$letterInvest.visible = false
 		$glass.visible = true
 		return phases.ANALYSE
 	if (phase == phases.ANALYSE):
-		phase_steps_duration["analyse"] = phase_steps_duration["analyse"]*(1.0-upgrades_level["logique"]*0.5)
+		phase_steps_duration["analyse"] = phase_steps_initial_duration["analyse"]*(1.0-upgrades_level["logique"]*0.15)
 		$glass.visible = false
 		$pen.visible = true
 		return phases.RESTITUTION
 	if (phase == phases.RESTITUTION):
+		phase_steps_duration["restitution"] = phase_steps_initial_duration["restitution"]*(1.0-upgrades_level["redaction"]*0.15)
 		var letterstoshow = 6-upgrades_level["relation"]
 		for i in range(1, letterstoshow + 1):
 			var letter = get_node("letterSuivi%d" % i)
@@ -140,6 +149,7 @@ func _nextPhase(phase):
 		phase_steps["suivi"] = letterstoshow
 		return phases.SUIVI
 	if (phase == phases.SUIVI):
+		phase_steps_duration["suivi"] = phase_steps_initial_duration["suivi"]*(1.0-upgrades_level["relation"]*0.15)
 		$letterSuivi1.visible = false
 		$letterSuivi2.visible = false
 		$letterSuivi3.visible = false

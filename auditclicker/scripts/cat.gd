@@ -208,7 +208,8 @@ func _oiia6() -> void:
 	await get_tree().create_timer(0.6).timeout
 	stop()
 	$"../..".z_index -= 10
-	$"../..".queue_free()
+	get_viewport().gui_release_focus()
+	$"../..".queue_free.call_deferred()
 
 ## Met buffed à true et donne un bonus au score
 func _buff() -> void:
@@ -234,10 +235,12 @@ func _on_texture_button_mouse_entered() -> void:
 func _on_texture_button_mouse_exited() -> void:
 	if (is_playing()):
 		if tooltip:
-			tooltip.queue_free()
+			get_viewport().gui_release_focus()
+			tooltip.queue_free.call_deferred()
 			tooltip = null
 		return
 	$".".modulate = Color(1, 1, 1)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null

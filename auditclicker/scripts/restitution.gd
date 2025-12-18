@@ -10,12 +10,14 @@ func _ready() -> void:
 	displayed_text = $RestitutionText.text
 	$RestitutionText.text = ""
 	countdown = main._getPhaseStepDuration("restitution")
+	print(countdown)
 	pass # Replace with function body.
 
 
 func _on_valider_pressed() -> void:
 	main._continuephase("restitution")
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
 func _on_rapport_pressed() -> void:
 	$Rapport.visible = false

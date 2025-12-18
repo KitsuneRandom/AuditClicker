@@ -11,11 +11,13 @@ func _ready() -> void:
 
 func _changeText(text: String) -> void:
 	$Control/ResultsTitle.text = text
-	$Control/ResultsTitle.position.x = ($Control/ResultsTitle.get_parent().size.x - $Control/ResultsTitle.size.x) / 2
+	if text == "Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie":
+		$Control/ResultsTitle.position = Vector2(-83, $Control/ResultsTitle.position.y)
 	$Control/ResultsValue.text = ""
 
 
 func _on_quit_button_pressed() -> void:
 	print("Sortie du jeu")
+	get_viewport().gui_release_focus()
 	main.get_tree().quit()
 	pass # Replace with function body.
