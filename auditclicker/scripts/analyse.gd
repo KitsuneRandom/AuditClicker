@@ -13,7 +13,13 @@ var displayed_text
 ## Variable représentant l'état du bouton
 var state
 
+## Décompte des étapes de la phase
 var countdown
+
+var texts = [
+	"jaaj",
+	"jaaj2"
+]
 
 ## Fonction appelée à l'instanciation de la scène
 ##
