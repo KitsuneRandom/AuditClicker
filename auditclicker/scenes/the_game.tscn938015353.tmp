@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=3 uid="uid://dec7qg82selvx"]
+
+[ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
+[ext_resource type="Script" uid="uid://cr5c65fwvqfph" path="res://scripts/the_game.gd" id="1_jq0i5"]
+[ext_resource type="PackedScene" uid="uid://ppw55lakrq30" path="res://scenes/objects/paper.tscn" id="3_i7k80"]
+[ext_resource type="PackedScene" uid="uid://rfahrqfvtv5b" path="res://scenes/objects/letter.tscn" id="4_hscpy"]
+[ext_resource type="PackedScene" uid="uid://ba4lnykbdxwht" path="res://scenes/objects/upgrades.tscn" id="5_cxvok"]
+[ext_resource type="PackedScene" uid="uid://csldoj4kudur0" path="res://scenes/objects/cat.tscn" id="6_w211t"]
+[ext_resource type="PackedScene" uid="uid://bo5qcla6swv5n" path="res://scenes/objects/key.tscn" id="7_jq0i5"]
+[ext_resource type="PackedScene" uid="uid://dnrvek1hiijd8" path="res://scenes/objects/car.tscn" id="8_jq0i5"]
+[ext_resource type="PackedScene" uid="uid://t82ia03h2fda" path="res://scenes/objects/rules.tscn" id="9_naogu"]
+[ext_resource type="PackedScene" uid="uid://4v75mk547lc6" path="res://scenes/objects/pen.tscn" id="10_hyocf"]
+[ext_resource type="PackedScene" uid="uid://b3bq740ii8h22" path="res://scenes/objects/glass.tscn" id="11_hyocf"]
+[ext_resource type="PackedScene" uid="uid://cr51xs768s3qc" path="res://scenes/game_menus/start_menu.tscn" id="11_naogu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyocf"]
+bg_color = Color(0, 0, 0, 0.44705883)
+
+[node name="TheGame" type="Node2D"]
+script = ExtResource("1_jq0i5")
+
+[node name="desk" type="Sprite2D" parent="."]
+position = Vector2(6.4373e-06, -0.500004)
+texture = ExtResource("1_cltob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.76, 1.74)
+
+[node name="ScoreDisplayer" type="Label" parent="."]
+offset_left = -78.0
+offset_top = -137.0
+offset_right = 78.0
+offset_bottom = -104.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hyocf")
+horizontal_alignment = 1
+
+[node name="paper" parent="." instance=ExtResource("3_i7k80")]
+position = Vector2(-23, 65)
+
+[node name="letterInvest" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-162, 52)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi1" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-220, 55)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi2" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-160, 55)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi3" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-100, 55)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi4" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-220, 95)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi5" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-160, 95)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="letterSuivi6" parent="." instance=ExtResource("4_hscpy")]
+visible = false
+position = Vector2(-100, 95)
+scale = Vector2(0.145655, 0.145655)
+
+[node name="upgrades" parent="." instance=ExtResource("5_cxvok")]
+position = Vector2(150, 65)
+scale = Vector2(0.152887, 0.152887)
+
+[node name="key" parent="." instance=ExtResource("7_jq0i5")]
+position = Vector2(181, -19)
+scale = Vector2(0.0477304, 0.0477304)
+
+[node name="car" parent="." instance=ExtResource("8_jq0i5")]
+position = Vector2(84, -28)
+scale = Vector2(0.283446, 0.283446)
+
+[node name="rules" parent="." instance=ExtResource("9_naogu")]
+position = Vector2(-26, -20)
+scale = Vector2(0.35, 0.35)
+
+[node name="cat" parent="." instance=ExtResource("6_w211t")]
+position = Vector2(-161, -24)
+
+[node name="pen" parent="." instance=ExtResource("10_hyocf")]
+position = Vector2(57, 74)
+rotation = 0.25659
+scale = Vector2(0.0902124, 0.0902124)
+
+[node name="glass" parent="." instance=ExtResource("11_hyocf")]
+visible = false
+position = Vector2(-102, 59.999996)
+scale = Vector2(0.2, 0.2)
+
+[node name="TimeDisplayer" type="Label" parent="."]
+offset_left = 171.0
+offset_top = -148.0
+offset_right = 299.0
+offset_bottom = -115.0
+theme_override_font_sizes/font_size = 32
+text = "⏱️ : 5:00"
+
+[node name="CreditDisplayer" type="Label" parent="."]
+offset_left = -300.0
+offset_top = -148.0
+offset_right = -96.0
+offset_bottom = -96.0
+theme_override_font_sizes/font_size = 32
+
+[node name="messagesBackspace" type="Panel" parent="."]
+offset_left = -270.0
+offset_top = 127.0
+offset_right = 264.0
+offset_bottom = 151.0
+
+[node name="messages" type="Label" parent="."]
+offset_left = -270.0
+offset_top = 127.0
+offset_right = 264.0
+offset_bottom = 151.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
+position = Vector2(-305.5, -155.5)
+
+[node name="GameTimeCountdown" type="Timer" parent="."]
+
+[connection signal="timeout" from="GameTimeCountdown" to="." method="_on_game_time_countdown_timeout"]
