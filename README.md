@@ -26,19 +26,17 @@ Sur le plan pédagogique, notre but est de transmettre au joueur de nouvelles co
 
 1. Naviguer jusqu'au dossier `auditclicker/export` via l'interface GitLab ou cliquer sur les liens à l'étape 3 
 
-2. Naviguer dans le dossier correspondant à votre système d'exploitation (Windows/Linux/Android)
+2. Naviguer dans le dossier correspondant à votre système d'exploitation (Windows/Linux)
 
 3. Selon le choix effectué à l'étape 3, cliquer sur :
     - [AuditClicker_Windows.zip](auditclicker/export/Windows/AuditClicker_Windows.zip) (Windows) 
     - [AuditClicker_Linux.zip](auditclicker/export/Linux/AuditClicker_Linux.zip) (Linux)
-    - [AuditClicker_Android.zip](auditclicker/export/Android/AuditClicker_Android.zip) (Android)
 
 4. Extraire l'archive téléchargée à l'étape 3
 
 5. Selon l'archive téléchargée : 
     - Double-cliquer sur `AuditClicker.exe` (Windows)
     - Exécuter la commande `chmod 777 AuditClicker.x86_64` puis `./AuditClicker.x86_64` (Linux)
-    - Taper sur `AuditClicker.apk` pour installer l'application puis sur l'icône du jeu sur votre écran d'accueil (Android)
 
 6. Le jeu se lance dans une nouvelle fenêtre.
 
