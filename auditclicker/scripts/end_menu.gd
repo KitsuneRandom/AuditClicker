@@ -11,7 +11,7 @@ func _ready() -> void:
 	main = get_parent()
 	self_modulate = Color(0,0,0,0.5)
 	print(get_parent())
-	$Control/ResultsValue.text = str(get_node("/root/TheGame")._getpapers()) + " points\n" + str(get_node("/root/TheGame")._getNbAudits()) + " audits terminés\n"
+	$Control/ResultsValue.text = str(get_node("/root/TheGame")._getscore()) + " points\n" + str(get_node("/root/TheGame")._getNbAudits()) + " audits terminés\n"
 
 ## Fonction appelée pour afficher une erreur durant de la partie
 ##

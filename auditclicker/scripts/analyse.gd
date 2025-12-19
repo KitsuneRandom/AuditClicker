@@ -17,8 +17,13 @@ var state
 var countdown
 
 var texts = [
-	"jaaj",
-	"jaaj2"
+	"Pour éviter de \nperdre du temps, il \nest essentiel \nd'identifier les \ntâches à haut \nrendement.",
+	"L'écoute et la \ncommunication permet \nd'avoir des opportunités \nd'innovation.",
+	"Anticiper les \nbesoins, suivre de \nprès les dépenses et \nmaîtriser les recettes.",
+	"Offrir une \nexpérience client \nfluide et personnalisée \npour fidéliser \nles clients.",
+	"Transformer \nl’incertitude en \nune opportunité de \ncroissance.",
+	"Chaque membre \nde l’entreprise \ndoit connaître ses \nobjectifs.",
+	"Le crâne d'Ali \nil brille. Son \ncrâne il reflète, \nc'est un miroir"
 ]
 
 ## Fonction appelée à l'instanciation de la scène
@@ -29,7 +34,6 @@ func _ready() -> void:
 	state = 1
 	countdown = main._getPhaseStepDuration("analyse")
 	print(countdown)
-	displayed_text = $MagnifyingGlass/PaperText.text
 	$MagnifyingGlass/PaperText.text = ""
 
 ## Fonction appelée lors du click sur le bouton valider
@@ -39,9 +43,13 @@ func _ready() -> void:
 func _on_valider_pressed() -> void:
 	if state == 1:
 		$Valider.visible = false
+		displayed_text = texts[randi() % 6]
 		await _look_with_glass(-38, -56)
+		displayed_text = texts[randi() % 6]
 		await _look_with_glass(82, -56)
+		displayed_text = texts[randi() % 6]
 		await _look_with_glass(82, 45)
+		displayed_text = texts[randi() % 6]
 		await _look_with_glass(-38, 45)
 		$Valider.text = "Valider"
 		$Valider.visible = true
