@@ -34,18 +34,18 @@ Il s'agit d'un serious game visant à transmettre de nouvelles connaissances au 
 #### 4. Apprentissage par la pratique
 - Notre approche cherche à permettre au joueur d'apprendre par la répétition, en l'encourageant à rejouer.
 - Cela favorise la mémorisation du processus de création d'un audit.
-- Le format clicker est parfaitement adapté car il encourage la répétition des actions. De plus, le temps de jeu relativement limité stimule le joueur en lui donnant envie de rejouer plusieurs fois en cherchant à optimiser ses choix en amélioration de compétences et à améliorer son score.
+- Le format clicker avec un temps de jeu relativement limité stimule le joueur en lui donnant envie de rejouer plusieurs fois en cherchant à optimiser ses choix en amélioration de compétences et à améliorer son score.
 
 ---
 
 ## Description du jeu
 
 ### Type de jeu
-AuditClicker est un **clicker**, qui utilise les mécaniques classiques des jeux de type clicker tout en ayant en parallèle un objectif pédagogique (voir la section [Objectifs pédagogiques](#objectifs-pédagogiques)).
+AuditClicker est un **clicker**, qui utilise les mécaniques classiques des jeux de ce type tout en ayant en parallèle un objectif pédagogique (voir la section [Objectifs pédagogiques](#objectifs-pédagogiques)).
 
 ### Vue d'ensemble
 Le joueur incarne un auditeur qui travaille dans son bureau et réalise des audits.  
-L'interface représente son espace de travail, avec plusieurs éléments interactifs correspondant aux étapes d'un audit.  
+L'interface représente son espace de travail, avec plusieurs éléments interactifs correspondant aux étapes d'un audit :
 Le joueur doit cliquer sur ces éléments pour progresser dans la réalisation des audits, ce qui lui fait accumuler des points et des crédits, qu'il peut ensuite dépenser dans des améliorations pour devenir plus efficace.  
 
 Le jeu se déroule sur une session de 5 minutes, durant laquelle le joueur doit réaliser un maximum d'audits pour obtenir le meilleur score possible.
@@ -55,10 +55,20 @@ Le jeu repose sur un système de clics où le joueur doit trouver et cliquer sur
 Chaque phase complétée rapporte des crédits et augmente le score. Les crédits peuvent être dépensés dans un menu d'améliorations pour réduire le temps nécessaire à la réalisation de certaines phases, ce qui permet d'effectuer davantage d'audits durant le temps de jeu.
 
 ### Environnement
-Le jeu se déroule dans un bureau d'auditeur, représenté par une interface 2D affichant un bureau en guise d'espace de travail avec différents objets et éléments cliquables.
+Le jeu se déroule dans l'espace de travail d'un auditeur, représenté par une interface 2D affichant un bureau avec différents objets et éléments cliquables : 
+- Papier : phase de préparation, affiche une simple feuille le reste du temps
+- Stylo : phase de restitution, est déplaçable par le joueur
+- Dossier : boutique d'améliorations
+- Lettre : phases d'investigation et de suivi, n'apparaît que lorsque c'est nécessaire
+- Loupe : phase d'analyse, n'apparaît que lorsque c'est nécessaire
+- Chat : élément décoratif, s'anime lorsque le joueur clique dessus et permet de gagner quelques points
+- Règle : réaffiche le tutoriel du jeu
+- Voiture : élément décoratif, permet de gagner quelques crédits
+- Clé : menu pause / options
 
 ### Objectif du jeu
-D'un point de vue gameplay uniquement, l'objectif est de marquer le plus de points possible en effectuant un maximum d'audits durant les 5 minutes de jeu. D'un point de vue pédagogique, l'objectif est de comprendre les concepts d'audit et de gestion administrative.
+D'un point de vue gameplay, l'objectif est de marquer le plus de points possible en effectuant un maximum d'audits durant les 5 minutes de jeu. 
+D'un point de vue pédagogique, l'objectif est de comprendre les concepts d'audit et de gestion administrative.
 
 ---
 
@@ -67,11 +77,11 @@ D'un point de vue gameplay uniquement, l'objectif est de marquer le plus de poin
 ### Contrôles de base
 
 #### Clic souris
-- Clic avec la souris (ou tap sur écran pour Android).
-- C'est de cette manière que se font la majorité des interactions du jeu.
+- Clics avec la souris (ou tap sur écran pour Android).
+- C'est de cette manière que se font toutes les interactions du jeu.
 
 #### Autres interactions
-- Le jeu ne demande l'utilisation que de la souris mais exceptionnellement, le joueur, en plus de cliquer, peut être amené à faire des drag-and-drop.
+- Exceptionnellement, le joueur, en plus de cliquer, peut être amené à faire des drag-and-drop.
 
 ### Interactions possibles
 
@@ -80,9 +90,9 @@ Le joueur doit cliquer sur les éléments de l'interface correspondant aux 5 ét
 
 1. **Préparation** : Cliquer sur le papier puis lancer la rédaction en cliquant sur les boutons s'affichant à tour de rôle.
 2. **Investigation** : Cliquer sur la lettre puis sortir le papier pour récupérer les informations et passer à l'analyse.
-3. **Analyse** : Cliquer sur la loupe pour chercher les indices.
-4. **Restitution** : Cliquer sur le stylo qui permet de rédiger le rapport de l'audit.
-5. **Suivi** : Cliquer sur les lettres, représentant les retours sur l'audit effectué pour prendre en compte les derniers éléments.
+3. **Analyse** : Cliquer sur la loupe pour chercher les informations.
+4. **Restitution** : Cliquer sur le stylo puis rédiger le rapport de l'audit.
+5. **Suivi** : Cliquer sur les lettres, représentant les retours sur l'audit effectué, pour prendre en compte les derniers éléments.
 
 Le joueur doit identifier le bon élément à cliquer grâce à des indices visuels présents sur l'interface, comme l'apparition de certains objets ou encore un petit texte en bas de l'écran.
 
@@ -92,11 +102,15 @@ Le joueur doit identifier le bon élément à cliquer grâce à des indices visu
 - Les améliorations réduisent la durée nécessaire à la réalisation des différentes phases.
 
 #### Easter eggs
-Le jeu contient deux easter eggs :
+Le jeu contient quelques easter eggs :
 
-- **Le Chat** : Cliquer sur le chat le fait danser et chanter "OIIA".
+- **Le Chat** : Cliquer sur le chat le fait tourner et chanter "OIIA". Un total de 6 animations différentes peuvent être lancées avant la disparition du chat.
 
-- **La Voiture** : Cliquer sur la petite voiture déclenche la réplique "Salut c'est Frank Leboeuf, vous voulez savoir combien vaut votre voiture ?" (note : il est réellement possible de vendre la voiture en échange de crédits).
+- **La Voiture** : Cliquer sur la petite voiture déclenche la réplique "Salut c'est Frank Leboeuf, vous voulez savoir combien vaut votre voiture ?" (note : il est réellement possible de vendre la voiture en échange de crédits. Vous pouvez ensuite en "racheter" une dans les paramètres).
+
+- **Les paramètres audio** : À la place des paramètres audio attendus, il y a une photographie d'un super professeur qu'on appelera "O" qui dit "O" (O dit O = audio).
+
+- **Le papier** : En dehors de la phase de préparation, les paroles de la chanson "Never Gonna Give You Up" de Rick Astley s'affichent lorsque le joueur clique sur le papier
 
 ---
 
@@ -106,18 +120,18 @@ Le jeu contient deux easter eggs :
 
 #### Score, crédits et temps restant
 - Ces informations sont affichées en permanence sur l'écran principal.
-- Ce sont les indicateurs principaux du jeu, c'est pour cette raison qu'ils sont présents en continu.
+- Ce sont les indicateurs principaux du jeu, ils permettent au joueur de voir l'avancée de la partie.
 
 ### Retours visuels
 
 #### Indices visuels pour les phases
-Le jeu affiche des indices visuels sur l'interface pour aider le joueur à identifier quel élément cliquer pour progresser dans l'audit.  Ces indices peuvent être de nouveau objets ou des textes qui guident le joueur vers l'action à effectuer.
+Le jeu affiche des indices visuels sur l'interface pour aider le joueur à identifier quel élément cliquer pour progresser dans l'audit.  Ces indices peuvent être l'apparition de nouveaux objets ou des textes qui guident le joueur vers l'action à effectuer.
 
 #### Menu d'améliorations
 L'interface d'améliorations affiche les options disponibles, avec leur coût en crédits et leur effet sur le gameplay.
 
 #### Écrans tutoriels
-Au démarrage, plusieurs écrans de tutoriel expliquent le concept et le fonctionnement du jeu, afin d'assurer au joueur une bonne compréhension du jeu et de ses mécaniques avant de commencer.
+Au démarrage, plusieurs écrans de tutoriel expliquent le concept et le fonctionnement du jeu, afin d'assurer au joueur une bonne compréhension du jeu et de ses mécaniques avant de commencer, ainsi que de lui expliquer rapidement le principe d'un audit.
 
 ### Messages
 
@@ -130,7 +144,7 @@ Au démarrage, plusieurs écrans de tutoriel expliquent le concept et le fonctio
 
 #### Écran de fin de partie
 - Le dernier élément auquel fait face le joueur. Il s'affiche automatiquement lorsque le compte à rebours atteint 0 (après 5 minutes de jeu).
-- Il affiche le score final du joueur, calculé en fonction du nombre d'audits réalisés.
+- Il affiche le score final du joueur et le nombre d'audits réalisés, calculé en fonction du nombre d'audits réalisés.
 
 ### Feedback pédagogique
 
@@ -138,7 +152,7 @@ Au démarrage, plusieurs écrans de tutoriel expliquent le concept et le fonctio
 À chaque étape complétée, le joueur reçoit des crédits et voit son score augmenter. Le joueur comprend alors qu'il effectue les bonnes actions.
 
 #### Système de récompenses et d'améliorations
-Le système de crédits et d'améliorations simule les choix en gestion administrative. Le joueur apprend grâce à cette mécanique de jeu que l'investissement dans les compétences améliore l'efficacité globale.
+Le système de crédits et d'améliorations simule les choix en gestion administrative. Le joueur apprend grâce à cette mécanique de jeu que l'investissement dans les compétences améliore l'efficacité globale. Il apprend aussi quelles sont les compétences indispensables à la réalisation d'un audit.
 
 #### Apprentissage par répétition
 Le format clicker encourage le joueur à répéter les mêmes actions de nombreuses fois durant les 5 minutes de jeu et à rejouer pour améliorer son score, afin de favoriser la mémorisation des 5 étapes d'un audit et leur enchaînement.
