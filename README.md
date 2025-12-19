@@ -24,18 +24,21 @@ Sur le plan pédagogique, notre but est de transmettre au joueur de nouvelles co
 
 ### Via un exécutable/Application
 
-1. Télécharger le contenu de ce repo, ou le cloner grâce à la commande `git clone https://git.unistra.fr/seau6peau1com/saucissemoutarde.git`
+1. Naviguer jusqu'au dossier `auditclicker/export` via l'interface GitLab ou cliquer sur les liens à l'étape 3 
 
-2. Naviguer jusqu'au dossier `auditclicker/export`
+2. Naviguer dans le dossier correspondant à votre système d'exploitation (Windows/Linux/Android)
 
-3. Naviguer dans le dossier correspondant à votre système d'exploitation (Windows/Linux/Android)
+3. Selon le choix effectué à l'étape 3, cliquer sur :
+    - [AuditClicker_Windows.zip](auditclicker/export/Windows/AuditClicker_Windows.zip) (Windows) 
+    - [AuditClicker_Linux.zip](auditclicker/export/Linux/AuditClicker_Linux.zip) (Linux)
+    - [AuditClicker_Android.zip](auditclicker/export/Android/AuditClicker_Android.zip) (Android)
 
-4. Selon le choix effectué à l'étape 3, cliquer sur :
-    - [AuditClicker.exe](auditclicker/export/Windows) (Windows) 
-    - [AuditClicker.x86_64](auditclicker/export/Linux) (Linux)
-    - [AuditClicker.apk](auditclicker/export/Android) (Android)
+4. Extraire l'archive téléchargée à l'étape 3
 
-5. Suivre les éventuelles indiquations affichées à l'écran
+5. Lancer/Cliquer sur (selon l'archive téléchargée) : 
+    - AuditClicker.exe    (Windows)
+    - AuditClicker.x86_64 (Linux)
+    - AuditClicker.apk    (Android)
 
 6. Le jeu se lance dans une nouvelle fenêtre.
 
