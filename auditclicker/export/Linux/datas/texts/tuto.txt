@@ -1,0 +1,36 @@
+4
+
+#
+Bon c'est cool mais c'est quoi un auditeur ?
+
+Un auditeur est une personne qui vérifie si les informations
+financières d'une entreprise sont correctes 
+et si l'entreprise respecte les règles. 
+Cela permet de s'assurer que tout est en ordre 
+et que l'entreprise gère bien ses ressources.
+#
+Le but du jeu
+
+Réaliser le plus d'audits en 5 minutes !
+Pour ce faire, vous devrez trouver par vous même sur quel 
+objet vous devez cliquer pour finir 
+chaque étape d'un audit.
+#
+Le gameplay
+
+Un audit est divisé en 5 étapes : Préparation, 
+investigation, analyse, restitution et suivi. 
+Vous devrez réaliser ces 5 étapes dans l'ordre.
+
+Vous disposerez de 6 améliorations. 
+5 d'entre elles permettent d'accélérer une phase 
+et la 6e permet de tout accélérer.
+#
+Vous pouvez mettre pause à tout moment en appuyant 
+sur la clé.
+
+Retrouvez ce guide à tout moment en appuyant sur 
+la règle.
+
+Amusez-vous bien :D
+#
