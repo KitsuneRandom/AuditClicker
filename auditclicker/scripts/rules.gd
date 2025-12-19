@@ -1,35 +1,53 @@
-extends AnimatedSprite2D
+extends TextureButton
+## Script de l'objet cliquable "règle".
+##
+## Permet d'ouvrir le menu tutoriel.
 
+## Tooltip qui apparaît lorsque la souris passe sur la règle.
 var tooltip
+
+## Variable représentant l'écran principal du jeu.
 var main
 
+## Fonction appelée à la création du noeud.
+##
+## Initialise la variable main.
 func _ready() -> void:
 	main = get_parent().get_parent()
-	pass # Replace with function body.
 
-func _on_rules_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("Rules click !")
-		position.y += 10
-		await get_tree().create_timer(0.1).timeout
-		position.y -= 10
-		var tutoScreen = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
-		tutoScreen.tutoState = 1
-		tutoScreen.firstTimeShown = 4
-		print("Affichage du tuto")
-		main.add_child(tutoScreen)
+## Fonction appelée lorsque le joueur clique sur la règle.
+##
+## Déplace légèrement la règle pour créer un effet de click
+## puis ajoute la scène tuto_menu.tscn au main.
+func _on_pressed() -> void:
+	print("Rules click !")
+	position.y += 10
+	await get_tree().create_timer(0.1).timeout
+	position.y -= 10
+	var tutoScreen = preload("res://scenes/game_menus/tuto_menu.tscn").instantiate()
+	tutoScreen.tutoState = 1
+	tutoScreen.firstTimeShown = 4
+	print("Affichage du tuto")
+	main.add_child(tutoScreen)
 
 
-# Surbrillance des éléments
-func _on_rules_mouse_entered() -> void:
+## Fonction appelée lorsque le joueur passe la souris sur la règle
+##
+## Change la couleur et affiche la tooltip. Permet au joueur de
+## comprendre qu'il s'agit d'un élément cliquable.
+func _on_mouse_entered() -> void:
 	$".".modulate = Color(0.5, 0.7, 1)
 	tooltip = preload("res://scenes/ui/tooltip.tscn").instantiate()
 	tooltip.displayed_text = "Règles du jeu"
 	print("Affichage de la tooltip etape regles")
 	main.add_child(tooltip)
 
-func _on_rules_mouse_exited() -> void:
+## Fonction appelée lorsque la souris quitte la règle
+##
+## Remet la couleur à la couleur d'origine et supprime la tooltip.
+func _on_mouse_exited() -> void:
 	$".".modulate = Color(1, 1, 1)
 	if tooltip:
-		tooltip.queue_free()
+		get_viewport().gui_release_focus()
+		tooltip.queue_free.call_deferred()
 		tooltip = null

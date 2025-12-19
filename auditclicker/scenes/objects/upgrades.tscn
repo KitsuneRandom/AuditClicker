@@ -1,32 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba4lnykbdxwht"]
+[gd_scene load_steps=4 format=3 uid="uid://ba4lnykbdxwht"]
 
 [ext_resource type="Texture2D" uid="uid://dypd6557sgd3t" path="res://assets/upgrades.png" id="1_1xumc"]
-[ext_resource type="Texture2D" uid="uid://jf2a5ob1k3uu" path="res://assets/upgrades_open.png" id="2_usctq"]
 [ext_resource type="Script" uid="uid://bspyncni2fuja" path="res://scripts/upgrades.gd" id="3_usctq"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gnemw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1xumc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_usctq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xumc"]
 size = Vector2(700.3782, 542.1152)
 
 [node name="upgrades" type="Area2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.9999847, -5)
+[node name="AnimatedSprite2D" type="TextureButton" parent="."]
+offset_left = -333.0
+offset_top = -376.0
+offset_right = -225.33331
+offset_bottom = -252.83331
 scale = Vector2(6, 6)
-sprite_frames = SubResource("SpriteFrames_gnemw")
+texture_normal = ExtResource("1_1xumc")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("3_usctq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,3 +27,6 @@ shape = SubResource("RectangleShape2D_1xumc")
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_upgrades_input_event"]
 [connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_upgrades_mouse_entered"]
 [connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_upgrades_mouse_exited"]
+[connection signal="mouse_entered" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_exited"]
+[connection signal="pressed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_pressed"]

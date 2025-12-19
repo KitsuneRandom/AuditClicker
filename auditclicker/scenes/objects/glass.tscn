@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3bq740ii8h22"]
 
 [ext_resource type="Script" uid="uid://dodw7xtwgulky" path="res://scripts/glass.gd" id="1_b5un2"]
-[ext_resource type="Texture2D" uid="uid://b7e08cfcuq51x" path="res://assets/magnifying_glass.png" id="2_ca826"]
+[ext_resource type="Texture2D" uid="uid://b7e08cfcuq51x" path="res://assets/magnifying_glass.png" id="1_ca826"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca826"]
 radius = 140.35654
@@ -9,9 +9,15 @@ height = 424.49
 
 [node name="glass" type="Area2D"]
 
-[node name="glassSprite" type="Sprite2D" parent="."]
+[node name="glassSprite" type="TextureButton" parent="."]
+offset_left = 193.0
+offset_top = -168.00002
+offset_right = 549.10364
+offset_bottom = 215.06407
 rotation = 1.569214
-texture = ExtResource("2_ca826")
+texture_normal = ExtResource("1_ca826")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("1_b5un2")
 
 [node name="glassCollision" type="CollisionShape2D" parent="."]
@@ -22,3 +28,6 @@ shape = SubResource("CapsuleShape2D_ca826")
 [connection signal="input_event" from="." to="glassSprite" method="_on_glass_input_event"]
 [connection signal="mouse_entered" from="." to="glassSprite" method="_on_glass_mouse_entered"]
 [connection signal="mouse_exited" from="." to="glassSprite" method="_on_glass_mouse_exited"]
+[connection signal="mouse_entered" from="glassSprite" to="glassSprite" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="glassSprite" to="glassSprite" method="_on_mouse_exited"]
+[connection signal="pressed" from="glassSprite" to="glassSprite" method="_on_pressed"]

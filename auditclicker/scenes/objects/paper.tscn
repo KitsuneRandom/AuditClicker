@@ -1,30 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://ppw55lakrq30"]
+[gd_scene load_steps=4 format=3 uid="uid://ppw55lakrq30"]
 
 [ext_resource type="Texture2D" uid="uid://cwenb6g0ne1o1" path="res://assets/paper.png" id="1_ldlei"]
 [ext_resource type="Script" uid="uid://cphmmnyv5fyqj" path="res://scripts/paper.gd" id="2_vas6c"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vas6c"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"paper",
-"speed": 5.0
-}]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vas6c"]
 points = PackedVector2Array(2.64083, 8.08504, -2.86639, 9.02428, -2.50206, -7.98464, 2.2989, -9.59119, 2.90656, -1.49222)
 
 [node name="paper" type="Area2D"]
 
-[node name="paperSprite" type="Sprite2D" parent="."]
-position = Vector2(-1.00001, -1)
+[node name="paperSprite" type="TextureButton" parent="."]
+offset_left = -53.0
+offset_top = -56.0
+offset_right = 439.81494
+offset_bottom = 356.6564
 scale = Vector2(0.208496, 0.261719)
-texture = ExtResource("1_ldlei")
+texture_normal = ExtResource("1_ldlei")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("2_vas6c")
-
-[node name="paperAnimation" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_vas6c")
-animation = &"paper"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, 8.9407e-08)
@@ -35,3 +28,6 @@ shape = SubResource("ConvexPolygonShape2D_vas6c")
 [connection signal="input_event" from="." to="paperSprite" method="_on_paper_input_event"]
 [connection signal="mouse_entered" from="." to="paperSprite" method="_on_paper_mouse_entered"]
 [connection signal="mouse_exited" from="." to="paperSprite" method="_on_paper_mouse_exited"]
+[connection signal="mouse_entered" from="paperSprite" to="paperSprite" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="paperSprite" to="paperSprite" method="_on_mouse_exited"]
+[connection signal="pressed" from="paperSprite" to="paperSprite" method="_on_pressed"]

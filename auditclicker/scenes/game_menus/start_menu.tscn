@@ -1,29 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr51xs768s3qc"]
+[gd_scene load_steps=3 format=3 uid="uid://cr51xs768s3qc"]
 
 [ext_resource type="Script" uid="uid://dr4xpc5jcw3yf" path="res://scripts/start_menu.gd" id="1_ouf4f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stf3v"]
 
 [node name="StartMenu" type="Node2D"]
 position = Vector2(-306.5, -156.5)
 script = ExtResource("1_ouf4f")
 
 [node name="Background" type="Panel" parent="."]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.18883479, 0.39887902, 0.5659416, 1)
 offset_right = 611.0
 offset_bottom = 311.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stf3v")
 
 [node name="Title" type="Label" parent="."]
-offset_left = 232.5
-offset_top = 101.5
-offset_right = 381.5
-offset_bottom = 124.5
-text = "Du travail t'attend"
+offset_left = 95.5
+offset_top = 97.5
+offset_right = 517.5
+offset_bottom = 152.5
+text = "Bienvenue dans AuditClicker !
+:D
+Dans ce jeu, tu vas incarner un auditeur d'entreprise"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 255.5
-offset_top = 141.5
-offset_right = 357.5
-offset_bottom = 172.5
+offset_left = 254.5
+offset_top = 198.5
+offset_right = 356.5
+offset_bottom = 229.5
 text = "Commencer"
 icon_alignment = 1
 

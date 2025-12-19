@@ -14,6 +14,7 @@ config/name="AuditClicker"
 run/main_scene="uid://dec7qg82selvx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=30
+boot_splash/image="uid://yfv7w4cqtt4s"
 config/icon="uid://dc5qt05hiiuxi"
 
 [display]
@@ -28,3 +29,7 @@ window/stretch/aspect="ignore"
 fonts/dynamic_fonts/use_oversampling=false
 theme/default_font_antialiasing=0
 theme/custom_font="uid://qlic0p76maal"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

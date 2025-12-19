@@ -1,30 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://rfahrqfvtv5b"]
+[gd_scene load_steps=4 format=3 uid="uid://rfahrqfvtv5b"]
 
 [ext_resource type="Texture2D" uid="uid://ba31e1kkuhsr5" path="res://assets/closed_letter.png" id="1_kg060"]
-[ext_resource type="Texture2D" uid="uid://cyd8mbng4wxja" path="res://assets/opened_letter.png" id="2_s3w0n"]
 [ext_resource type="Script" uid="uid://b6e1ybddnhgy4" path="res://scripts/letter.gd" id="3_antxc"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s3w0n"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_kg060")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_s3w0n")
-}],
-"loop": false,
-"name": &"default",
-"speed": 2.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_antxc"]
 size = Vector2(387, 259)
 
 [node name="letter" type="Area2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_s3w0n")
+[node name="AnimatedSprite2D" type="TextureButton" parent="."]
+offset_left = -197.0
+offset_top = -183.0
+offset_right = 199.0
+offset_bottom = 176.0
+texture_normal = ExtResource("1_kg060")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("3_antxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,3 +25,6 @@ shape = SubResource("RectangleShape2D_antxc")
 [connection signal="input_event" from="." to="AnimatedSprite2D" method="_on_letter_input_event"]
 [connection signal="mouse_entered" from="." to="AnimatedSprite2D" method="_on_letter_mouse_entered"]
 [connection signal="mouse_exited" from="." to="AnimatedSprite2D" method="_on_letter_mouse_exited"]
+[connection signal="mouse_entered" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_mouse_exited"]
+[connection signal="pressed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_pressed"]

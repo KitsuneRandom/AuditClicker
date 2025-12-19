@@ -1,33 +1,58 @@
 extends Node2D
+## Script de la scène restitution.
+##
+## Cette scène met en place toutes les actions à réaliser durant la phase
+## restitution de l'audit.
 
+## Variable représentant la scène principale
 var main
-# Called when the node enters the scene tree for the first time.
+
+## Texte affiché
+var displayed_text
+
+## Variable représentant un décompte des étapes de la phase
+var countdown
+
+## Fonction appelée lorsqu'on instancie le noeud
 func _ready() -> void:
 	main = get_parent()
-	pass # Replace with function body.
+	$Valider.visible = false
+	displayed_text = $RestitutionText.text
+	$RestitutionText.text = ""
+	countdown = main._getPhaseStepDuration("restitution")
+	print(countdown)
 
-
+## Fonction appelée lors du click sur le bouton valider
+##
+## Retourne à la scène principale et passe à la phase suivante
 func _on_valider_pressed() -> void:
 	main._continuephase("restitution")
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
+## Fonction appelée lors du click sur le bouton rapport
+##
+## Affiche petit à petit un texte à la place du bouton
 func _on_rapport_pressed() -> void:
-	pass # Replace with function body.
+	$Rapport.visible = false
+	$RestitutionText.visible = true
+	for i in range(displayed_text.length()):
+		$RestitutionText.text = displayed_text.substr(0, i + 1)
+		await get_tree().create_timer(countdown/displayed_text.length()).timeout
+	$Valider.visible = true
 
-
+## Changement de la couleur du bouton lorsqu'on passe sur le bouton
 func _on_valider_mouse_entered() -> void:
 	$Valider.self_modulate = Color(0, 0, 0)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
+## Remise de la couleur à la couleur d'origine lorsqu'on quitte le bouton
 func _on_valider_mouse_exited() -> void:
 	$Valider.self_modulate = Color(0.8, 0.8, 0.8)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
-
+## Changement de la couleur du bouton lorsqu'on passe sur le bouton
 func _on_rapport_mouse_entered() -> void:
 	$Rapport.self_modulate = Color(0, 0, 0)
-	$Rapport.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
+## Remise de la couleur à la couleur d'origine lorsqu'on quitte le bouton
 func _on_rapport_mouse_exited() -> void:
 	$Rapport.self_modulate = Color(0.8, 0.8, 0.8)
-	$Rapport.mouse_default_cursor_shape = Control.CURSOR_ARROW

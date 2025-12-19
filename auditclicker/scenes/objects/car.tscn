@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnrvek1hiijd8"]
+[gd_scene load_steps=5 format=3 uid="uid://dnrvek1hiijd8"]
 
 [ext_resource type="Texture2D" uid="uid://dt8iu7nmftvu3" path="res://assets/car.png" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://cpbiahnpmnd41" path="res://scripts/car.gd" id="1_qt2eu"]
 [ext_resource type="AudioStream" uid="uid://cv74tkv0cd0dr" path="res://assets/sounds/salut-cest-franck-leboeuf.mp3" id="3_50v30"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qt2eu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt2eu"]
 radius = 0.0237455
@@ -12,14 +10,16 @@ height = 0.118918
 
 [node name="car" type="Area2D"]
 
-[node name="carSprite" type="Sprite2D" parent="."]
-position = Vector2(4.0000005, -3)
+[node name="carSprite" type="TextureButton" parent="."]
+offset_left = -178.0
+offset_top = -93.0
+offset_right = 42.0
+offset_bottom = 10.030304
 scale = Vector2(1.65, 1.65)
-texture = ExtResource("1_c35m8")
+texture_normal = ExtResource("1_c35m8")
+ignore_texture_size = true
+stretch_mode = 3
 script = ExtResource("1_qt2eu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_qt2eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.82077e-11, 2)
@@ -33,3 +33,6 @@ stream = ExtResource("3_50v30")
 [connection signal="input_event" from="." to="carSprite" method="_on_car_input_event"]
 [connection signal="mouse_entered" from="." to="carSprite" method="_on_car_mouse_entered"]
 [connection signal="mouse_exited" from="." to="carSprite" method="_on_car_mouse_exited"]
+[connection signal="mouse_entered" from="carSprite" to="carSprite" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="carSprite" to="carSprite" method="_on_mouse_exited"]
+[connection signal="pressed" from="carSprite" to="carSprite" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dec7qg82selvx"]
+[gd_scene load_steps=14 format=3 uid="uid://dec7qg82selvx"]
 
 [ext_resource type="Texture2D" uid="uid://cd1c5g67nkcs2" path="res://assets/desk.png" id="1_cltob"]
 [ext_resource type="Script" uid="uid://cr5c65fwvqfph" path="res://scripts/the_game.gd" id="1_jq0i5"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://b3bq740ii8h22" path="res://scenes/objects/glass.tscn" id="11_hyocf"]
 [ext_resource type="PackedScene" uid="uid://cr51xs768s3qc" path="res://scenes/game_menus/start_menu.tscn" id="11_naogu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyocf"]
+bg_color = Color(0, 0, 0, 0.44705883)
+
 [node name="TheGame" type="Node2D"]
 script = ExtResource("1_jq0i5")
 
@@ -24,11 +27,13 @@ texture = ExtResource("1_cltob")
 zoom = Vector2(1.76, 1.74)
 
 [node name="ScoreDisplayer" type="Label" parent="."]
-offset_left = -299.0
-offset_top = -148.0
-offset_right = 301.0
-offset_bottom = -120.0
-horizontal_alignment = 2
+offset_left = -78.0
+offset_top = -137.0
+offset_right = 78.0
+offset_bottom = -104.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hyocf")
+horizontal_alignment = 1
 
 [node name="paper" parent="." instance=ExtResource("3_i7k80")]
 position = Vector2(-23, 65)
@@ -84,6 +89,9 @@ scale = Vector2(0.283446, 0.283446)
 position = Vector2(-26, -20)
 scale = Vector2(0.35, 0.35)
 
+[node name="cat" parent="." instance=ExtResource("6_w211t")]
+position = Vector2(-161, -24)
+
 [node name="pen" parent="." instance=ExtResource("10_hyocf")]
 position = Vector2(57, 74)
 rotation = 0.25659
@@ -94,13 +102,20 @@ visible = false
 position = Vector2(-102, 59.999996)
 scale = Vector2(0.2, 0.2)
 
-[node name="cat" parent="." instance=ExtResource("6_w211t")]
-position = Vector2(-161, -24)
+[node name="TimeDisplayer" type="Label" parent="."]
+offset_left = 171.0
+offset_top = -148.0
+offset_right = 299.0
+offset_bottom = -115.0
+theme_override_font_sizes/font_size = 32
+text = "⏱️ : 5:00"
 
-[node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
-position = Vector2(-305.5, -155.5)
-
-[node name="GameTimeCountdown" type="Timer" parent="."]
+[node name="CreditDisplayer" type="Label" parent="."]
+offset_left = -300.0
+offset_top = -148.0
+offset_right = -96.0
+offset_bottom = -96.0
+theme_override_font_sizes/font_size = 32
 
 [node name="messagesBackspace" type="Panel" parent="."]
 offset_left = -270.0
@@ -114,5 +129,11 @@ offset_top = 127.0
 offset_right = 264.0
 offset_bottom = 151.0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartMenu" parent="." instance=ExtResource("11_naogu")]
+position = Vector2(-305.5, -155.5)
+
+[node name="GameTimeCountdown" type="Timer" parent="."]
 
 [connection signal="timeout" from="GameTimeCountdown" to="." method="_on_game_time_countdown_timeout"]

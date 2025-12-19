@@ -39,6 +39,25 @@ position = Vector2(161.00002, 10)
 scale = Vector2(0.23673469, 0.26938775)
 texture = ExtResource("3_d1kqr")
 
+[node name="RestitutionText" type="Label" parent="."]
+visible = false
+offset_left = -98.0
+offset_top = -122.0
+offset_right = 104.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor
+incididunt ut labore et
+dolore magna aliqua.
+Ut enim ad minim veniam, quis
+nostrud exercitation
+ullamco laboris nisi ut
+aliquip ex ea commodo
+consequat. Duis aute irur
+ dolor in reprehenderit ."
+
 [connection signal="mouse_entered" from="Valider" to="." method="_on_valider_mouse_entered"]
 [connection signal="mouse_exited" from="Valider" to="." method="_on_valider_mouse_exited"]
 [connection signal="pressed" from="Valider" to="." method="_on_valider_pressed"]

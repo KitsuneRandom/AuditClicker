@@ -1,21 +1,30 @@
 extends Node2D
+## Script de la scène suivi.
+##
+## Cette scène met en place toutes les actions à réaliser durant la phase
+## suivi de l'audit.
 
+## Variable représentant la scène principale
 var main
-# Called when the node enters the scene tree for the first time.
+
+## Fonction appelée lorsque la scène est instanciée
+##
+## Initialise la variable main
 func _ready() -> void:
 	main = get_parent()
-	pass # Replace with function body.
 
-
+## Fonction appelée lorsqu'on clique sur le bouton valider
+##
+## Retourne à la scène principale et passe à la phase suivante
 func _on_valider_pressed() -> void:
 	main._continuephase("suivi")
-	queue_free()
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
-
+## Changement de la couleur du bouton lorsqu'on passe sur le bouton
 func _on_valider_mouse_entered() -> void:
 	$Valider.self_modulate = Color(0, 0, 0)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
+## Remise de la couleur à la couleur d'origine lorsqu'on quitte le bouton
 func _on_valider_mouse_exited() -> void:
 	$Valider.self_modulate = Color(0.8, 0.8, 0.8)
-	$Valider.mouse_default_cursor_shape = Control.CURSOR_ARROW

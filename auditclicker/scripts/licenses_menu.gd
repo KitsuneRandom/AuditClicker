@@ -1,8 +1,14 @@
 extends Node2D
+## Menu permettant d'afficher les conditions d'utilisation du jeu
+##
+## Affiche le texte écrit dans un fichier legal_Informations.txt
 
+## Texte à afficher
 var text
 
-# Called when the node enters the scene tree for the first time.
+## Fonction appelée lors de l'instanciation du noeud
+##
+## Initialise les variables et affiche le texte de legal_Informations.txt
 func _ready() -> void:
 	get_parent().visible = false
 	var path = "res://datas/texts/legal_Informations.txt"
@@ -17,22 +23,19 @@ func _ready() -> void:
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
-		queue_free()
+		get_viewport().gui_release_focus()
+		queue_free.call_deferred()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Retour au menu settings
+func _on_next_button_pressed() -> void:
+	get_parent().visible = true
+	get_viewport().gui_release_focus()
+	queue_free.call_deferred()
 
+## Changement de la couleur du bouton lorsqu'on passe sur le bouton
 func _on_next_button_mouse_entered() -> void:
 	$Space/NextButton.self_modulate = Color(0.8, 0.8, 0.8)
 
-
+## Remise de la couleur à la couleur d'origine lorsqu'on quitte le bouton
 func _on_next_button_mouse_exited() -> void:
 	$Space/NextButton.self_modulate = Color(0, 0, 0)
-
-
-func _on_next_button_pressed() -> void:
-	get_parent().visible = true
-	queue_free()
-	
-	#match 
