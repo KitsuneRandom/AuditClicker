@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp7mp0e27kviv"
-path="res://.godot/imported/Bureau.png-ce79141803d2139dd69613d79c715e97.ctex"
+uid="uid://cyockkcn84akc"
+path="res://.godot/imported/Menu_de_démarrage.png-b82c727641ac546c65654097d42d3b9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/Bureau.png"
-dest_files=["res://.godot/imported/Bureau.png-ce79141803d2139dd69613d79c715e97.ctex"]
+source_file="res://Menu_de_démarrage.png"
+dest_files=["res://.godot/imported/Menu_de_démarrage.png-b82c727641ac546c65654097d42d3b9d.ctex"]
 
 [params]
 

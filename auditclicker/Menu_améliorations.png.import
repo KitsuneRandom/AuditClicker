@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym2ingdw0gv1"
-path="res://.godot/imported/Menu_améliorations.png-dca44e0e5a86385afe2f7a9dce669094.ctex"
+uid="uid://2jogj8olqn2u"
+path="res://.godot/imported/Menu_améliorations.png-dfa973e7704d022a97a3d359336d8b33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://screenshots/Menu_améliorations.png"
-dest_files=["res://.godot/imported/Menu_améliorations.png-dca44e0e5a86385afe2f7a9dce669094.ctex"]
+source_file="res://Menu_améliorations.png"
+dest_files=["res://.godot/imported/Menu_améliorations.png-dfa973e7704d022a97a3d359336d8b33.ctex"]
 
 [params]
 

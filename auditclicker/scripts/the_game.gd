@@ -97,6 +97,7 @@ func _ready() -> void:
 	score = 0
 	credits = 0
 	current_phase = phases.PREPARATION
+	$messages.text = str(phases_desc[current_phase][3])
 	current_phase_progression = 0
 	object_to_click = phases_desc[current_phase][1]
 	$letterInvest.get_node("AnimatedSprite2D")._setnumber(4)
@@ -215,6 +216,7 @@ func _continuephase(phase: String) -> void:
 func _finishphase() -> void:
 	current_phase_progression = 0
 	current_phase = _nextPhase(current_phase)
+	$messages.text = str(phases_desc[current_phase][3])
 	_updateobjecttoclick()
 
 ## Mise à jour du temps restant
