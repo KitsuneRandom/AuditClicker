@@ -38,6 +38,7 @@ func _ready() -> void:
 		var endScreen = preload("res://scenes/game_menus/end_menu.tscn").instantiate()
 		endScreen._changeText("Erreur lors de l'ouverture du fichier contenant les instructions de jeu.\nFin de la partie")
 		get_parent().add_child(endScreen)
+		queue_free()
 	
 
 ## Changement de la couleur du bouton lorsqu'on passe sur le bouton
