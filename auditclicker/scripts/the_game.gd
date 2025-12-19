@@ -139,6 +139,9 @@ func _getPhaseMessage(phase):
 func _getNbAudits():
 	return nbaudits
 
+func _getscore():
+	return score
+
 func _getPhaseStepDuration(phase: String):
 	if(phase_steps_duration[phase]):
 		return phase_steps_duration[phase]
