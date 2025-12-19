@@ -35,10 +35,10 @@ Sur le plan pédagogique, notre but est de transmettre au joueur de nouvelles co
 
 4. Extraire l'archive téléchargée à l'étape 3
 
-5. Lancer/Cliquer sur (selon l'archive téléchargée) : 
-    - AuditClicker.exe    (Windows)
-    - AuditClicker.x86_64 (Linux)
-    - AuditClicker.apk    (Android)
+5. Selon l'archive téléchargée : 
+    - Double-cliquer sur `AuditClicker.exe` (Windows)
+    - Exécuter la commande `chmod 777 AuditClicker.x86_64` puis `./AuditClicker.x86_64` (Linux)
+    - Taper sur `AuditClicker.apk` pour installer l'application puis sur l'icône du jeu sur votre écran d'accueil (Android)
 
 6. Le jeu se lance dans une nouvelle fenêtre.
 
